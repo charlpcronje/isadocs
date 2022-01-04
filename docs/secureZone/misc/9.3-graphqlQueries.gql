@@ -1,0 +1,28 @@
+const data = await axios({
+  url: API_URL,
+  method: 'post',
+  headers: {
+    'Content-Type': 'application/json',
+    // any other headers you require go here
+  },
+  data: {
+    query: `
+      mutation updateUserCity($id: Int!, $city: String!) {
+        updateUserCity(userID: $id, city: $city){
+          id
+          name
+          age
+          city
+          knowledge{
+            language
+            frameworks
+          }
+        }
+      }
+    `,
+    variables: {
+      id: 2,
+      city: 'Test'
+    }
+  }
+});

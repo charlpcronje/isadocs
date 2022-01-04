@@ -1,0 +1,12 @@
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Agriculture, forestry, fishing and hunting','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Mining, quarrying, and oil and gas extraction','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Utilities','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Construction','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Manufacturing','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Transportation equipment manufacturing','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Wholesale Trade','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Retail Trade','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Transportation and warehousing','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Information and cultural industries','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Finance and insurance','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
+insert into industries (`name`,`created_at`,`updated_at`,`deleted_at`,`user_id`,`status_id`) VALUES ('Professional, scientific, and technical services','2021-11-20 10:10:00','2021-11-20 10:10:00','1970-01-01 00:00:00',1,1);
