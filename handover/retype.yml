@@ -1,0 +1,15 @@
+input: src
+output: public
+server:
+host: 192.168.9.55:5555
+url: http://handover.docs.dev.isa.co.za
+branding:
+  title: ISA Handover
+  label: handover
+links:
+- text: Getting Started
+  link: http://handover.docs.dev.isa.co.za/
+edit:
+  base: ./src
+footer:
+  copyright: "ISA Holdings &copy; Copyright {{ year }}. All rights reserved."

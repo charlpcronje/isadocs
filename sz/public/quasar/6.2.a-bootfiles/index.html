@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>6.2.A Quasar Boot Files</title>
+    <meta name="title" content="6.2.A Quasar Boot Files">
+    <meta name="description" content="Where name should be exchanged by a suitable name for your boot file." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sz.docs.dev.isa.co.za/quasar/6.2.a-bootfiles/">
+    <meta property="og:title" content="6.2.A Quasar Boot Files">
+    <meta property="og:description" content="Where name should be exchanged by a suitable name for your boot file.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://sz.docs.dev.isa.co.za/quasar/6.2.a-bootfiles/">
+    <meta property="twitter:title" content="6.2.A Quasar Boot Files">
+    <meta property="twitter:description" content="Where name should be exchanged by a suitable name for your boot file.">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115969504" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115969504" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115969504" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115969504" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA SZ Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">SecureZone</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="62a-quasar-boot-files" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a-quasar-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A Quasar Boot Files</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="62a1-creating-a-new-boot-file">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a1-creating-a-new-boot-file">#</doc-anchor-trigger>
+        <span>6.2.A.1 Creating a new boot file</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">quasar new boot &lt;name&gt; [--format ts]</code></pre>
+</doc-codeblock></div>
+<p>Where <code v-pre>&lt;name&gt;</code> should be exchanged by a suitable name for your boot file.</p>
+<p>This command creates a new file: <code v-pre>/src/boot/&lt;name&gt;</code>.js with the following content:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// import something here
+
+// &quot;async&quot; is optional!
+// remove it if you don't need it
+export default async ({ /* app, router, store */ }) =&gt; {
+  // something to do
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="62a2-exports-inherit-an-object-with-the-following-properties">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a2-exports-inherit-an-object-with-the-following-properties">#</doc-anchor-trigger>
+        <span>6.2.A.2 Exports inherit an object with the following properties</span>
+    </h2>
+</doc-anchor-target>
+<p>A boot file is a simple JavaScript file which can optionally export a function. Quasar will then call the exported function when it boots the application and additionally pass <code v-pre>an object</code> with the following properties to the function:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Prop Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code v-pre>app</code></td>
+<td>Vue app instance</td>
+</tr>
+<tr>
+<td><code v-pre>router</code></td>
+<td>Instance of Vue Router from ‘src/router/index.js’</td>
+</tr>
+<tr>
+<td><code v-pre>store</code></td>
+<td>Instance of the app Vuex Store - store only will be passed if your project uses Vuex (you have src/store)</td>
+</tr>
+<tr>
+<td><code v-pre>ssrContext</code></td>
+<td>Available only on server-side, if building for SSR. More info</td>
+</tr>
+<tr>
+<td><code v-pre>urlPath</code></td>
+<td>The pathname (path + search) part of the URL. It also contains the hash on client-side.</td>
+</tr>
+<tr>
+<td><code v-pre>publicPath</code></td>
+<td>The configured public path.</td>
+</tr>
+<tr>
+<td><code v-pre>redirect</code></td>
+<td>Function to call to redirect to another URL. Accepts String (full URL) or a Vue Router location String or Object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<doc-anchor-target id="62a3-scaffond-for-example">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a3-scaffond-for-example">#</doc-anchor-trigger>
+        <span>6.2.A.3 Scaffond for example</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default ({ app,router,store,ssrContext,urlPath,publicPath,redirect }) =&gt; {
+  // something to do
+}</code></pre>
+</doc-codeblock></div>
+<p>Boot files can also be async:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default async ({ app, router, store }) =&gt; {
+  // something to do
+  await something()
+}</code></pre>
+</doc-codeblock></div>
+<p>You can wrap the returned function with boot helper to get a better IDE autocomplete experience (through Typescript):</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { boot } from 'quasar/wrappers'
+
+export default boot(async ({ app, router, store }) =&gt; {
+  // something to do
+  await something()
+})</code></pre>
+</doc-codeblock></div>
+<p>Notice we are using the ES6 destructuring assignment. Only assign what you actually need/use.</p>
+<p>You may ask yourself why we need to export a function. This is actually optional, but before you decide to remove the default export, you need to understand when you need it:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Outside of default export:
+//  - Code here gets executed immediately,
+//  - Good place for import statements,
+//  - No access to router, Vuex store, ...
+
+export default async ({ app, router, store }) =&gt; {
+  // Code here has access to the Object param above, connecting
+  // with other parts of your app;
+
+  // Code here can be async (use async/await or directly return a Promise);
+
+  // Code here gets executed by Quasar CLI at the correct time in app's lifecycle:
+  //  - we have a Router instantiated,
+  //  - we have the optional Vuex store instantiated,
+  //  - we have the root app's component [&quot;app&quot; prop in Object param] Object with
+  //      which Quasar will instantiate the Vue app
+  //      (&quot;new Vue(app)&quot; -- do NOT call this by yourself),
+  //  - ...
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="62a4-when-to-use-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a4-when-to-use-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.4 When to use boot files</span>
+    </h2>
+</doc-anchor-target>
+<blockquote>
+<p><strong>WARNING</strong>
+Please make sure you understand what problem boot files solve and when it is appropriate to use them, to avoid applying them in cases where they are not needed.</p>
+</blockquote>
+<p>Boot files fulfill one special purpose: they run code <code v-pre>before</code> the App’s Vue root component is instantiated while giving you access to certain variables, which is required if you need to initialize a library, interfere with Vue Router, inject Vue prototype or inject the root instance of the Vue app.</p>
+<doc-anchor-target id="62a5-examples-of-appropriate-usage-of-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a5-examples-of-appropriate-usage-of-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.5 Examples of appropriate usage of boot files</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>Your Vue plugin has installation instructions, like needing to call <code v-pre>app.use()</code> on it.</li>
+<li>Your Vue plugin requires instantiation of data that is added to the root instance - An example would be <code v-pre>vue-i18n</code>.</li>
+<li>You want to add a global mixin using <code v-pre>app.mixin()</code>.</li>
+<li>You want to add something to the Vue app globalProperties for convenient access - An example would be to conveniently use - <code v-pre>this.$axios</code> (for Options API) inside your Vue files instead of importing Axios in each such file.</li>
+<li>You want to interfere with the router - An example would be to use <code v-pre>router.beforeEach</code> for authentication</li>
+<li>You want to interfere with the Vuex store instance - An example would be to use <code v-pre>vuex-router-sync</code> package</li>
+<li>Configure aspects of libraries - An example would be to create an instance of Axios with a base URL; you can then inject it into Vue prototype and/or export it (so you can import the instance from anywhere else in your app)</li>
+</ul>
+<doc-anchor-target id="62a6-example-of-unneeded-usage-of-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a6-example-of-unneeded-usage-of-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.6 Example of unneeded usage of boot files</span>
+    </h2>
+</doc-anchor-target>
+<p>For plain JavaScript libraries like Lodash, which don’t need any initialization prior to their usage. Lodash, for example, might make sense to use as a boot file only if you want to inject Vue prototype with it, like being able to use this.$_ inside your Vue files.</p>
+<doc-anchor-target id="62a7-usage-of-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a7-usage-of-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.7 Usage of boot files</span>
+    </h2>
+</doc-anchor-target>
+<p>The first step is always to generate a new boot file using Quasar CLI:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar new boot &lt;name&gt; [--format ts]</code></pre>
+</doc-codeblock></div>
+<p>Where <code v-pre>'&lt;name&gt;'</code> should be exchanged by a suitable name for your boot file.</p>
+<p>This command creates a new file: <code v-pre>/src/boot/&lt;name&gt;.js</code> with the following content:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// import something here
+
+// &quot;async&quot; is optional!
+// remove it if you don't need it
+export default async ({ /* app, router, store */ }) =&gt; {
+  // something to do
+}</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">You can also return a Promise:
+
+// import something here
+
+export default ({ /* app, router, store */ }) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    // do something
+  })
+}</code></pre>
+</doc-codeblock></div>
+<blockquote>
+<p><strong>TIP</strong>
+The default export can be left out of the boot file if you don’t need it. These are the cases where you don’t need to access the “app”, “router”, “store” and so on.</p>
+</blockquote>
+<p>You can now add content to that file depending on the intended use of your boot file.</p>
+<blockquote>
+<p>Do not forget that your default export needs to be a function. However, you can have as many named exports as you want, should the boot file expose something for later usage. In this case, you can import any of these named exports anywhere in your app.</p>
+</blockquote>
+<p>The last step is to tell Quasar to use your new boot file. For this to happen you need to add the file in /quasar.conf.js</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">boot: [
+  // references /src/boot/&lt;name&gt;.js
+  '&lt;name&gt;'
+]</code></pre>
+</doc-codeblock></div>
+<p>When building a SSR app, you may want some boot files to run only on the server or only on the client, in which case you can do so like below:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">boot: [
+  {
+    server: false, // run on client-side only!
+    path: '&lt;name&gt;' // references /src/boot/&lt;name&gt;.js
+  },
+  {
+    client: false, // run on server-side only!
+    path: '&lt;name&gt;' // references /src/boot/&lt;name&gt;.js
+  }
+]</code></pre>
+</doc-codeblock></div>
+<p>In case you want to specify boot files from node_modules, you can do so by prepending the path with ~ (tilde) character:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">boot: [
+  // boot file from an npm package
+  '~my-npm-package/some/file'
+]</code></pre>
+</doc-codeblock></div>
+<p>If you want a boot file to be injected into your app only for a specific build type:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">boot: [
+  ctx.mode.electron ? 'some-file' : ''
+]</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="62a7-redirecting-to-another-page">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a7-redirecting-to-another-page">#</doc-anchor-trigger>
+        <span>6.2.A.7 Redirecting to another page</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="warning">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#warning">#</doc-anchor-trigger>
+        <span>WARNING</span>
+    </h3>
+</doc-anchor-target>
+<blockquote>
+<p>Please be mindful when redirecting as you might configure the app to go into an infinite redirect loop.</p>
+</blockquote>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default ({ urlPath, redirect }) =&gt; {
+  // ...
+  const isAuthorized = // ...
+  if (!isAuthorized &amp;&amp; !urlPath.startsWith('/login')) {
+    redirect({ path: '/login' })
+  }
+  // ...
+}</code></pre>
+</doc-codeblock></div>
+<p>The <code v-pre>redirect()</code> method accepts a String (full URL) or a Vue Router location String or Object. On SSR it can receive a second parameter which should be a Number for any of the HTTP STATUS codes that redirect the browser (3xx ones).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Examples for redirect() with a Vue Router location:
+redirect('/1') // Vue Router location as String
+redirect({ path: '/1' }) // Vue Router location as Object
+
+// Example for redirect() with a URL:
+redirect('https://quasar.dev')</code></pre>
+</doc-codeblock></div>
+<p><em>IMPORTANT!</em></p>
+<blockquote>
+<p>The Vue Router location (in String or Object form) does not refer to URL path (and hash), but to the actual Vue Router routes that you have defined. So don’t add the publicPath to it and if you’re using the Vue Router hash mode then don’t add the hash to it.</p>
+</blockquote>
+<ul>
+<li>Let’s say that we have this Vue Router route defined:</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">{
+  path: '/one',
+  component: PageOne
+}</code></pre>
+</doc-codeblock></div>
+<p>Then <strong>regardless of our publicPath</strong> we can call <code v-pre>redirect()</code> like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// publicPath: /wiki; vueRouterMode: history
+redirect('/one')            // good way
+redirect({ path: '/one' })  // good way
+redirect('/wiki/one')       // WRONG!
+
+// publicPath: /wiki; vueRouterMode: hash
+redirect('/one')            // good way
+redirect({ path: '/one' })  // good way
+redirect('/wiki/#/one')     // WRONG!
+
+// no publicPath; vueRouterMode: hash
+redirect('/one')            // good way
+redirect({ path: '/one' })            // good way
+redirect('/#/one')            // WRONG!
+
+// publicPath: /wiki; vueRouterMode: history
+redirect('/one') // good way
+redirect({ path: '/one' }) // good way
+redirect('/wiki/one') // WRONG!
+
+// publicPath: /wiki; vueRouterMode: hash
+redirect('/one') // good way
+redirect({ path: '/one' }) // good way
+redirect('/wiki/#/one') // WRONG!
+
+// no publicPath; vueRouterMode: hash
+redirect('/one') // good way
+redirect({ path: '/one' }) // good way
+redirect('/#/one') // WRONG!</code></pre>
+</doc-codeblock></div>
+<p>As it was mentioned in the previous sections, the default export of a boot file can return a Promise. If this Promise gets rejected with an Object that contains a “url” property, then Quasar CLI will redirect the user to that <code v-pre>URL</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default ({ urlPath }) =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    // ...
+    const isAuthorized = // ...
+    if (!isAuthorized &amp;&amp; !urlPath.startsWith('/login')) {
+      // the &quot;url&quot; param here is of the same type
+      // as for &quot;redirect&quot; above
+      reject({ url: '/login' })
+      return
+    }
+    // ...
+  })
+}</code></pre>
+</doc-codeblock></div>
+<p>Or a simpler equivalent:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default () =&gt; {
+  // ...
+  const isAuthorized = // ...
+  if (!isAuthorized &amp;&amp; !urlPath.startsWith('/login')) {
+    return Promise.reject({ url: '/login' })
+  }
+  // ...
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="62a8-quasar-app-flow">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a8-quasar-app-flow">#</doc-anchor-trigger>
+        <span>6.2.A.8 Quasar App Flow</span>
+    </h2>
+</doc-anchor-target>
+<p>In order to better understand how a boot file works and what it does, you need to understand how your website/app boots:</p>
+<ol>
+<li><code v-pre>Quasar</code> is initialized (<code v-pre>components</code>, <code v-pre>directives</code>, <code v-pre>plugins</code>, <code v-pre>Quasar</code> <code v-pre>i18n</code>, <code v-pre>Quasar</code> icon sets)</li>
+<li>Qu<code v-pre>asar Extras get imported (</code>Roboto font<code v-pre>– if</code>used<code v-pre>, </code>icons&#x60;, animations, …)</li>
+<li><code v-pre>Quasar</code> <code v-pre>CSS</code> &amp; your app’s <code v-pre>global CSS</code> are imported</li>
+<li><code v-pre>App.vue</code> is loaded (not yet being used)</li>
+<li><code v-pre>Store</code> is imported (if using <code v-pre>Vuex</code> Store in <code v-pre>src/store</code>)</li>
+<li><code v-pre>Router</code> is imported (in <code v-pre>src/router</code>)</li>
+<li><code v-pre>Boot</code> files are imported</li>
+<li><code v-pre>Router</code> default export function executed</li>
+<li><code v-pre>Boot</code> files get their default export function executed</li>
+<li>(if on <code v-pre>Electron</code> mode) <code v-pre>Electron</code> is <code v-pre>imported</code> and injected into <code v-pre>Vue</code> prototype</li>
+<li>(if on <code v-pre>Cordova</code> mode) Listening for <code v-pre>“deviceready”</code> event and only then continuing with following steps</li>
+<li>Instantiating <code v-pre>Vue</code> with <code v-pre>root</code> component and attaching to <code v-pre>DOM</code></li>
+</ol>
+<doc-anchor-target id="62a9-examples-of-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a9-examples-of-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.9 Examples of boot files</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="axios">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axios">#</doc-anchor-trigger>
+        <span>Axios</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { boot } from 'quasar/wrappers'
+import axios from 'axios'
+
+const api = axios.create({ baseURL: 'https://api.example.com' })
+
+export default boot(({ app }) =&gt; {
+  // for use inside Vue files (Options API) through this.$axios and this.$api
+
+  app.config.globalProperties.$axios = axios
+  // ^ ^ ^ this will allow you to use this.$axios (for Vue Options API form)
+  //       so you won't necessarily have to import axios in each vue file
+
+  app.config.globalProperties.$api = api
+  // ^ ^ ^ this will allow you to use this.$api (for Vue Options API form)
+  //       so you can easily perform requests against your app's API
+})
+
+export { axios, api }</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="vue-i18n">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#vue-i18n">#</doc-anchor-trigger>
+        <span>vue-i18n</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import { createI18n } from 'vue-i18n'
+import messages from 'src/i18n'
+
+export default ({ app }) =&gt; {
+  // Create I18n instance
+  const i18n = createI18n({
+    locale: 'en-US',
+    messages
+  })
+
+  // Tell app to use the I18n instance
+  app.use(i18n)
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="router-authentication">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#router-authentication">#</doc-anchor-trigger>
+        <span>Router authentication</span>
+    </h3>
+</doc-anchor-target>
+<p>Some boot files might need to interfere with Vue Router configuration:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">export default boot(({ router, store }) =&gt; {
+  router.beforeEach((to, from, next) =&gt; {
+    // Now you need to add your authentication logic here, like calling an API endpoint
+  })
+})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="62a10-accessing-data-from-boot-files">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#62a10-accessing-data-from-boot-files">#</doc-anchor-trigger>
+        <span>6.2.A.10 Accessing data from boot files</span>
+    </h2>
+</doc-anchor-target>
+<p>Sometimes you want to access data that you configure in your <code v-pre>boot</code> file in files where you don’t have <code v-pre>access</code> to the <code v-pre>root</code> <code v-pre>Vue</code> instance.</p>
+<p>Fortunately, because <code v-pre>boot</code> files are just normal JavaScript files you can add as many named exports to your <code v-pre>boot</code> file as you want.</p>
+<p>Let’s <code v-pre>take</code> the example of <code v-pre>Axios</code>. Sometimes you want to access your <code v-pre>Axios</code> instance inside your <code v-pre>JavaScript</code> files, but you cannot access the root Vue instance. To solve this you can export the Axios instance in your boot file and import it elsewhere.</p>
+<p>Consider the following <code v-pre>boot</code> file for <code v-pre>axios</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// axios boot file (src/boot/axios.js)
+
+import axios from 'axios'
+
+// We create our own axios instance and set a custom base URL.
+// Note that if we wouldn't set any config here we do not need
+// a named export, as we could just `import axios from 'axios'`
+const api = axios.create({
+  baseURL: 'https://api.example.com'
+})
+
+// for use inside Vue files through this.$axios and this.$api
+// (only in Vue Options API form)
+export default ({ app }) =&gt; {
+  app.config.globalProperties.$axios = axios
+  app.config.globalProperties.$api = api
+}
+
+// Here we define a named export
+// that we can later use inside .js files:
+export { axios, api }</code></pre>
+</doc-codeblock></div>
+<p>In any JavaScript file, you’ll be able to import the axios instance like this.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// we import one of the named exports from src/boot/axios.js
+import { api } from 'boot/axios'</code></pre>
+</doc-codeblock></div>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/misc/9.7-datefns.js/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">9.7 date-fns</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/quasar/6.2.b-bootplugin/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">6.2.B Create Boot Plugin in Quasar</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "6.2.A Quasar Boot Files", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

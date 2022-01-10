@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>Secure Zone</title>
+    <meta name="title" content="Secure Zone">
+    <meta name="description" content="Documentation The implementation of this API and the client side app can be found on git hub:" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sz.docs.dev.isa.co.za/">
+    <meta property="og:title" content="Secure Zone">
+    <meta property="og:description" content="Documentation The implementation of this API and the client side app can be found on git hub:">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://sz.docs.dev.isa.co.za/">
+    <meta property="twitter:title" content="Secure Zone">
+    <meta property="twitter:description" content="Documentation The implementation of this API and the client side app can be found on git hub:">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115969504" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115969504" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115969504" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115969504" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA SZ Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">SecureZone</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="secure-zone" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#secure-zone">#</doc-anchor-trigger>
+        <span>Secure Zone</span>
+    </h1>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">
+  ___ ____    _      ____                             _____                
+ |_ _/ ___|  / \    / ___|  ___  ___ _   _ _ __ ___  |__  /___  _ __   ___ 
+  | |\___ \ / _ \   \___ \ / _ \/ __| | | | '__/ _ \   / // _ \| '_ \ / _ \
+  | | ___) / ___ \ _ ___) |  __/ (__| |_| | | |  __/_ / /| (_) | | | |  __/
+ |___|____/_/   \_(_)____/ \___|\___|\__,_|_|  \___(_)____\___/|_| |_|\___|
+ </code></pre>
+</doc-codeblock></div>
+<p>Documentation
+The implementation of this API and the client side app can be found on git hub:</p>
+<p>To serve these docs as a website: <a href="https://github.com/isa-holdings/securezone.client">https://github.com/isa-holdings/securezone.client</a></p>
+<p>To Generate this documentation to a standalone website:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">npm i docsify-cli -g
+docsify init</code></pre>
+</doc-codeblock></div>
+<p><a href="https://docsify.js.org/#/quickstart">Docsify Docs</a></p>
+<ul>
+<li>[<strong>✔</strong>] Important for the project to work</li>
+<li>[ <strong>?</strong> ] Any one of these can be used</li>
+<li>[<strong>✘</strong>] Are viable alternatives but decided against them</li>
+<li>[📜] Link contains internal documentation</li>
+<li>[📹] Link contains a video</li>
+<li>[📎] Link to External documentation</li>
+</ul>
+<p>Here are a list of all the tech used with their official docs, added short docs for each module that is relative to the project further down with install instructions and basic examples.</p>
+<doc-anchor-target id="technologies">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#technologies">#</doc-anchor-trigger>
+        <span>Technologies</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>HTML
+<ul>
+<li><a href="https://www.w3schools.com/html/">HTML 5</a></li>
+<li><a href="webComponents.org">Web Components</a></li>
+</ul>
+</li>
+<li>CSS
+<ul>
+<li><a href="https://sass-lang.com/">Sass</a></li>
+<li><a href="https://github.com/antfu/unocss">UNO CSS</a>A</li>
+<li><a href="https://github.com/windicss/windicss">Windi CSS</a></li>
+<li><a href="https://github.com/GoogleChromeLabs/critters">Critters</a></li>
+<li><a href="https://github.com/antfu/unplugin-icons">Unplugin</a></li>
+</ul>
+</li>
+<li><a href="https://www.php.net/">PHP 7.4</a>
+<ul>
+<li><a href="https://laravel.com/">Laravel</a></li>
+<li><a href="https://lighthouse-php.com/">Lighthouse</a></li>
+<li><a href="https://laravel.com/8.x/sanctum">Sanctum</a></li>
+<li><a href="https://lighthouse-php.com/5/getting-started/configuration.html#cors">CORS</a></li>
+</ul>
+</li>
+<li><a href="https://www.javascript.com/">JavaScript (ES 2016)</a>
+<ul>
+<li>JavaScript Modules</li>
+<li><a href="https://vuejs.org/">Vue.js 3</a>
+<ul>
+<li>Vue Templates</li>
+<li><a href="https://router.vuejs.org/">Vue Router</a></li>
+<li><a href="https://apollo.vuejs.org/">Vue Apollo for GraphQL</a></li>
+<li><a href="https://next.vuex.vuejs.org/">Vuex for State Management</a> or</li>
+<li><a href="https://pinia.esm.dev/introduction.html">Pinia For State Management</a></li>
+</ul>
+</li>
+<li><a href="https://quasar.dev/">Quasar</a></li>
+<li><a href="https://github.com/baggachipz/q-form-builder-demo">Quasar form Builder</a></li>
+<li><a href="https://vitejs.dev/">Vite</a></li>
+<li><a href="https://github.com/antfu/vite-plugin-md">Vite Plugin Markdown</a></li>
+<li><a href="https://vitejs.dev/guide/ssr.html">Vite Server Side Rendering</a></li>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a></li>
+<li><a href="https://github.com/vueuse/head">@vueuse/head</a></li>
+</ul>
+</li>
+<li><a href="https://nodejs.org/">Node.js</a>
+<ul>
+<li><a href="https://github.com/mvm-sh/nvm">NVM (Node version manager)</a></li>
+<li><a href="https://vitejs.dev/">Vite</a></li>
+<li><a href="https://quasar.dev/">Quasar CLi</a></li>
+</ul>
+</li>
+<li>Database
+<ul>
+<li><a href="https://www.mysql.com/">MySQL</a></li>
+<li><a href="https://redis.io/">Redis</a></li>
+</ul>
+</li>
+<li>API
+<ul>
+<li><a href="https://graphql.org/">GraphQL API</a></li>
+</ul>
+</li>
+<li>Package Managers
+<ul>
+<li><a href="https://www.npmjs.com/">NPM / PNPM</a> or</li>
+<li><a href="https://yarnpkg.com/">Yarn</a></li>
+<li><a href="https://getcomposer.org/">Composer</a></li>
+</ul>
+</li>
+<li><a href="https://www.apache.org/">Apache</a></li>
+<li><a href="https://www.centos.org/">CentOS 8</a>
+<ul>
+<li><a href="https://www.linuxtechi.com/install-configure-samba-centos-8/">Samba</a></li>
+</ul>
+</li>
+<li>Version Control
+<ul>
+<li><a href="https://git-scm.com/">Git</a></li>
+</ul>
+</li>
+</ul>
+<p>For each component there are installation instructions, usage instructions with some examples and where to get more help if needed</p>
+<p>The checkboxes next to each item is the ones chose to use in the end. I also mention some other packages that I did not implement yet or nessesarily will, but some packages I sort of stumbled upon as I was reaching this and they sounded like they had something secial to offer.</p>
+<doc-anchor-target id="1-centos-8">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-centos-8">#</doc-anchor-trigger>
+        <span>1. CentOS 8</span>
+    </h2>
+</doc-anchor-target>
+<p>First we need to setup the CentOS 8 Server. There are quite a few steps. The items that is not checked is optional</p>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="1-centOS/1.1-centOSInstall.md">1.1 CentOS Install</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.2-firewall/">1.2 Firewall</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="centos/1.3-midnightcommander/">1.3 Midnight Commander</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="centos/1.4-selinux/">1.4 Disable SE Linux</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.5-mysql/">1.5 Install Mysql</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.6-php/">1.6 Install PHP</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.7-composer/">1.7 Install Composer</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.8-nodejs/">1.8 A Install Node.js</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="centos/1.8-nvm/">1.8 B Instal Node.js with NVM</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="centos/1.9-yarn/">1.9 Install Yarn</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.10-apache/">1.10 Apache</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.11-git/">1.11 Git Install</a></li>
+<li>[<strong>✔</strong>][📜] <a href="centos/1.12-samba/">1.12 Install Samba</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="centos/1.13-networksetstatic/">1.13 Set Static IP</a></li>
+</ul>
+<doc-anchor-target id="2-virtual-hosts">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-virtual-hosts">#</doc-anchor-trigger>
+        <span>2. Virtual Hosts</span>
+    </h2>
+</doc-anchor-target>
+<blockquote>
+<p>Setting up the virtual hosts has a trick to it when it comes to setting up sub-domains</p>
+</blockquote>
+<p>Secure Zone runs as an API and as a client from two different <code v-pre>VHOSTS</code> so lets setup the <code v-pre>VHOSTS</code></p>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="vhosts/2.1-structure.md">2.1 Create the Directory Structure</a></li>
+<li>[<strong>✔</strong>][📜] <a href="vhosts/2.2-permissions.md">2.2 Grant Permissions</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="vhosts/2.3-demoPages.md">2.3 Create Demo Pages for the Virtual Hosts</a></li>
+<li>[<strong>✔</strong>][📜] <a href="vhosts/2.4-hostsFile.md">2.4 Set Up Local Hosts File</a></li>
+<li>[<strong>✔</strong>][📜] <a href="vhosts/2.5-createConfFiles.md">2.5 Create New Virtual Host Files</a></li>
+<li>[<strong>✔</strong>][📜] <a href="vhosts/2.6-htaccess.md">2.6 .htaccess file for Apps using <code v-pre>history</code> mode not <code v-pre>hash</code> mode</a></li>
+</ul>
+<doc-anchor-target id="3-api-with-laravel">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-api-with-laravel">#</doc-anchor-trigger>
+        <span>3. API with Laravel</span>
+    </h2>
+</doc-anchor-target>
+<p>In this section you only have to install 3.1 to 3.4. I explored the rest of the options but in the end Passport won yhe race.</p>
+<p>Here is detailed instructions for passport auth:</p>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="api/3.0-loginwithpassport/">3.0 Login with Passport</a></li>
+</ul>
+<blockquote>
+<p>Auth system</p>
+</blockquote>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="api/3.1-installwithcomp/">3.1 Install Laravel via Composer</a></li>
+<li>[<strong>✔</strong>][📜] <a href="api/3.2-graphql/">3.2 GraphQL with Laravel and Lighthouse</a></li>
+<li>[<strong>✔</strong>][📜] <a href="api/3.3-lighthouse/">3.1 Install Lighthouse on API</a></li>
+<li>[<strong>✔</strong>][📜] <a href="api/3.4-passportauth/">3.4 Passport Authentication</a></li>
+<li>[<strong>✘</strong>][📜] <a href="api/3.5-sanctum/">3.5 Sanctum Authentication</a></li>
+<li>[<strong>✘</strong>][📜] <a href="api/3.6-bearerauth/">3.6 Auth with Bearer Token</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.7-2fa/">3.7 Google 2FA</a></li>
+<li>[<strong>✔</strong>][📜] <a href="api/3.8-data/">3.8 Laravel DB Setup</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.9-graphqltools/">3.9 GraphQL Tools</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.10-youtube/">3.10 Youtube Tutorial</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.11-artisangui/">3.11 Laravel Artisan GUI</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.12-sanctumapollo/">3.12 Laravel Sanctum / Vue Apollo Authentication</a></li>
+<li>[<strong>✔</strong>][📜] <a href="api/3.13-permissionroles/">3.13 User Permission Through Roles</a></li>
+</ul>
+<blockquote>
+<p>Old secure zone laravel changes to get the old.secureZone to work</p>
+</blockquote>
+<ul>
+<li>[ <strong>?</strong> ][📜] <a href="api/3.7-2fa/">3.7 2 FA Implementation</a></li>
+</ul>
+<doc-anchor-target id="4-securezone-client-website">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-securezone-client-website">#</doc-anchor-trigger>
+        <span>4. SecureZone Client Website</span>
+    </h2>
+</doc-anchor-target>
+<p>What I wanted to use is Vite, whatever I used with Vite does not matter and does not make any real difference, you can literally create one page with Vue and the next with Svelte and the next with React and the next with Lit-Element because Vite supports them all.</p>
+<p>So the first JS Lib to install is Vite, when you install Vite it asks you which other lib you will be using, in this case I actually decided to go with Vue.js because it&#x27;s got a smaller learning curve for future developers and has a good community and thousands of plugins and good support, you can use lit-element anywhere in between as it uses native web-components so it will have no influence.</p>
+<ul>
+<li>[ <strong>?</strong> ][📜] <a href="client/4.0-litelement/">4.0 Vite Lit-Element</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.1-vue/">4.1 Install Vue 3 CLI</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.2-vitequasar/">4.2 Vite and Quasar</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.3-sassvars/">4.3 Sass Variables</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.4-unocss/">4.4 Uno CSS</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.5-vueapollo/">4.5 Vue Apollo</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.6-vuerouter/">4.6 Vue Router</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.7-vueautoroutes/">4.7 Vue Auto Routes</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.8-vueguards/">4.8 Vue Guards - Restrict Access</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.9-vuexdatastore/">4.9 Vuex Data Store</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.10-vitepluginmd/">4.10 Vite Markdown Plugin</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.11-vueusehead/">4.11 VueUse Head</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.12-quasarcli/">4.12 Quasar Cli</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.13-csstips/">4.13 CSS Tips</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.14-piniastateandstore/">4.14 Pinia</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.15-critters/">4.15 Critters CSS</a></li>
+<li>[<strong>✔</strong>][📜] <a href="client/4.16-dotenv/">4.16 Quasar dotenv</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="client/4.17-quasarformbuilder/">4.17 Quasar form builder</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="client/4.18-noframworkgraphql/">4.18 GraphQL Vanilla JS</a></li>
+<li>[<strong>✘</strong>][📜] <a href="client/4.19-apollooutsidevue/">4.19 <code v-pre>$apollo</code> outside vue component?</a></li>
+</ul>
+<p>After now trying to integrate apollo for the 3rd time and still not working as expected and not even compiling, I decided to not waste another second on Apollo,</p>
+<ul>
+<li>[ <strong>?</strong> ][📜] <a href="examples/apollo/">5.0.A Apollo Examples</a></li>
+</ul>
+<p>I am now using Axios to perform the Graph Queries together with a package the converts JSON to Queries</p>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="examples/axios/">5.0.B Example App</a></li>
+<li>[<strong>✔</strong>][📜] <a href="examples/jsontographql/">5.0.C json-to-graphql-query</a></li>
+</ul>
+<doc-anchor-target id="the-rest-og-the-graph-resources-i-concidered">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#the-rest-og-the-graph-resources-i-concidered">#</doc-anchor-trigger>
+        <span>The rest og the graph Resources I concidered</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.1-x11forwarding/">5.1 Local dev Server X11 Forwarding</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.2-vuegraphqlresources/">5.2 Vue GraphQL Tools &amp; tutorials</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="tools/5.3-graphqlserverandtools/">5.3 Scalable GraphQL server + Tooling and testing</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.4-grapthqlelectron/">5.4 GraphQL Electron Windows PLayground</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.5-learinggraphql/">5.5 GraphQL Learning</a></li>
+<li>[ <strong>?</strong> ][📎] <a href="https://github.com/dotansimha/graphql-code-generator">5.6 GraphQL Code Generator</a></li>
+<li>[<strong>✘</strong>][📜] <a href="tools/5.7-apollodevtools/">5.7 Apollo Client Dev Tools</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.8-altairGraphQL.md">5.8 Altair GraphQL Cross Platform Client</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.9-creatingGQLueries.md">5.9 Creating GraphQL Queries with Laravel</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="tools/5.10-gqlframeworklinks/">5.10 GraphQL Links and Options</a></li>
+<li>[<strong>✔</strong>][📜] <a href="tools/5.11-graphqlidecdn/">5.11 Simplest GraphQL IDE with only CDN inlcudes</a></li>
+<li>[ <strong>?</strong> ][📜] <a href="tools/5.12-graphqlivequery/">5.12 GraphQL Live Query</a></li>
+<li>[ <strong>?</strong> ]][📎] <a href="https://github.com/hasura/go-graphql-client">5.13 Go GraphQL</a></li>
+<li>[ <strong>?</strong> ][📎] <a href="https://github.com/webonyx/graphql-php">5.14 GraphQL PHP with out Laravel</a></li>
+<li>[ <strong>?</strong> ][📎] <a href="https://github.com/infinityloop-dev/graphpinator">5.15 Graph in Standalone PHP GraphQL Server</a></li>
+</ul>
+<doc-anchor-target id="6-documentation-for-some-tools-used">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-documentation-for-some-tools-used">#</doc-anchor-trigger>
+        <span>6. Documentation for some Tools used</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.1-commandlist/">6.1 Quasar Command List</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.2.a-bootfiles/">6.2 Quasar boot files</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.2.b-bootplugin/">6.2 Quasar boot Plugin</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.3-quasarprefetch/">6.3 Quasar Pre-fetch Feature</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.4-quasarassets/">6.4 Handling Assets</a>;</li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.5-apiproxy/">6.5 API Proxying for Dev</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.6-envprocess/">6.6 .env Processing</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.7-deployingorbuilding/">6.7 Deploying a SPA</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.8-devforpublic/">6.8 Open dev to Public</a></li>
+<li>[<strong>✔</strong>][📜] <strong>6.9 Quasar Components</strong></li>
+<li>[<strong>✘</strong>][📜] <a href="quasar/6.9.1-qskeleton/">6.9.1 QSkeleton</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.9.2-qmarkdown/">6.9.2 QMarkdown</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.9.3-quasartesting/">6.9.3 Testing</a></li>
+<li>[<strong>✔</strong>][📜] <a href="quasar/6.10-sassinjs/">6.10 Sass Vars in JS</a></li>
+</ul>
+<doc-anchor-target id="7-some-hacks--time-savers">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-some-hacks--time-savers">#</doc-anchor-trigger>
+        <span>7. Some hacks &amp; Time savers</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✘</strong>][📜] <a href="hacks/7.1-graphqlmysqlschema/">7.1 Graphql Mysql Schema</a></li>
+<li>[<strong>✔</strong>][📜] <a href="hacks/7.2-cors/">7.2 CORS (Cross-origin resource sharing)</a></li>
+<li>[<strong>✔</strong>][📜] <a href="hacks/7.3-staticsitegen/">7.3 Static Site generator for docs</a></li>
+<li>[<strong>✔</strong>][📜] <a href="hacks/7.4-globalcomponents/">7.4 Quasar Global Components</a></li>
+<li>[<strong>✔</strong>][📜] <a href="hacks/7.5-vuewebstorage/">7.5 Vue Web Storage</a></li>
+</ul>
+<doc-anchor-target id="8-axios">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-axios">#</doc-anchor-trigger>
+        <span>8. Axios</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.1-install/">8.1 Install</a></li>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.2-config/">8.2 Axios Config</a></li>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.3-instance/">8.3 The Axios Instance</a></li>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.4-api/">8.4 Axios API</a></li>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.5-posts/">8.5 POST Requests</a></li>
+<li>[<strong>✔</strong>][📜] <a href="axios/8.6-minexample/">8.6 Minimal Example</a></li>
+</ul>
+<doc-anchor-target id="9-monitoring-testing-validation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#9-monitoring-testing-validation">#</doc-anchor-trigger>
+        <span>9. Monitoring, Testing, Validation</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📜] <a href="misc/9.1-makeapi/">9.1-Make API</a></li>
+<li>[<strong>✔</strong>][📜] <a href="misc/9.2-uuid/">9.2 Generate UUID</a></li>
+<li>[<strong>✔</strong>][📎] <a href="https://docs.logrocket.com/docs">9.3 Log Rocket</a></li>
+<li>[<strong>✔</strong>][📜] <a href="misc/9.4typevalidation/">9.4 Validation with Typescript &amp; Decorators</a></li>
+<li>[<strong>✔</strong>][📜] <a href="misc/9.5-typedestructuringts/">9.5 Strongly-typed destructuring TypeScript</a></li>
+<li>[<strong>✔</strong>][📹] <a href="https://www.youtube.com/watch?v=u8lMkgb-8iA">9.6 Using TypeScript Class Components in NativeScript Vue</a></li>
+<li>[<strong>✔</strong>][📹] <a href="misc/9.7-datefns.js/">9.7 Date-fns</a></li>
+<li>[<strong>✔</strong>][📹] <a href="%27misc/9.8-deno.md%27">9.8 Deno</a></li>
+</ul>
+<doc-anchor-target id="10-oauth">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#10-oauth">#</doc-anchor-trigger>
+        <span>10. OAuth</span>
+    </h2>
+</doc-anchor-target>
+<p>I will attempt in implement OAuth in the the application, this is by far the best authentication you can have, it is compatible with every platform and application type.<a href="https://github.com/peterpetrus/passport-token">https://github.com/peterpetrus/passport-token</a></p>
+<doc-anchor-target id="101-laravel-socialite">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#101-laravel-socialite">#</doc-anchor-trigger>
+        <span>10.1 Laravel Socialite</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📜]<a href="oauth/installSocialite.md">10.1 Install Socialite</a></li>
+</ul>
+<doc-anchor-target id="11vue-composition-api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#11vue-composition-api">#</doc-anchor-trigger>
+        <span>11.Vue Composition API</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>][📹] <a href="composition/11.1-api.md">11.1 Composition API</a></li>
+<li>[<strong>✔</strong>][📹] <a href="composition/11.2-fetchData.md">11.2 Fetching Data</a></li>
+</ul>
+<doc-anchor-target id="axios--graphql">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axios--graphql">#</doc-anchor-trigger>
+        <span>Axios &amp; GraphQL</span>
+    </h2>
+</doc-anchor-target>
+<p>1.3 <a href="graphql/axios/">Query GraphQL with Axios</a></p>
+<doc-anchor-target id="5-some-apps-to-learn-all-about-graphql">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-some-apps-to-learn-all-about-graphql">#</doc-anchor-trigger>
+        <span>5. Some apps to learn all about GraphQL</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="12-deploy-spa-pwa-apk-electron">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#12-deploy-spa-pwa-apk-electron">#</doc-anchor-trigger>
+        <span>12. Deploy SPA, PWA, APK, Electron</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>[<strong>✔</strong>] <a href="deploy/12.1-filesToUpdate.md">Files to update</a></li>
+<li>[<strong>✔</strong>] <a href="deploy/12.2-quasarBuild.md">Quasar Build</a></li>
+<li>[<strong>✔</strong>] <a href="deploy/12.3-quasarCommands.md">Quasar Commands</a></li>
+<li>[<strong>✔</strong>] <a href="deploy/12.4-deployToGit">Deploy to Git</a>;</li>
+<li>[<strong>✔</strong>] <a href="deploy/12.5-guideAppCompile.md">Compilation Guide</a>;</li>
+</ul>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/api/3.0-loginwithpassport/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">3.0 Login with Passport</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "Secure Zone", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

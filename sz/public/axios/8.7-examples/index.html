@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>8.7 Axios Exa</title>
+    <meta name="title" content="8.7 Axios Exa">
+    <meta name="description" content="Features" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sz.docs.dev.isa.co.za/axios/8.7-examples/">
+    <meta property="og:title" content="8.7 Axios Exa">
+    <meta property="og:description" content="Features">
+    <meta property="og:image" content="https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://sz.docs.dev.isa.co.za/axios/8.7-examples/">
+    <meta property="twitter:title" content="8.7 Axios Exa">
+    <meta property="twitter:description" content="Features">
+    <meta property="twitter:image" content="https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115969504" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115969504" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115969504" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115969504" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA SZ Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">SecureZone</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="87-axios-exa" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#87-axios-exa">#</doc-anchor-trigger>
+        <span>8.7 Axios Exa</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="table-of-contents">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#table-of-contents">#</doc-anchor-trigger>
+        <span>Table of Contents</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><doc-anchor-trigger to="#features">Features</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#browser-support">Browser Support</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#installing">Installing</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#example">Example</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#axios-api">Axios API</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#request-method-aliases">Request method aliases</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#concurrency-deprecated">Concurrency (Deprecated)</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#creating-an-instance">Creating an instance</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#instance-methods">Instance methods</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#request-config">Request Config</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#response-schema">Response Schema</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#config-defaults">Config Defaults</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#global-axios-defaults">Global axios defaults</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#custom-instance-defaults">Custom instance defaults</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#config-order-of-precedence">Config order of precedence</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#interceptors">Interceptors</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#handling-errors">Handling Errors</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#cancellation">Cancellation</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#using-applicationx-www-form-urlencoded-format">Using application/x-www-form-urlencoded format</doc-anchor-trigger>
+<ul>
+<li><doc-anchor-trigger to="#browser">Browser</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#nodejs">Node.js</doc-anchor-trigger>
+<ul>
+<li><doc-anchor-trigger to="#query-string">Query string</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#form-data">Form data</doc-anchor-trigger></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><doc-anchor-trigger to="#semver">Semver</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#promises">Promises</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#typescript">TypeScript</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#resources">Resources</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#credits">Credits</doc-anchor-trigger></li>
+<li><doc-anchor-trigger to="#license">License</doc-anchor-trigger></li>
+</ul>
+<doc-anchor-target id="871-features">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#871-features">#</doc-anchor-trigger>
+        <span>8.7.1 Features</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>Make <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequests</a> from the browser</li>
+<li>Make <a href="http://nodejs.org/api/http.html">http</a> requests from node.js</li>
+<li>Supports the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> API</li>
+<li>Intercept request and response</li>
+<li>Transform request and response data</li>
+<li>Cancel requests</li>
+<li>Automatic transforms for JSON data</li>
+<li>Client side support for protecting against <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">XSRF</a></li>
+</ul>
+<doc-anchor-target id="872-browser-support">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#872-browser-support">#</doc-anchor-trigger>
+        <span>8.7.2 Browser Support</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" /></th>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" /></th>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" /></th>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" /></th>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" /></th>
+<th><img src="https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>Latest ✔</td>
+<td>11 ✔</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><figure class="content-center">
+    <a href="https://saucelabs.com/u/axios">
+        <img src="https://saucelabs.com/open_sauce/build_matrix/axios.svg" alt="Browser Matrix" />
+    </a>
+    <figcaption class="caption">Browser Matrix</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="873--installing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#873--installing">#</doc-anchor-trigger>
+        <span>8.7.3  Installing</span>
+    </h2>
+</doc-anchor-target>
+<p>Using npm:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ npm install axios</code></pre>
+</doc-codeblock></div>
+<p>Using bower:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ bower install axios</code></pre>
+</doc-codeblock></div>
+<p>Using yarn:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ yarn add axios</code></pre>
+</doc-codeblock></div>
+<p>Using jsDelivr CDN:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-markup"><code v-pre class="language-markup">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+</doc-codeblock></div>
+<p>Using unpkg CDN:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-markup"><code v-pre class="language-markup">&lt;script src=&quot;https://unpkg.com/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="874-example">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#874-example">#</doc-anchor-trigger>
+        <span>8.7.4 Example</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="note-commonjs-usage">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#note-commonjs-usage">#</doc-anchor-trigger>
+        <span>note: CommonJS usage</span>
+    </h3>
+</doc-anchor-target>
+<p>In order to gain the TypeScript typings (for intellisense / autocomplete) while using CommonJS imports with <code v-pre>require()</code> use the following approach:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const axios = require('axios').default;
+
+// axios.&lt;method&gt; will now provide autocomplete and parameter typings</code></pre>
+</doc-codeblock></div>
+<p>Performing a <code v-pre>GET</code> request</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const axios = require('axios');
+
+// Make a request for a user with a given ID
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
+// Optionally the request above could also be done as
+axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });  
+
+// Want to use async/await? Add the `async` keyword to your outer function/method.
+async function getUser() {
+  try {
+    const response = await axios.get('/user?ID=12345');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}</code></pre>
+</doc-codeblock></div>
+<blockquote>
+<p><strong>NOTE:</strong> <code v-pre>async/await</code> is part of ECMAScript 2017 and is not supported in Internet
+Explorer and older browsers, so use with caution.</p>
+</blockquote>
+<p>Performing a <code v-pre>POST</code> request</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });</code></pre>
+</doc-codeblock></div>
+<p>Performing multiple concurrent requests</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function getUserAccount() {
+  return axios.get('/user/12345');
+}
+
+function getUserPermissions() {
+  return axios.get('/user/12345/permissions');
+}
+
+Promise.all([getUserAccount(), getUserPermissions()])
+  .then(function (results) {
+    const acct = results[0];
+    const perm = results[1];
+  });</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="axios-api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axios-api">#</doc-anchor-trigger>
+        <span>axios API</span>
+    </h2>
+</doc-anchor-target>
+<p>Requests can be made by passing the relevant config to <code v-pre>axios</code>.</p>
+<doc-anchor-target id="axiosconfig">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosconfig">#</doc-anchor-trigger>
+        <span>axios(config)</span>
+    </h5>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Send a POST request
+axios({
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  }
+});</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// GET request for remote image in node.js
+axios({
+  method: 'get',
+  url: 'http://bit.ly/2mTM3nY',
+  responseType: 'stream'
+})
+  .then(function (response) {
+    response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  });</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="axiosurl-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosurl-config">#</doc-anchor-trigger>
+        <span>axios(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Send a GET request (default method)
+axios('/user/12345');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="request-method-aliases">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-method-aliases">#</doc-anchor-trigger>
+        <span>Request method aliases</span>
+    </h3>
+</doc-anchor-target>
+<p>For convenience aliases have been provided for all supported request methods.</p>
+<doc-anchor-target id="axiosrequestconfig">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosrequestconfig">#</doc-anchor-trigger>
+        <span>axios.request(config)</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosgeturl-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosgeturl-config">#</doc-anchor-trigger>
+        <span>axios.get(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosdeleteurl-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosdeleteurl-config">#</doc-anchor-trigger>
+        <span>axios.delete(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosheadurl-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosheadurl-config">#</doc-anchor-trigger>
+        <span>axios.head(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosoptionsurl-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosoptionsurl-config">#</doc-anchor-trigger>
+        <span>axios.options(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosposturl-data-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosposturl-data-config">#</doc-anchor-trigger>
+        <span>axios.post(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosputurl-data-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosputurl-data-config">#</doc-anchor-trigger>
+        <span>axios.put(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiospatchurl-data-config">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiospatchurl-data-config">#</doc-anchor-trigger>
+        <span>axios.patch(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="note">
+    <h6>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#note">#</doc-anchor-trigger>
+        <span>NOTE</span>
+    </h6>
+</doc-anchor-target>
+<p>When using the alias methods <code v-pre>url</code>, <code v-pre>method</code>, and <code v-pre>data</code> properties don&#x27;t need to be specified in config.</p>
+<doc-anchor-target id="concurrency-deprecated">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#concurrency-deprecated">#</doc-anchor-trigger>
+        <span>Concurrency (Deprecated)</span>
+    </h3>
+</doc-anchor-target>
+<p>Please use <code v-pre>Promise.all</code> to replace the below functions.</p>
+<p>Helper functions for dealing with concurrent requests.</p>
+<p>axios.all(iterable)
+axios.spread(callback)</p>
+<doc-anchor-target id="creating-an-instance">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#creating-an-instance">#</doc-anchor-trigger>
+        <span>Creating an instance</span>
+    </h3>
+</doc-anchor-target>
+<p>You can create a new instance of axios with a custom config.</p>
+<doc-anchor-target id="axioscreateconfig">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axioscreateconfig">#</doc-anchor-trigger>
+        <span>axios.create([config])</span>
+    </h5>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const instance = axios.create({
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: {'X-Custom-Header': 'foobar'}
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="instance-methods">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#instance-methods">#</doc-anchor-trigger>
+        <span>Instance methods</span>
+    </h3>
+</doc-anchor-target>
+<p>The available instance methods are listed below. The specified config will be merged with the instance config.</p>
+<doc-anchor-target id="axiosrequestconfig-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosrequestconfig-1">#</doc-anchor-trigger>
+        <span>axios#request(config)</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosgeturl-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosgeturl-config-1">#</doc-anchor-trigger>
+        <span>axios#get(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosdeleteurl-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosdeleteurl-config-1">#</doc-anchor-trigger>
+        <span>axios#delete(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosheadurl-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosheadurl-config-1">#</doc-anchor-trigger>
+        <span>axios#head(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosoptionsurl-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosoptionsurl-config-1">#</doc-anchor-trigger>
+        <span>axios#options(url[, config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosposturl-data-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosposturl-data-config-1">#</doc-anchor-trigger>
+        <span>axios#post(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosputurl-data-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosputurl-data-config-1">#</doc-anchor-trigger>
+        <span>axios#put(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiospatchurl-data-config-1">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiospatchurl-data-config-1">#</doc-anchor-trigger>
+        <span>axios#patch(url[, data[, config]])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="axiosgeturiconfig">
+    <h5>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#axiosgeturiconfig">#</doc-anchor-trigger>
+        <span>axios#getUri([config])</span>
+    </h5>
+</doc-anchor-target>
+<doc-anchor-target id="request-config">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#request-config">#</doc-anchor-trigger>
+        <span>Request Config</span>
+    </h2>
+</doc-anchor-target>
+<p>These are the available config options for making requests. Only the <code v-pre>url</code> is required. Requests will default to <code v-pre>GET</code> if <code v-pre>method</code> is not specified.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">{
+  // `url` is the server URL that will be used for the request
+  url: '/user',
+
+  // `method` is the request method to be used when making the request
+  method: 'get', // default
+
+  // `baseURL` will be prepended to `url` unless `url` is absolute.
+  // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
+  // to methods of that instance.
+  baseURL: 'https://some-domain.com/api/',
+
+  // `transformRequest` allows changes to the request data before it is sent to the server
+  // This is only applicable for request methods 'PUT', 'POST', 'PATCH' and 'DELETE'
+  // The last function in the array must return a string or an instance of Buffer, ArrayBuffer,
+  // FormData or Stream
+  // You may modify the headers object.
+  transformRequest: [function (data, headers) {
+    // Do whatever you want to transform the data
+
+    return data;
+  }],
+
+  // `transformResponse` allows changes to the response data to be made before
+  // it is passed to then/catch
+  transformResponse: [function (data) {
+    // Do whatever you want to transform the data
+
+    return data;
+  }],
+
+  // `headers` are custom headers to be sent
+  headers: {'X-Requested-With': 'XMLHttpRequest'},
+
+  // `params` are the URL parameters to be sent with the request
+  // Must be a plain object or a URLSearchParams object
+  params: {
+    ID: 12345
+  },
+
+  // `paramsSerializer` is an optional function in charge of serializing `params`
+  // (e.g. https://www.npmjs.com/package/qs, http://api.jquery.com/jquery.param/)
+  paramsSerializer: function (params) {
+    return Qs.stringify(params, {arrayFormat: 'brackets'})
+  },
+
+  // `data` is the data to be sent as the request body
+  // Only applicable for request methods 'PUT', 'POST', 'DELETE , and 'PATCH'
+  // When no `transformRequest` is set, must be of one of the following types:
+  // - string, plain object, ArrayBuffer, ArrayBufferView, URLSearchParams
+  // - Browser only: FormData, File, Blob
+  // - Node only: Stream, Buffer
+  data: {
+    firstName: 'Fred'
+  },
+  
+  // syntax alternative to send data into the body
+  // method post
+  // only the value is sent, not the key
+  data: 'Country=Brasil&amp;City=Belo Horizonte',
+
+  // `timeout` specifies the number of milliseconds before the request times out.
+  // If the request takes longer than `timeout`, the request will be aborted.
+  timeout: 1000, // default is `0` (no timeout)
+
+  // `withCredentials` indicates whether or not cross-site Access-Control requests
+  // should be made using credentials
+  withCredentials: false, // default
+
+  // `adapter` allows custom handling of requests which makes testing easier.
+  // Return a promise and supply a valid response (see lib/adapters/README.md).
+  adapter: function (config) {
+    /* ... */
+  },
+
+  // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.
+  // This will set an `Authorization` header, overwriting any existing
+  // `Authorization` custom headers you have set using `headers`.
+  // Please note that only HTTP Basic auth is configurable through this parameter.
+  // For Bearer tokens and such, use `Authorization` custom headers instead.
+  auth: {
+    username: 'janedoe',
+    password: 's00pers3cret'
+  },
+
+  // `responseType` indicates the type of data that the server will respond with
+  // options are: 'arraybuffer', 'document', 'json', 'text', 'stream'
+  //   browser only: 'blob'
+  responseType: 'json', // default
+
+  // `responseEncoding` indicates encoding to use for decoding responses (Node.js only)
+  // Note: Ignored for `responseType` of 'stream' or client-side requests
+  responseEncoding: 'utf8', // default
+
+  // `xsrfCookieName` is the name of the cookie to use as a value for xsrf token
+  xsrfCookieName: 'XSRF-TOKEN', // default
+
+  // `xsrfHeaderName` is the name of the http header that carries the xsrf token value
+  xsrfHeaderName: 'X-XSRF-TOKEN', // default
+
+  // `onUploadProgress` allows handling of progress events for uploads
+  // browser only
+  onUploadProgress: function (progressEvent) {
+    // Do whatever you want with the native progress event
+  },
+
+  // `onDownloadProgress` allows handling of progress events for downloads
+  // browser only
+  onDownloadProgress: function (progressEvent) {
+    // Do whatever you want with the native progress event
+  },
+
+  // `maxContentLength` defines the max size of the http response content in bytes allowed in node.js
+  maxContentLength: 2000,
+
+  // `maxBodyLength` (Node only option) defines the max size of the http request content in bytes allowed
+  maxBodyLength: 2000,
+
+  // `validateStatus` defines whether to resolve or reject the promise for a given
+  // HTTP response status code. If `validateStatus` returns `true` (or is set to `null`
+  // or `undefined`), the promise will be resolved; otherwise, the promise will be
+  // rejected.
+  validateStatus: function (status) {
+    return status &gt;= 200 &amp;&amp; status &lt; 300; // default
+  },
+
+  // `maxRedirects` defines the maximum number of redirects to follow in node.js.
+  // If set to 0, no redirects will be followed.
+  maxRedirects: 5, // default
+
+  // `socketPath` defines a UNIX Socket to be used in node.js.
+  // e.g. '/var/run/docker.sock' to send requests to the docker daemon.
+  // Only either `socketPath` or `proxy` can be specified.
+  // If both are specified, `socketPath` is used.
+  socketPath: null, // default
+
+  // `httpAgent` and `httpsAgent` define a custom agent to be used when performing http
+  // and https requests, respectively, in node.js. This allows options to be added like
+  // `keepAlive` that are not enabled by default.
+  httpAgent: new http.Agent({ keepAlive: true }),
+  httpsAgent: new https.Agent({ keepAlive: true }),
+
+  // `proxy` defines the hostname, port, and protocol of the proxy server.
+  // You can also define your proxy using the conventional `http_proxy` and
+  // `https_proxy` environment variables. If you are using environment variables
+  // for your proxy configuration, you can also define a `no_proxy` environment
+  // variable as a comma-separated list of domains that should not be proxied.
+  // Use `false` to disable proxies, ignoring environment variables.
+  // `auth` indicates that HTTP Basic auth should be used to connect to the proxy, and
+  // supplies credentials.
+  // This will set an `Proxy-Authorization` header, overwriting any existing
+  // `Proxy-Authorization` custom headers you have set using `headers`.
+  // If the proxy server uses HTTPS, then you must set the protocol to `https`. 
+  proxy: {
+    protocol: 'https',
+    host: '127.0.0.1',
+    port: 9000,
+    auth: {
+      username: 'mikeymike',
+      password: 'rapunz3l'
+    }
+  },
+
+  // `cancelToken` specifies a cancel token that can be used to cancel the request
+  // (see Cancellation section below for details)
+  cancelToken: new CancelToken(function (cancel) {
+  }),
+
+  // an alternative way to cancel Axios requests using AbortController
+  signal: new AbortController().signal,
+
+  // `decompress` indicates whether or not the response body should be decompressed 
+  // automatically. If set to `true` will also remove the 'content-encoding' header 
+  // from the responses objects of all decompressed responses
+  // - Node only (XHR cannot turn off decompression)
+  decompress: true // default
+
+  // `insecureHTTPParser` boolean.
+  // Indicates where to use an insecure HTTP parser that accepts invalid HTTP headers.
+  // This may allow interoperability with non-conformant HTTP implementations.
+  // Using the insecure parser should be avoided.
+  // see options https://nodejs.org/dist/latest-v12.x/docs/api/http.html#http_http_request_url_options_callback
+  // see also https://nodejs.org/en/blog/vulnerability/february-2020-security-releases/#strict-http-header-parsing-none
+  insecureHTTPParser: undefined // default
+
+  // transitional options for backward compatibility that may be removed in the newer versions
+  transitional: {
+    // silent JSON parsing mode
+    // `true`  - ignore JSON parsing errors and set response.data to null if parsing failed (old behaviour)
+    // `false` - throw SyntaxError if JSON parsing failed (Note: responseType must be set to 'json')
+    silentJSONParsing: true, // default value for the current Axios version
+
+    // try to parse the response string as JSON even if `responseType` is not 'json'
+    forcedJSONParsing: true,
+    
+    // throw ETIMEDOUT error instead of generic ECONNABORTED on request timeouts
+    clarifyTimeoutError: false,
+  }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="response-schema">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#response-schema">#</doc-anchor-trigger>
+        <span>Response Schema</span>
+    </h2>
+</doc-anchor-target>
+<p>The response for a request contains the following information.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">{
+  // `data` is the response that was provided by the server
+  data: {},
+
+  // `status` is the HTTP status code from the server response
+  status: 200,
+
+  // `statusText` is the HTTP status message from the server response
+  statusText: 'OK',
+
+  // `headers` the HTTP headers that the server responded with
+  // All header names are lower cased and can be accessed using the bracket notation.
+  // Example: `response.headers['content-type']`
+  headers: {},
+
+  // `config` is the config that was provided to `axios` for the request
+  config: {},
+
+  // `request` is the request that generated this response
+  // It is the last ClientRequest instance in node.js (in redirects)
+  // and an XMLHttpRequest instance in the browser
+  request: {}
+}</code></pre>
+</doc-codeblock></div>
+<p>When using <code v-pre>then</code>, you will receive the response as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.get('/user/12345')
+  .then(function (response) {
+    console.log(response.data);
+    console.log(response.status);
+    console.log(response.statusText);
+    console.log(response.headers);
+    console.log(response.config);
+  });</code></pre>
+</doc-codeblock></div>
+<p>When using <code v-pre>catch</code>, or passing a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then">rejection callback</a> as second parameter of <code v-pre>then</code>, the response will be available through the <code v-pre>error</code> object as explained in the <doc-anchor-trigger to="#handling-errors">Handling Errors</doc-anchor-trigger> section.</p>
+<doc-anchor-target id="config-defaults">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#config-defaults">#</doc-anchor-trigger>
+        <span>Config Defaults</span>
+    </h2>
+</doc-anchor-target>
+<p>You can specify config defaults that will be applied to every request.</p>
+<doc-anchor-target id="global-axios-defaults">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#global-axios-defaults">#</doc-anchor-trigger>
+        <span>Global axios defaults</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.defaults.baseURL = 'https://api.example.com';
+
+// Important: If axios is used with multiple domains, the AUTH_TOKEN will be sent to all of them.
+// See below for an example using Custom instance defaults instead.
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="custom-instance-defaults">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-instance-defaults">#</doc-anchor-trigger>
+        <span>Custom instance defaults</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Set config defaults when creating the instance
+const instance = axios.create({
+  baseURL: 'https://api.example.com'
+});
+
+// Alter defaults after instance has been created
+instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="config-order-of-precedence">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#config-order-of-precedence">#</doc-anchor-trigger>
+        <span>Config order of precedence</span>
+    </h3>
+</doc-anchor-target>
+<p>Config will be merged with an order of precedence. The order is library defaults found in <a href="https://github.com/axios/axios/blob/master/lib/defaults.js#L28">lib/defaults.js</a>, then <code v-pre>defaults</code> property of the instance, and finally <code v-pre>config</code> argument for the request. The latter will take precedence over the former. Here&#x27;s an example.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Create an instance using the config defaults provided by the library
+// At this point the timeout config value is `0` as is the default for the library
+const instance = axios.create();
+
+// Override timeout default for the library
+// Now all requests using this instance will wait 2.5 seconds before timing out
+instance.defaults.timeout = 2500;
+
+// Override timeout for this request as it's known to take a long time
+instance.get('/longRequest', {
+  timeout: 5000
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="interceptors">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#interceptors">#</doc-anchor-trigger>
+        <span>Interceptors</span>
+    </h2>
+</doc-anchor-target>
+<p>You can intercept requests or responses before they are handled by <code v-pre>then</code> or <code v-pre>catch</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+
+// Add a response interceptor
+axios.interceptors.response.use(function (response) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response;
+  }, function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  });</code></pre>
+</doc-codeblock></div>
+<p>If you need to remove an interceptor later you can.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
+axios.interceptors.request.eject(myInterceptor);</code></pre>
+</doc-codeblock></div>
+<p>You can add interceptors to a custom instance of axios.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const instance = axios.create();
+instance.interceptors.request.use(function () {/*...*/});</code></pre>
+</doc-codeblock></div>
+<p>When you add request interceptors, they are presumed to be asynchronous by default. This can cause a delay
+in the execution of your axios request when the main thread is blocked (a promise is created under the hood for
+the interceptor and your request gets put on the bottom of the call stack). If your request interceptors are synchronous you can add a flag
+to the options object that will tell axios to run the code synchronously and avoid any delays in request execution.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.interceptors.request.use(function (config) {
+  config.headers.test = 'I am only a header!';
+  return config;
+}, null, { synchronous: true });</code></pre>
+</doc-codeblock></div>
+<p>If you want to execute a particular interceptor based on a runtime check,
+you can add a <code v-pre>runWhen</code> function to the options object. The interceptor will not be executed <strong>if and only if</strong> the return
+of <code v-pre>runWhen</code> is <code v-pre>false</code>. The function will be called with the config
+object (don&#x27;t forget that you can bind your own arguments to it as well.) This can be handy when you have an
+asynchronous request interceptor that only needs to run at certain times.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">function onGetCall(config) {
+  return config.method === 'get';
+}
+axios.interceptors.request.use(function (config) {
+  config.headers.test = 'special get headers';
+  return config;
+}, null, { runWhen: onGetCall });</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="handling-errors">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#handling-errors">#</doc-anchor-trigger>
+        <span>Handling Errors</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.get('/user/12345')
+  .catch(function (error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      // The request was made but no response was received
+      // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+      // http.ClientRequest in node.js
+      console.log(error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.log('Error', error.message);
+    }
+    console.log(error.config);
+  });</code></pre>
+</doc-codeblock></div>
+<p>Using the <code v-pre>validateStatus</code> config option, you can define HTTP code(s) that should throw an error.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.get('/user/12345', {
+  validateStatus: function (status) {
+    return status &lt; 500; // Resolve only if the status code is less than 500
+  }
+})</code></pre>
+</doc-codeblock></div>
+<p>Using <code v-pre>toJSON</code> you get an object with more information about the HTTP error.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.get('/user/12345')
+  .catch(function (error) {
+    console.log(error.toJSON());
+  });</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="cancellation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#cancellation">#</doc-anchor-trigger>
+        <span>Cancellation</span>
+    </h2>
+</doc-anchor-target>
+<p>You can cancel a request using a <em>cancel token</em>.</p>
+<blockquote>
+<p>The axios cancel token API is based on the withdrawn <a href="https://github.com/tc39/proposal-cancelable-promises">cancelable promises proposal</a>.</p>
+</blockquote>
+<p>You can create a cancel token using the <code v-pre>CancelToken.source</code> factory as shown below:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.get('/user/12345', {
+  cancelToken: source.token
+}).catch(function (thrown) {
+  if (axios.isCancel(thrown)) {
+    console.log('Request canceled', thrown.message);
+  } else {
+    // handle error
+  }
+});
+
+axios.post('/user/12345', {
+  name: 'new name'
+}, {
+  cancelToken: source.token
+})
+
+// cancel the request (the message parameter is optional)
+source.cancel('Operation canceled by the user.');</code></pre>
+</doc-codeblock></div>
+<p>You can also create a cancel token by passing an executor function to the <code v-pre>CancelToken</code> constructor:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const CancelToken = axios.CancelToken;
+let cancel;
+
+axios.get('/user/12345', {
+  cancelToken: new CancelToken(function executor(c) {
+    // An executor function receives a cancel function as a parameter
+    cancel = c;
+  })
+});
+
+// cancel the request
+cancel();</code></pre>
+</doc-codeblock></div>
+<p>Axios supports AbortController to abort requests in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#aborting_a_fetch"><code v-pre>fetch API</code></a> way:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const controller = new AbortController();
+
+axios.get('/foo/bar', {
+   signal: controller.signal
+}).then(function(response) {
+   //...
+});
+// cancel the request
+controller.abort()</code></pre>
+</doc-codeblock></div>
+<blockquote>
+<p>Note: you can cancel several requests with the same cancel token/abort controller.
+If a cancellation token is already cancelled at the moment of starting an Axios request, then the request is cancelled immediately, without any attempts to make real request.</p>
+</blockquote>
+<doc-anchor-target id="using-applicationx-www-form-urlencoded-format">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#using-applicationx-www-form-urlencoded-format">#</doc-anchor-trigger>
+        <span>Using application/x-www-form-urlencoded format</span>
+    </h2>
+</doc-anchor-target>
+<p>By default, axios serializes JavaScript objects to <code v-pre>JSON</code>. To send data in the <code v-pre>application/x-www-form-urlencoded</code> format instead, you can use one of the following options.</p>
+<doc-anchor-target id="browser">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#browser">#</doc-anchor-trigger>
+        <span>Browser</span>
+    </h3>
+</doc-anchor-target>
+<p>In a browser, you can use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"><code v-pre>URLSearchParams</code></a> API as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const params = new URLSearchParams();
+params.append('param1', 'value1');
+params.append('param2', 'value2');
+axios.post('/foo', params);</code></pre>
+</doc-codeblock></div>
+<blockquote>
+<p>Note that <code v-pre>URLSearchParams</code> is not supported by all browsers (see <a href="http://www.caniuse.com/#feat=urlsearchparams">caniuse.com</a>), but there is a <a href="https://github.com/WebReflection/url-search-params">polyfill</a> available (make sure to polyfill the global environment).</p>
+</blockquote>
+<p>Alternatively, you can encode data using the <a href="https://github.com/ljharb/qs"><code v-pre>qs</code></a> library:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const qs = require('qs');
+axios.post('/foo', qs.stringify({ 'bar': 123 }));</code></pre>
+</doc-codeblock></div>
+<p>Or in another way (ES6),</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">import qs from 'qs';
+const data = { 'bar': 123 };
+const options = {
+  method: 'POST',
+  headers: { 'content-type': 'application/x-www-form-urlencoded' },
+  data: qs.stringify(data),
+  url,
+};
+axios(options);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="nodejs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#nodejs">#</doc-anchor-trigger>
+        <span>Node.js</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="query-string">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#query-string">#</doc-anchor-trigger>
+        <span>Query string</span>
+    </h4>
+</doc-anchor-target>
+<p>In node.js, you can use the <a href="https://nodejs.org/api/querystring.html"><code v-pre>querystring</code></a> module as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const querystring = require('querystring');
+axios.post('http://something.com/', querystring.stringify({ foo: 'bar' }));</code></pre>
+</doc-codeblock></div>
+<p>or <a href="https://nodejs.org/api/url.html#url_class_urlsearchparams">&#x27;URLSearchParams&#x27;</a> from <a href="https://nodejs.org/api/url.html">&#x27;url module&#x27;</a> as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const url = require('url');
+const params = new url.URLSearchParams({ foo: 'bar' });
+axios.post('http://something.com/', params.toString());</code></pre>
+</doc-codeblock></div>
+<p>You can also use the <a href="https://github.com/ljharb/qs"><code v-pre>qs</code></a> library.</p>
+<doc-anchor-target id="note-1">
+    <h6>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#note-1">#</doc-anchor-trigger>
+        <span>NOTE</span>
+    </h6>
+</doc-anchor-target>
+<p>The <code v-pre>qs</code> library is preferable if you need to stringify nested objects, as the <code v-pre>querystring</code> method has known issues with that use case (<a href="https://github.com/nodejs/node-v0.x-archive/issues/1665">https://github.com/nodejs/node-v0.x-archive/issues/1665</a>).</p>
+<doc-anchor-target id="form-data">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#form-data">#</doc-anchor-trigger>
+        <span>Form data</span>
+    </h4>
+</doc-anchor-target>
+<p>In node.js, you can use the <a href="https://github.com/form-data/form-data"><code v-pre>form-data</code></a> library as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">const FormData = require('form-data');
+ 
+const form = new FormData();
+form.append('my_field', 'my value');
+form.append('my_buffer', new Buffer(10));
+form.append('my_file', fs.createReadStream('/foo/bar.jpg'));
+
+axios.post('https://example.com', form, { headers: form.getHeaders() })</code></pre>
+</doc-codeblock></div>
+<p>Alternatively, use an interceptor:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">axios.interceptors.request.use(config =&gt; {
+  if (config.data instanceof FormData) {
+    Object.assign(config.headers, config.data.getHeaders());
+  }
+  return config;
+});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="semver">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#semver">#</doc-anchor-trigger>
+        <span>Semver</span>
+    </h2>
+</doc-anchor-target>
+<p>Until axios reaches a <code v-pre>1.0</code> release, breaking changes will be released with a new minor version. For example <code v-pre>0.5.1</code>, and <code v-pre>0.5.4</code> will have the same API, but <code v-pre>0.6.0</code> will have breaking changes.</p>
+<doc-anchor-target id="promises">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#promises">#</doc-anchor-trigger>
+        <span>Promises</span>
+    </h2>
+</doc-anchor-target>
+<p>axios depends on a native ES6 Promise implementation to be <a href="http://caniuse.com/promises">supported</a>.
+If your environment doesn&#x27;t support ES6 Promises, you can <a href="https://github.com/jakearchibald/es6-promise">polyfill</a>.</p>
+<doc-anchor-target id="typescript">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#typescript">#</doc-anchor-trigger>
+        <span>TypeScript</span>
+    </h2>
+</doc-anchor-target>
+<p>axios includes <a href="http://typescriptlang.org">TypeScript</a> definitions and a type guard for axios errors.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-typescript"><code v-pre class="language-typescript">let user: User = null;
+try {
+  const { data } = await axios.get('/user?ID=12345');
+  user = data.userDetails;
+} catch (error) {
+  if (axios.isAxiosError(error)) {
+    handleAxiosError(error);
+  } else {
+    handleUnexpectedError(error);
+  }
+}</code></pre>
+</doc-codeblock></div>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/axios/8.6-minexample/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">8.6 Minimal Example</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/centos/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">CentOS</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "8.7 Axios Exa", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

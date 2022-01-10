@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://handover.docs.dev.isa.co.za/sitemap.xml.gz

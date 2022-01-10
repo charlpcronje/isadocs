@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>Fortinet FortiWeb Agent</title>
+    <meta name="title" content="Fortinet FortiWeb Agent">
+    <meta name="description" content="When I stated yesterday afternoon I had almost no knowledge about perl, perl modules, sub-routines. How" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://pulse.docs.dev.isa.co.za/agents/fortinet/fortiweb/">
+    <meta property="og:title" content="Fortinet FortiWeb Agent">
+    <meta property="og:description" content="When I stated yesterday afternoon I had almost no knowledge about perl, perl modules, sub-routines. How">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://pulse.docs.dev.isa.co.za/agents/fortinet/fortiweb/">
+    <meta property="twitter:title" content="Fortinet FortiWeb Agent">
+    <meta property="twitter:description" content="When I stated yesterday afternoon I had almost no knowledge about perl, perl modules, sub-routines. How">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695116445783" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695116445783" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695116445783" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695116445783" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Tools Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Tools</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://pulse.docs.dev.isa.co.za/">Handy Tools</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://pulse.docs.dev.isa.co.za/">Handy Tools</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="fortinet-fortiweb-agent" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fortinet-fortiweb-agent">#</doc-anchor-trigger>
+        <span>Fortinet FortiWeb Agent</span>
+    </h1>
+</doc-anchor-target>
+<ul>
+<li>When I stated yesterday afternoon I had almost no knowledge about <code v-pre>perl</code>, <code v-pre>perl</code> modules, <code v-pre>sub-routines</code>. How <code v-pre>includes</code> works. I did not know how the vendor <code v-pre>modules</code> work or how to get to them of reference them and how to install their dependencies</li>
+<li>The structure of an agent was also strange to understand is it was not clear which scripts was vendor scripts or modules and what was done for <code v-pre>Pulse</code></li>
+<li>So to parse an Expect script and to do it in a way that fits with the rest of the system I first had to figure out how the system works and where all the dependencies are</li>
+</ul>
+<doc-anchor-target id="1-location">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-location">#</doc-anchor-trigger>
+        <span>1. Location</span>
+    </h2>
+</doc-anchor-target>
+<blockquote>
+<p>The Fortinet FortiWeb SSH Agent is now located:</p>
+</blockquote>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">cd /opt/pulse/server/agents/server-side/system/ssh/fortinet/fortinetFortiwebPlatfrom/expect/ </code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="1-structure">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-structure">#</doc-anchor-trigger>
+        <span>1. Structure</span>
+    </h2>
+</doc-anchor-target>
+<p>The Fortinet FortiWeb Agent is derived from the Fortinet FortiGate Firewall, and I used the Firewall&#x27;s agent as a starting point for this agent.</p>
+<blockquote>
+<p>The firewall&#x27;s files spread all over the server and there were references to libraries and dependencies that I could not locate on the server.</p>
+</blockquote>
+<ul>
+<li>I did some research and I found all the referenced libraries with their dependencies and figured out how to install the libraries on my development environment. This is important so so that the error checking, code completion and warnings function the way it should.</li>
+<li>Except for the vendor libraries there are a few local custom scripts referenced:
+<ul>
+<li>MODULE: use PulseOutput</li>
+<li>SCRIPT: require &quot;/usr/local/mss/server/agents/server-side/system/ssh/fortinet/fortigateFirewallPlatform/expect/datablock/lib_parse.pl&quot;;</li>
+<li>SCRIPT: require &quot;/usr/local/mss/server/agents/server-side/system/ssh/fortinet/fortigateFirewallPlatform/expect/infoblock/lib_parse.pl&quot;;</li>
+<li>SCRIPT:require &quot;/usr/local/mss/server/agents/server-side/system/ssh/fortinet/fortigateFirewallPlatform/expect/backup/lib_parse.pl&quot;;</li>
+</ul>
+</li>
+</ul>
+<doc-anchor-target id="3-perl-syntax">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-perl-syntax">#</doc-anchor-trigger>
+        <span>3. Perl Syntax</span>
+    </h2>
+</doc-anchor-target>
+<blockquote>
+<p><em>The <code v-pre>use</code> statement refers to a perl module. The modules can be identified in the <code v-pre>file system</code> by it&#x27;s <code v-pre>.pm (Perl Module)</code> file extension</em>.</p>
+</blockquote>
+<p>By default all <code v-pre>perl</code> modules are located in <code v-pre>/usr/bin/perl</code>.</p>
+<blockquote>
+<p>If a folder is referenced then all the <code v-pre>.pm</code> files in that folder will be accessible but not yet included for compilation.</p>
+</blockquote>
+<p>In the referenced folder below:  <code v-pre>/usr/local/mss/server/lib</code> the following files exists:</p>
+<blockquote>
+<ul>
+<li>Logging.php</li>
+<li>printing_functions.pl</li>
+<li>PulseOutput.pm</li>
+<li>snmp_process_functions.pl</li>
+</ul>
+</blockquote>
+<p>In the <code v-pre>automation.pl</code>:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl"># Tells perl to change the modules folder to '/usr/local/mss/server/lib' and the references the 'PulseOutput' module
+use lib '/usr/local/mss/server/lib';
+use PulseOutput qw(:All);</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>There is also a <code v-pre>qw</code> directive. The <code v-pre>qw</code> directive specifies which part of the module to <code v-pre>use</code>. In the code above the <code v-pre>:all</code> directive means that perl must import the entire module into the script.</li>
+</ul>
+<p>The <code v-pre>.pl</code> files are normal <code v-pre>perl</code> scripts that would be accessible with the <code v-pre>require</code> directive. So <code v-pre>modules</code> are referenced by by <code v-pre>use</code> and <code v-pre>scripts</code> are referenced<code v-pre>by</code>require&#x60;</p>
+<blockquote>
+<p><strong>IMPORTANT:</strong> <code v-pre>Absolute paths</code> must be used for <code v-pre>.pl</code> scripts to <code v-pre>require</code> them</p>
+</blockquote>
+<doc-anchor-target id="4-perl-sub-routines-modules-and-packages">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-perl-sub-routines-modules-and-packages">#</doc-anchor-trigger>
+        <span>4. Perl Sub-Routines Modules and Packages</span>
+    </h2>
+</doc-anchor-target>
+<p>The advantage of using modules are that each module has a <code v-pre>package</code> statement right at the top. This gives all the <code v-pre>sub-routines</code> (Perl&#x27;s word for a <code v-pre>function</code>) a <code v-pre>namespace</code> (<code v-pre>Scope</code>) that it runs in, so two <code v-pre>functions</code> (<code v-pre>sub-routines</code>) with the same name won&#x27;t overwrite each other</p>
+<doc-anchor-target id="5-perl-sub-routine">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-perl-sub-routine">#</doc-anchor-trigger>
+        <span>5. Perl Sub-Routine</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">#!/usr/bin/perl
+
+# Function definition
+sub Hello {
+   print &quot;Hello, World!\n&quot;;
+}
+
+# Function call
+Hello();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="6-perl-package-module">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-perl-package-module">#</doc-anchor-trigger>
+        <span>6. Perl Package (Module)</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>Perl Module: <code v-pre>Say.pm</code></strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">#!/usr/bin/perl
+package Say;
+
+# Function definition
+sub Hello {
+   print &quot;Hello, World!\n&quot;;
+}
+
+# Function call
+Hello();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="7-referencing-a-module-and-sub-routine">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-referencing-a-module-and-sub-routine">#</doc-anchor-trigger>
+        <span>7. Referencing a module and sub-routine</span>
+    </h2>
+</doc-anchor-target>
+<p><strong>Perl Script: <code v-pre>hello.pl</code></strong></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">#!/usr/bin/perl
+use Say;
+
+# Call sub-routine in Module
+Say::hello();</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="8-now-that-i-know-all-of-this">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-now-that-i-know-all-of-this">#</doc-anchor-trigger>
+        <span>8. Now that I know all of this</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li>I googled and found that <code v-pre>IntelliJ Idea</code> supports Perl development. The same company also created Android Studio and PHP Storm which are both excellent IDE&#x27;s so I installed it.</li>
+<li>I mounted my <code v-pre>Samba</code> share (<code v-pre>\\192.168.9.23\charl</code>) as a network drive <code v-pre>P:</code></li>
+<li>In <code v-pre>IntelliJ Idea</code> I Added <code v-pre>P:\code\server\agents\</code> as the root of my <code v-pre>Perl</code> Project</li>
+</ul>
+<doc-anchor-target id="9-updates">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#9-updates">#</doc-anchor-trigger>
+        <span>9. Updates</span>
+    </h2>
+</doc-anchor-target>
+<p>I changed all the scripts referenced like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">require &quot;/usr/local/mss/server/agents/server-side/system/ssh/fortinet/fortigateFirewallPlatform/expect/datablock/lib_parse.pl&quot;;</code></pre>
+</doc-codeblock></div>
+<p>I changed them to be <code v-pre>modules</code> and now reference them like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">use backupBlock::parseBackup;
+use dataBlock::parseData;
+use infoBlock::parseInfo;</code></pre>
+</doc-codeblock></div>
+<p><code v-pre>backupBlock</code>,<code v-pre>dataBlock</code>,<code v-pre>infoBlock</code> are all folders located in the <code v-pre>expect</code> folder that is located in the <code v-pre>fortinetFortiWebPlatform</code> folder:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">┤fortinetFortiWebPlatform
+└─┤ expect
+  ├─┤ backupBlock
+  │ └─ parseInfo.pm
+  ├─┤ dataBlock
+  │ └─ parseData.pm
+  ├─┤ infoBlock
+  │ └─ parseInfo.pm</code></pre>
+</doc-codeblock></div>
+<p>I did this so that I don&#x27;t have to use the <code v-pre>Absolute Path</code> to <code v-pre>require</code> them because they are located outside of my <code v-pre>Samba</code> so my IDE can&#x27;t locate them for build purposes or code completion or code analysis.</p>
+<p>If you module has name package <code v-pre>backupBlock::parseBackup</code>; or maybe even <code v-pre>blocks::backup::Parser</code> then is means the modules location is:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">./backupBlock/parseBackup.pm
+
+# Or
+
+./blocks/backup/Parser.pm</code></pre>
+</doc-codeblock></div>
+<p>The sign <code v-pre>::</code> is the same as <code v-pre>/</code> for directory path in which the module will be found. Any <code v-pre>.pm</code> module file in the <code v-pre>./</code> directory will be found of course if you use make right name for it.</p>
+<doc-anchor-target id="10-finally">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#10-finally">#</doc-anchor-trigger>
+        <span>10. Finally</span>
+    </h2>
+</doc-anchor-target>
+<p>The <code v-pre>scripts</code> above used to be referenced by calling some of the sub-routines:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">#!/usr/bin/perl
+require &quot;/usr/local/mss/server/agents/server-side/system/ssh/fortinet/fortigateFirewallPlatform/expect/datablock/lib_parse.pl&quot;;
+
+# Some code
+
+%system_datablocks=datablock_parse($output);</code></pre>
+</doc-codeblock></div>
+<p>If any one of those scripts had a sub-routine with the same name it would have stopped working</p>
+<p>Those sub-routines can now be accessed like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-perl"><code v-pre class="language-perl">#!/usr/bin/perl
+use dataBlock::parseData;
+
+# Some code
+
+%systemDataBlocks = parseData::Parse($output);</code></pre>
+</doc-codeblock></div>
+<p><code v-pre>dataBlock</code> references a folder that contains a <code v-pre>.pm</code> file called <code v-pre>parseData.pm</code></p>
+<p>Each one of the <code v-pre>modules</code> have the same sub-routine called <code v-pre>Parse</code></p>
+<doc-anchor-target id="11-creating-a-new-agent">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#11-creating-a-new-agent">#</doc-anchor-trigger>
+        <span>11. Creating a new Agent</span>
+    </h2>
+</doc-anchor-target>
+<p>In the future to create a new <code v-pre>Expect</code> script</p>
+<ul>
+<li>Navigate to <code v-pre>/opt/pulse/server/agents/server-side/system/ssh/fortinet/</code>;</li>
+</ul>
+<p>Copy the <code v-pre>TemplatePlatform</code> folder to <code v-pre>[NewPlatform]</code> folder.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">cp -R ./TemplatePlatform /opt/pulse/server/agents/server-side/system/ssh/fortinet/[newPlatform]</code></pre>
+</doc-codeblock></div>
+<blockquote>
+<p>Things to note in the <code v-pre>automation.pl</code> script</p>
+</blockquote>
+<ol>
+<li>Near the top, marked as: <code v-pre># PULSE INCLUDES</code></li>
+<li>The <code v-pre>PulseOutput::setOutputLevel($outputLevel);</code> is the indentation if the output <code v-pre>xml</code></li>
+<li><code v-pre>output(1,&quot;Script start&quot;)</code> refers to 1 = level above <code v-pre>our $outputLevel = 3;</code> and 2nd argument &quot;Text to output&quot;</li>
+<li>Look at DB Query at <code v-pre># Get list of systems</code>
+<ol>
+<li>Update the following ID&#x27;s to match your agent:
+<ol>
+<li><code v-pre>monitor_agent_id</code></li>
+<li><code v-pre>monitor_operatingSystem_id</code></li>
+<li><code v-pre>monitor_platform_id</code></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Look at DB Query at <code v-pre># Region DB Connection</code>
+<ol>
+<li>Update the following ID&#x27;s to match your agent:
+<ol>
+<li><code v-pre>monitor_agent_id</code></li>
+<li><code v-pre>monitor_operatingSystem_id</code></li>
+<li><code v-pre>monitor_platform_id</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<doc-anchor-target id="13-existing-sub-routines-for-data-parsing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#13-existing-sub-routines-for-data-parsing">#</doc-anchor-trigger>
+        <span>13. Existing sub-routines for data parsing</span>
+    </h2>
+</doc-anchor-target>
+<p><code v-pre>snmp_process_functions.pl</code> file</p>
+<ul>
+<li>functionPlain()</li>
+<li>functionPlainComplex()</li>
+<li>functionRunningProcesses()</li>
+<li>functionUptime()</li>
+<li>functionInterfaceStatus()</li>
+<li>functionInterfaceDiff</li>
+<li>functionSwitch</li>
+<li>functionEqualTo</li>
+<li>functionSwap</li>
+<li>functionNotEqualTo</li>
+<li>functionInterfaceErrors</li>
+<li>functionPolicyInstall</li>
+<li>functionHashMemory</li>
+<li>functionFirewallMemory</li>
+<li>functionCheckpointCPU</li>
+<li>functionCheckpointDisk</li>
+<li>functionCheckpointIPSEC</li>
+<li>functionCheckpointVPNUsers</li>
+<li>functionCheckpointVPNSites</li>
+<li>functionDroppedPackets</li>
+<li>getData</li>
+<li>getTable</li>
+<li>functionHrStorageDisk</li>
+<li>functionHrStorageRam</li>
+<li>functionHrStorageSwap</li>
+<li>functionHrSwRun</li>
+<li>functionTcpNetstat</li>
+<li>functionHrProcessorLoadPerCore</li>
+<li>functionHrProcessorLoad</li>
+<li>writeToLog</li>
+</ul>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Pulse</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/agents/checktypesandlinks/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">Agent Checks / Check Types and Linking</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "Fortinet FortiWeb Agent", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

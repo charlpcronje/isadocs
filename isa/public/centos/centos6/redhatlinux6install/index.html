@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>redHatLinux6Install</title>
+    <meta name="title" content="redHatLinux6Install">
+    <meta name="description" content="9 Red Hat Linux 6.0The Official Red Hat Linux Installation GuideRed Hat Software, Inc.Durham, North Carolina" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://isa.docs.dev.isa.co.za/centos/centos6/redhatlinux6install/">
+    <meta property="og:title" content="redHatLinux6Install">
+    <meta property="og:description" content="9 Red Hat Linux 6.0The Official Red Hat Linux Installation GuideRed Hat Software, Inc.Durham, North Carolina">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://isa.docs.dev.isa.co.za/centos/centos6/redhatlinux6install/">
+    <meta property="twitter:title" content="redHatLinux6Install">
+    <meta property="twitter:description" content="9 Red Hat Linux 6.0The Official Red Hat Linux Installation GuideRed Hat Software, Inc.Durham, North Carolina">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115866758" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115866758" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115866758" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Dev Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="redhatlinux6install" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#redhatlinux6install">#</doc-anchor-trigger>
+        <span>redHatLinux6Install</span>
+    </h1>
+</doc-anchor-target>
+<p>9
+Red Hat Linux 6.0The Official Red Hat Linux Installation GuideRed Hat Software, Inc.Durham, North Carolina
+Copyrightc1995, 1996, 1997, 1998, 1999 Red Hat Software, Inc.Red Hat is a registered trademark and the Red Hat Shadow Man logo, RPM, the RPM logo, and Glintare trademarks of Red Hat Software, Inc.Linux is a registered trademark of Linus Torvalds.Motif and UNIX are registered trademarks of The Open Group.Alpha is a trademark of Digital Equipment Corporation.SPARC is a registered trademark of SPARC International, Inc.  Products bearing the SPARC trade-marks are based on an architecture developed by Sun Microsystems, Inc.Netscape is a registered trademark of Netscape Communications Corporation in the United Statesand other countries.TrueType is a registered trademark of Apple Computer, Inc.Windows is a registered trademark of Microsoft Corporation.All other trademarks and copyrights referred to are the property of their respective owners.ISBN: 1-888172-28-2Revision: Inst-6.0-Print-RHS (04/99)Red Hat Software, Inc.2600 Meridian ParkwayDurham, NC 27713P. O. Box 13588Research Triangle Park, NC 27709(919) 547-0012http://www.redhat.comWhile every precaution has been taken in the  preparation of this book,  the publisher assumes noresponsibility for errors or omissions, or for damages resulting from the use of the information con-tained herein.TheOfficial Red Hat Linux Installation Guidemay be reproduced and distributed in whole or in part,in any medium, physical or electronic, so long as this copyright notice remains intact and unchangedon all copies. Commercial redistribution is permitted and encouraged, but you may not redistributeit, in whole or in part, under terms more restrictive than those under which you received it.Printed in Canada
+Contents1   New Features of Red Hat Linux 6.011.1  Installation-RelatedEnhancements  .............................11.2  DesktopandWindowManagers...............................31.3  MiscellaneousNewFeatures.................................42   Before You Begin52.1Getting Documentation....................................62.2  GettingtheRightRedHatLinuxComponents.......................62.3  ThingsYouShouldKnow...................................    102.4  InstallationMethods......................................    142.5  NeedaNetworkBootDisk? .................................    182.6  NeedaPCMCIASupportDiskette? .............................    182.7  InstallationClasses  ......................................    192.8  DiskPartitions.........................................    212.9  ANoteAboutKernelDrivers  ................................    312.10IfYouHaveProblems...  ...................................    322.11 OneLastNote .........................................    323   Starting the Installation333.1  TheInstallationProgramUserInterface...........................    333.2  StartingtheInstallationProgram...............................    363.3  BeginningtheInstallation...................................    39
+ivCONTENTS3.4  SelectinganInstallationMethod...............................    414   Local Media Installations434.1  SelectinganInstallationMethod...............................    434.2Installing from CD-ROM...................................    434.3Installing from a Hard Drive.................................    454.4Upgrading or Installing....................................    454.5  InstallationClass........................................    464.6  SCSISupport..........................................    474.7  CreatingPartitionsforRedHatLinux............................    484.8  InitializingSwapSpace ....................................    584.9  ForHardDriveInstallationsOnly...  ............................    584.10  Formatting Partitions   .....................................    604.11  Selecting and Installing Packages..............................    605   Network Installations655.1  SelectinganInstallationMethod...............................    655.2Installing via NFS   .  .  .....................................    685.3Installing via FTP   .  .  .....................................    695.4Installing via HTTP   .  .....................................    695.5Upgrading or Installing....................................    705.6  InstallationClass........................................    725.7  SCSISupport..........................................    745.8  CreatingPartitionsforRedHatLinux............................    745.9  InitializingSwapSpace ....................................    855.10  Formatting Partitions   .....................................    855.11  Selecting and Installing Packages..............................    866   Finishing the Installation916.1  ConfiguringaMouse .....................................    91
+CONTENTSv6.2  ConfiguringNetworking ...................................    926.3  ConfiguringtheTimeZone..................................    956.4  SelectingServicesforStartonReboot ............................    956.5  ConfiguringaPrinter .....................................    966.6  SettingaRootPassword  ...................................  1026.7  AuthenticationConfiguration ................................  1036.8  CreatingaBootDiskette  ...................................  1046.9Installing LILO.........................................  1056.10ConfiguringtheXWindowSystem .............................  1086.11 FinishingUp...  ........................................  1097   Finding Documentation1117.1  OnLineHelp..........................................  1117.2  HelpfromtheInternetCommunity .............................  1178   System Configuration1198.1  SystemConfigurationWithLinuxconf  ...........................  1208.2  SystemConfigurationwiththeControlPanel  .......................  1589   Package Management with RPM1739.1  RPMDesignGoals.......................................  1749.2  UsingRPM...........................................  1749.3  ImpressingYourFriendswithRPM .............................  1809.4  OtherRPMResources.....................................  18210 GnoRPM18310.1StartingGnoRPM .......................................  18410.2ThePackageDisplay  .....................................  18510.3  Installing New Packages   .  .  .................................  18710.4Configuration  .........................................  188
+viCONTENTS10.5PackageManipulation.....................................  19111 System Administration19511.1 FilesystemStructure......................................  19511.2 SpecialRedHatFileLocations ................................  19911.3 Users,GroupsandUser-PrivateGroups  ..........................  19911.4 ConfiguringConsoleAccess .................................  20311.5   ThefloppyGroup ......................................  20511.6 UserAuthenticationwithPAM................................  20611.7  Shadow Utilities........................................  20911.8 BuildingaCustomKernel  ..................................  21011.9 Sendmail ............................................  21411.10 Controlling Access to Services................................  21511.11AnonymousFTP........................................  21511.12NFSConfiguration.......................................  21611.13TheBootProcess,Init,andShutdown............................  21711.14RescueModes .........................................  228A   Getting Technical Support229A.1 AnOverviewofOurSupportPolicy.............................  229A.2 GettingSupport ........................................  231A.3 SupportFAQ(FrequentlyAskedQuestions) ........................  234B   Making Installation Diskettes237B.1  MakingaDisketteUnderMS-DOS  .............................  238B.2  MakingaDisketteUnderaLinux-likeO/S.........................  238C   An Introduction to Disk Partitions239C.1 HardDiskBasicConcepts  ..................................  239D   Package List247D.1 Amusements..........................................  249
+CONTENTSviiD.2 Applications ..........................................  252D.3 Development..........................................  288D.4   Documentation.........................................  306D.5 SystemEnvironment  .....................................  312D.6 UserInterface  .........................................  339E   General Parameters and Modules351E.1  CD-ROMparameters .....................................  352E.2  SCSIparameters........................................  353E.3  Ethernetparameters......................................  355F   Information Specific to Red Hat Linux/SPARC361F.1  SupportedHardware .....................................  361F.2  InstallationOverview.....................................  362F.3  ConsoleCommands......................................  363F.4  Ramdisk-basedInstallationCriteria.............................  363F.5  ChoosingaBootMethod ...................................  364F.6  ChoosinganInstallationMethod  ..............................  368F.7  InstallationUsingaSerialTerminal .............................  369F.8  SILOConfiguration ......................................  369F.9  Partitioning...........................................  369G   Glossary371H   Kickstart Installations381H.1 WheretoPutAKickstartFile.................................  381H.2 StartingaKickstartInstallation................................  383H.3 TheKickstartFile .......................................  383Index395Index of Packages405
+viiiCONTENTS
+PrefaceWelcome!  And thanks for your interest in Red Hat Linux.  We have what we think is the best Linuxdistribution on the market today, and we work hard to keep it that way.  Red Hat Linux 6.0 is thelatest in a long line of software from Red Hat Software. We hope you like it, and that you enjoy usingRed Hat Linux as much as we’ve enjoyed making it for you.While Linux is popular  and  well-known by a  certain segment of  the  computer-using population,there are many people out there that are only now hearing about Linux.  For this group of people,the following section should provide enough background to help you get acquainted with Linux andRed Hat Software.What is Linux?Back in August of 1991,  a student from Finland began a post to thecomp.os.minixnewsgroupwith the words:Hello everybody out there using minix -I’m doing a (free) operating system (just a hobby,won’t be big and professional like gnu) for386(486) AT clones.The student was Linus Torvalds, and the “hobby” he spoke of eventually became what we knowtoday as Linux.A full-featured POSIX-like operating system, Linux has been developed not just by Linus,  but byhundreds of programmers around the world.  The interesting thing about this is that this massive,world-wide development effort is largely uncoordinated. Sure, Linus calls the shots where the kernelis concerned, but Linux is more than just the kernel. There’s no management infrastructure; a studentin Russia gets a new motherboard, and writes a driver to support a neat feature the motherboard has.A system administrator in Maryland needs backup software, writes it, and gives it away to anyonethat needs it. The right things just seem to happen at the right time.
+xPrefaceAnother interesting thing is that Linux can be obtained for absolutely no money.  That’s right, mostof the software is available (at no charge) to anyone with the time and inclination to download it. Butnot everyone has that much time. . .What is Red Hat Linux?Enter a group of programmers based in North Carolina.  Their goal was to make it easier for peopleto give Linux a try. Like many other such groups, their approach was to bundle all the necessary bitsand pieces into a cohesivedistribution, relieving “newbies” from some of the more esoteric aspects ofbootstrapping a new operating system on their PCs.However, unlike other distributions, this one was fundamentally different.  The difference?  Insteadof  being  a  snapshot  of  a  hard  disk  that  had  a  working  copy  of  Linux  on  it,  or  a  set  of  diskettesfrom which different parts of the operating system could be dumped, this distribution was based onpackages.Software development in the Linux world is fast-paced, so new versions of old software come outcontinually. With other distributions, upgrading software was painful – a complete upgrade usuallymeant deleting everything on your hard drive and starting over.Each package provided a different piece of software, fully tested, configured, and ready to run. Wantto try a new editor? Download the package and install it. In seconds, you can give it a try. Don’t likeit? Issue a single command, and the package is removed.If that was all there was to it, this distribution would be pretty nifty. But being package-based meantthere was one additional advantage:This Linux distribution could be easily upgraded.By now you’ve probably guessed that the group of programmers in North Carolina is Red Hat Soft-ware, and the package-based distribution is Red Hat Linux.Since Red Hat Linux’s introduction in the summer of 1994, Linux and Red Hat Software have grownby leaps and bounds.   Much has  changed;  support for more esoteric hardware, huge increases inreliability, and the growing use of Linux by companies around the world.But much still remains the same.  Linux is still developed by people world-wide; Linus is still in-volved.   Red Hat Software  is still  located in North Carolina;  still trying to  make  Linux easier forpeople to use.And Red Hat Linux is still package-based; always has been, always will be.Since  the release of version 4.0,  Red Hat Linux runs  on three leading computing platforms:  Intelcompatible PCs, Digital Alpha computers, and Sun SPARC equipment.  Our unified source tree andthe benefits of RPM (Red Hat Package Management) technology enable us to deploy Red Hat Linuxfor each  platform  with  a  minimum  of  effort.   This  in  turn enables  our users to  manage  and  portsoftware between these platforms as easily as possible.We make Red Hat Linux available by unrestricted FTP from our site and many mirror sites on the</p>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/centos/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">SERVER SETUP</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/centos/phpextensions/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">Extensions</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "redHatLinux6Install", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

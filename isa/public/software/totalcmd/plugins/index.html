@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>Total Commander - Plugins</title>
+    <meta name="title" content="Total Commander - Plugins">
+    <meta name="description" content="Total commander is by far my fav file manager, it is a like VS Code in a way..." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://isa.docs.dev.isa.co.za/software/totalcmd/plugins/">
+    <meta property="og:title" content="Total Commander - Plugins">
+    <meta property="og:description" content="Total commander is by far my fav file manager, it is a like VS Code in a way...">
+    <meta property="og:image" content="https://habrastorage.org/files/e2b/2b2/fa9/e2b2b2fa99524fa8951f144edf6f2cf8.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://isa.docs.dev.isa.co.za/software/totalcmd/plugins/">
+    <meta property="twitter:title" content="Total Commander - Plugins">
+    <meta property="twitter:description" content="Total commander is by far my fav file manager, it is a like VS Code in a way...">
+    <meta property="twitter:image" content="https://habrastorage.org/files/e2b/2b2/fa9/e2b2b2fa99524fa8951f144edf6f2cf8.png">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115866758" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115866758" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115866758" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Dev Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="total-commander---plugins" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#total-commander---plugins">#</doc-anchor-trigger>
+        <span>Total Commander - Plugins</span>
+    </h1>
+</doc-anchor-target>
+<p>Total commander is by far my fav file manager, it is a like VS Code in a way...</p>
+<p>It seems quite plain at first but then you start using the plugins and realize the awesomeness!</p>
+<p><strong>Here is a list of plugins</strong></p>
+<doc-anchor-target id="1-redsmart">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-redsmart">#</doc-anchor-trigger>
+        <span>1. RedSmart</span>
+    </h2>
+</doc-anchor-target>
+<p>With this plugin you can get info about HDD and SSD, run some smart test and modify AAM/APM settings</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="https://www.ghisler.ch/board/viewtopic.php?f=6&amp;t=52272">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="1-redclipboard">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-redclipboard">#</doc-anchor-trigger>
+        <span>1. RedClipboard</span>
+    </h2>
+</doc-anchor-target>
+<p>Clipboard viewer and monitor</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="https://www.ghisler.ch/board/viewtopic.php?f=6&amp;t=52272">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="2-redclipboard">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-redclipboard">#</doc-anchor-trigger>
+        <span>2. RedClipboard</span>
+    </h2>
+</doc-anchor-target>
+<p>Clipboard viewer and monitor</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=wfx_redclipboard">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="3radminplg">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3radminplg">#</doc-anchor-trigger>
+        <span>3.RadminPlg</span>
+    </h2>
+</doc-anchor-target>
+<p>File system plugin for Total Commander to store records of Radmin-clients and to connect them with auto-login. After installation go to the network neighborhood to configure the plugin and specify the path to Radmin.exe and adm.dll. For groups of connections, you can create folders.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=radminplg">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="4-mp3-database-09-beta">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-mp3-database-09-beta">#</doc-anchor-trigger>
+        <span>4. MP3 Database 0.9 Beta</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=fsmp3base">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="5-sftp-plugin">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-sftp-plugin">#</doc-anchor-trigger>
+        <span>5. SFTP plugin</span>
+    </h2>
+</doc-anchor-target>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=sftp4tc">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="6-versions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#6-versions">#</doc-anchor-trigger>
+        <span>6. Versions</span>
+    </h2>
+</doc-anchor-target>
+<p>New version of plugin based on work by Fabio Chelly (<a href="http://totalcmd.net/plugring/versions.html">http://totalcmd.net/plugring/versions.html</a>).</p>
+<p>Allows to see the current version number of any program downloadable online.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=versions2">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="7-cloudmailru">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#7-cloudmailru">#</doc-anchor-trigger>
+        <span>7. CloudMailRu</span>
+    </h2>
+</doc-anchor-target>
+<p>cloud.mail.ru support for Total Commander. Download link (binaries and source code): <a href="https://github.com/pozitronik/CloudMailRu">https://github.com/pozitronik/CloudMailRu</a></p>
+<p><figure class="content-center">
+    <img src="https://habrastorage.org/files/e2b/2b2/fa9/e2b2b2fa99524fa8951f144edf6f2cf8.png" alt="Preview" />
+    <figcaption class="caption">Preview</figcaption>
+</figure>
+</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="https://github.com/pozitronik/CloudMailRu">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="8-http-11">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#8-http-11">#</doc-anchor-trigger>
+        <span>8. HTTP 1.1</span>
+    </h2>
+</doc-anchor-target>
+<p>New version of plugin based on work by Fabio Chelly (<a href="http://totalcmd.net/plugring/http.html">http://totalcmd.net/plugring/http.html</a>).</p>
+<p>Allows users to connect to websites via Total Commander and see links, pictures or any downloadable links as files.</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=http2">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="9-ntfs-filestreams">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#9-ntfs-filestreams">#</doc-anchor-trigger>
+        <span>9. NTFS FileStreams</span>
+    </h2>
+</doc-anchor-target>
+<p>New version of plugin based on work by Alexeev Alexander <a href="http://totalcmd.net/plugring/NTFSFileStreams.html">Open</a>.</p>
+<p>FS plugin allows to view/edit/create file streams for files on NTFS drives.
+Supports working with invalid file names (for example, with leading dots/spaces
+or with reserved names, such as &quot;nul&quot; or &quot;prn&quot;).
+Also supports command-line commands &quot;mkdir&quot;, &quot;del&quot; and &quot;rmdir&quot;.</p>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=NTFSFileStreams2">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="10-wfx-https-browser-11">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#10-wfx-https-browser-11">#</doc-anchor-trigger>
+        <span>10. WFX HTTPS Browser 1.1</span>
+    </h2>
+</doc-anchor-target>
+<p>TTPS Browser allows users to connect to websites via Total Commander and see links, pictures or any downloadable links as files. The plugin supports both HTTP and HTTPS protocols.</p>
+<p>This project adds HTTPS protocol support to the source of the older HTTP Browser plugin.</p>
+<p><figure class="content-center">
+    <img src="https://wincmd.ru/files/9924376/httpsbrowser3.png" alt="Preview" />
+    <figcaption class="caption">Preview</figcaption>
+</figure>
+</p>
+<p>Homepage: <a href="https://github.com/rg-software/wfx-https-browser">https://github.com/rg-software/wfx-https-browser</a></p>
+<p>Download (x32, x64)   (1504 Kb)
+Sources   (82 Kb)</p>
+<doc-anchor-target id="11-android-adb">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#11-android-adb">#</doc-anchor-trigger>
+        <span>11. Android ADB</span>
+    </h2>
+</doc-anchor-target>
+<p>The ultimate Android Total Commander file system plugin with extra features:</p>
+<ul>
+<li>Apps management (Install, Uninstall and Backup your apps, Add shortcut to launcher)</li>
+<li>APK icons and metadata with custom columns (does not download APK files to PC)</li>
+<li>Backup and Restore on ICS</li>
+<li>LogCat/BugReport/Dmesg (Copy file from folder), Shell</li>
+<li>Reboot menu with (Reboot, Hot Boot, Recovery, Download and Power Off)</li>
+<li>Screenshots (Copy file from .screenshot folder)</li>
+<li>Clipboard (set and get your device&#x27;s clipboard)</li>
+<li>Multiple devices with device rename functionality (friendly name)</li>
+<li>Bookmarks and WiFi auto-connect</li>
+<li>Rooted, semi-rooted and non-rooted devices</li>
+<li>Full unicode support</li>
+<li>x32 and x64 support</li>
+<li>TC command line integration</li>
+<li>Background copy/move</li>
+<li>Owner and Group custom columns</li>
+<li>Full file system management (download/upload recursive directories, copy, delete, rename, move, edit, view, overwrite confirmation and more, chmod and chown preservation)</li>
+<li>Copy/Move between 2 devices</li>
+<li>Set/Get file attributes/permissions - Change Attributes action in Total Commander</li>
+<li>ADB USB and wireless ADB (no need to install Android SDK)</li>
+<li>Auto mount support</li>
+<li>Debug logs</li>
+<li>Rich settings</li>
+</ul>
+<p>Please, leave your comments, suggestions and bug reports in the plugin discussion page.</p>
+<p>Requirements:</p>
+<ul>
+<li>Enabled &quot;Android debugging&quot; on your device</li>
+<li>Device connected to USB with proper drivers (an ADB device must be listed in Windows Devices)</li>
+<li>WiFi ADB (a rooted device with the &quot;WiFi ADB&quot; app downloaded from Google Play)</li>
+</ul>
+<p>Download (x32, x64) | Mirror   (4080 Kb)</p>
+<ul>
+<li><a href="https://www.ghisler.ch/board/viewtopic.php?f=6&amp;t=52272">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="12-redclipboard">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#12-redclipboard">#</doc-anchor-trigger>
+        <span>12. RedClipboard</span>
+    </h2>
+</doc-anchor-target>
+<p>Clipboard viewer and monitor</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Plugin Attr</th>
+<th>Plugin Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Category</td>
+<td>TC File System Plugins</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Alexander Myasnikov</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><a href="https://www.ghisler.ch/board/viewtopic.php?f=6&amp;t=52272">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="13-http_smartbrowserplugin-11">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#13-http_smartbrowserplugin-11">#</doc-anchor-trigger>
+        <span>13. HTTP_SmartBrowserPlugin 1.1</span>
+    </h2>
+</doc-anchor-target>
+<p>Enables Total Commander users to use HTTP services which implies downloading of all kinds of files which are linked from websites.
+There are two different versions available: You can access websites either with the filesystem- or the packer plugin. Features: HTTP Authentication, authenticated proxy support and password encryption - HTTP 1.1 (RFC2068); Input wizard which helps new inexperienced users to enter proxy settings; History/bookmark (import/export of Internet Explorer favorites); Multi-language support; Resuming of downloads; Search/compare capabilities</p>
+<p>Category: TC File System Plugins
+Status: Freeware</p>
+<p><a href="http://totalcmd.net/download.php?id=http_smartbrowserplugin">Download (x32)   (305 Kb)</a></p>
+<doc-anchor-target id="14-tcphonebook-0952">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#14-tcphonebook-0952">#</doc-anchor-trigger>
+        <span>14. tcPhonebook 0.9.5.2</span>
+    </h2>
+</doc-anchor-target>
+<p>tcPhonebook. Simple phone book. File system plugin (WFX) for Total Commander (x32, x64). Displays as user-defined structure and allows to manipulate the phone book contacts directly in the file window of Total Commander.
+Each record can contains general information about the contact person, data on place of work, personal, other data, and note. In addition, the plugin supports custom fields to store any additional data.
+Allows you to import/export contacts in vCard format (file format standard for electronic business cards) in next encodings: ANSI, UTF-8 (import/export) and Quoted-printable (import only); supports work with files that contain multiple contacts.
+Has multilingual interface.
+Supported OS: Windows 7 / Vista / XP / 2000.</p>
+<p><a href="http://totalcmd.net/download.php?id=tcPhonebook">Download (x32)   (1033 Kb)</a>
+<a href="http://maximus.totalcmd.net/wfx_tcPhonebook_0952x64.rar">x64 version   (2043 Kb)</a></p>
+<doc-anchor-target id="15-startups-040">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#15-startups-040">#</doc-anchor-trigger>
+        <span>15. Startups 0.4.0</span>
+    </h2>
+</doc-anchor-target>
+<p>Startups is a file-system plugin that can list, disable, analyze, edit and delete system startups that are located in the Registry or Start Menu.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>List system startups that are located in the Registry (HKCU, HKLM in Run and RunOnce, respectively) and Start Menu folders (All Users and current user)</li>
+<li>Disable startups so they don&#x27;t start automatically, but can easily be re-enabled</li>
+<li>Run startups manually on request</li>
+<li>Delete startups</li>
+</ul>
+<p><strong>Advanced Features:</strong></p>
+<ul>
+<li><p>Manage startups in 32 and 64 bit Registry branches on 64 bit Windows</p>
+</li>
+<li><p>Show correct executable information in the file list of Total Commander (32 bit) on Windows 64 bit, i.e. file date/time and sizes</p>
+</li>
+<li><p>Show information about the executable like file size, company name, file version, description and so on</p>
+</li>
+<li><p>Edit startups, e.g. command line parameters, name etc.</p>
+</li>
+<li><p>Ability to show startups with the same name in different locations as each startup will have a unique name.</p>
+</li>
+<li><p>Copy or move startups to a different location, even across Registry and Start Menu (with some limitations)</p>
+</li>
+<li><p>Unicode capable</p>
+</li>
+<li><p>64 Bit version to use in Total Commander x64</p>
+</li>
+<li><p>Translation to other languages possible (Danish, English, German and Russian included in the package)</p>
+</li>
+<li><p>Support for custom columns (default view available)</p>
+</li>
+<li><p>View and edit properties specific to Start Menu shortcuts like comments and window state</p>
+</li>
+<li><p>Check if a startup is currently running, with matching process names and matching command lines</p>
+</li>
+<li><p>Jump to the startup&#x27;s executable with Enter and/or Shift+Enter
+<strong>System Requirements</strong></p>
+</li>
+<li><p>Windows 2000 or later, both 32 and 64 bit</p>
+</li>
+<li><p>Total Commander 7.50 or later, both 32 and 64 bit</p>
+</li>
+</ul>
+<p><a href="http://totalcmd.net/download.php?id=Startups">Download (x32, x64)   (1101 Kb)</a></p>
+<p>17 1. TConsole 2.7</p>
+<p>TConsole allows to replace one of TC file panels by console window.</p>
+<p>Category: TC File System Plugins
+Status: Freeware</p>
+<p><a href="http://totalcmd.net/download.php?id=tconsole">Download (x32, x64)   (318 Kb)</a></p>
+<doc-anchor-target id="16-system-events-ex-103">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#16-system-events-ex-103">#</doc-anchor-trigger>
+        <span>16. System Events Ex 1.0.3</span>
+    </h2>
+</doc-anchor-target>
+<p>File system plugin for Total Commander that allows you to view all logs of event Windows. Created by analogy with the plugin Events NT 1.3 and can serve as a substitute.
+Support for 64-bit Total Commander. Full Unicode support.
+Has multilingual interface (English, Polish, Hungarian and Russian included; German can be found here: <a href="http://www.totalcmd.net/plugring/System_Events_Ex_german.html">Link</a>.</p>
+<p>Supported OS: Windows 2003 / Windows XP and later</p>
+<p><a href="http://totalcmd.net/download.php?id=SystemEventsEx">Download (x32, x64)   (1145 Kb)</a></p>
+<doc-anchor-target id="17-webdav-25">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#17-webdav-25">#</doc-anchor-trigger>
+        <span>17. WebDAV 2.5</span>
+    </h2>
+</doc-anchor-target>
+<p>Access to Web servers (read+write) via the WebDAV protocol over HTTP and HTTPS, also known as Web Folders. The Web server needs to have WebDAV services installed, which are available for Microsoft IIS, Apache, and many others</p>
+<p><a href="http://ghisler.fileburst.com/fsplugins/webdav_src.zip">Download (x32, x64) | Mirror   (383 Kb)</a></p>
+<doc-anchor-target id="18-ghisler-sftp-plugin-141">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#18-ghisler-sftp-plugin-141">#</doc-anchor-trigger>
+        <span>18. Ghisler SFTP Plugin 1.4.1</span>
+    </h2>
+</doc-anchor-target>
+<p>SFTP plugin, which is using the libssh2 dll for SFTP commands. The plugin re-uses some code from WebDAV plugin. It offers a similar dialog to configure and make the connection.</p>
+<p>Note: you also need to get the libssh2 dll from
+<figure class="content-center">
+    <img src="http://curl.haxx.se/download.html#Win32" alt="libssh2" />
+    <figcaption class="caption">libssh2</figcaption>
+</figure>
+</p>
+<p>See readme.txt on how to install the plugin.</p>
+<p><a href="http://totalcmd.net/download.php?id=G_SFTP">Download (x32, x64) | Mirror   (194 Kb)</a></p>
+<doc-anchor-target id="19-docclassifier-16">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#19-docclassifier-16">#</doc-anchor-trigger>
+        <span>19. DocClassifier 1.6</span>
+    </h2>
+</doc-anchor-target>
+<p>Addon, implementing dynamic documents classification based on attached tags using virtual folders. Consists of file tagger (separate application integrated with Total Commander) and document classifier (file system plugin for Total Commander).</p>
+<p><a href="http://totalcmd.net/download.php?id=DocClassifier_1.6_32_bit">Download (x32)   (3235 Kb)</a></p>
+<doc-anchor-target id="20-redlock-01042013">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#20-redlock-01042013">#</doc-anchor-trigger>
+        <span>20. RedLOCK [01.04.2013]</span>
+    </h2>
+</doc-anchor-target>
+<p>Plugin for working with locked files(such as registry files, files in %systemroot%\system32\config, files opened exclusive or swap files).</p>
+<p>[http://totalcmd.net/download.php?id=redlock](Download (x32, x64)   (705 Kb))</p>
+<doc-anchor-target id="21-reddetect-16032013">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#21-reddetect-16032013">#</doc-anchor-trigger>
+        <span>21. RedDetect 16.03.2013</span>
+    </h2>
+</doc-anchor-target>
+<p>You need to determine the device is displayed in the device manager with the question mark?</p>
+<p>You can not even imagine what kind of device used? Now you do not need to guess! This small plug-in has a huge database of hardware, were able to find the unknown device, identify the vendor and the name of the device, and, if it is possible, give the link to driver download page. Knowing this, you can easily find the driver.</p>
+<p>Very useful for system administrators, electronic, computer repairers. Base of hardware can be expanded by users, updated from the Internet.</p>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=wfx_pcidetect">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="22-google-drive-for-total-commander-010">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#22-google-drive-for-total-commander-010">#</doc-anchor-trigger>
+        <span>22. Google Drive for Total Commander 0.10</span>
+    </h2>
+</doc-anchor-target>
+<p>This free Total Commander plugin will access your Google Drive without any additional software (except Total Commander of course). With this plugin you can login to several Google Drive accounts without logging out each time.</p>
+<p>More information can be found here</p>
+<p>If you feel this plugin is missing some crucial functionality or is too buggy, don&#x27;t hesitate to leave a comment in TC forum or on my site.</p>
+<p><a href="http://totalcmd.net/download.php?id=gdplugin">Download (x32) | Mirror   (11521 Kb)</a></p>
+<doc-anchor-target id="23-procviewer-151-beta">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#23-procviewer-151-beta">#</doc-anchor-trigger>
+        <span>23. procViewer 1.5.1 beta</span>
+    </h2>
+</doc-anchor-target>
+<p>This plugin allows to view/kill processes that are running currently on the system. This plugin can view list of processes, kill ANY process (including system).
+F3 - Show memory usage, and loaded modules</p>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=procView">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="24-totalanddroid-40">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#24-totalanddroid-40">#</doc-anchor-trigger>
+        <span>24. TotalAndDroid 4.0</span>
+    </h2>
+</doc-anchor-target>
+<p>The most advanced Total Commander file system plugin for Android devices</p>
+<p>» Access your Android device without mounting the USB card.
+» No application installation is required on the Android device itself.
+» Connect using the USB cable or wirelessly
+» Manage file and folders, upload and download files.
+» Designed from the ground up with speed in mind.
+» Uses the most advanced framework for Total Commander plugins.
+» Install/Uninstall applications
+» Logcat, Bugreport, Dmesg
+» x64 and x86 support for all Windows OS versions and TC above 7.5
+» Direct transfer between two devices.
+» Supports Total Commander portable
+» Supports device naming
+» Direct file transfer between devices
+» Supports background operations
+» Supports context actions (faster than some TC operations
+» Supports total size of directories
+» Supports device screenshots
+» Supports custom adb commands
+» Best of all it&#x27;s Free</p>
+<ul>
+<li><a href="http://totalcmd.net/download.php?id=TotalAndDroid">Download (x32, x64)</a></li>
+</ul>
+<doc-anchor-target id="25-uninstaller64-101">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#25-uninstaller64-101">#</doc-anchor-trigger>
+        <span>25. Uninstaller64 1.0.1</span>
+    </h2>
+</doc-anchor-target>
+<p>This plugin allows to view the list of installed applications directly in the Total Commander panel, view detailed information about each uninstallation entry, launch deinstallation and forcibly delete invalid entries. The plugin was developed as replacement for the UnInstaller plugin which have not been updated for very long time and no longer suits the needs of modern systems, supporting neither Unicode, nor 64-bit architecture. The plugin Uninstaller64 provides the same functionality extending it according to the latest innovations both in Windows architecture and in Total Commander.</p>
+<p><a href="http://totalcmd.net/download.php?id=uninstaller64">Download (x32, x64)   (234 Kb)</a></p>
+<doc-anchor-target id="26-environment-variables-ex-10">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#26-environment-variables-ex-10">#</doc-anchor-trigger>
+        <span>26. Environment Variables Ex 1.0</span>
+    </h2>
+</doc-anchor-target>
+<p>FS-plugin for Total Commander. Intended for viewing and editing environment variables of current process (TC), current user and system.</p>
+<p>Made as a replacement for the Environment Variables plugin, but with following differences:</p>
+<ul>
+<li>Fixed bug which makes editing impossible if a variable has a long value (such as PATH).</li>
+<li>Environment Variables Ex is entirely unicode and exists in x64.</li>
+<li>Added support of file operations on variables like on usual files: copy in and out of plugin, move, rename. Files putted into plugin can be in ANSI or Unicode encoding.</li>
+<li>Added custom columns support to show variables values in separate column without modifications.</li>
+<li>Added elevation dialog to change system variables.</li>
+</ul>
+<p>Please, leave your comments, suggestions and bug reports in the plugin discussion page.</p>
+<p>Sources: <a href="https://github.com/speller/envvars_ex">https://github.com/speller/envvars_ex</a></p>
+<p><a href="http://totalcmd.net/download.php?id=envvars">Download (x32, x64)   (89 Kb)</a></p>
+<doc-anchor-target id="27-virtual-disk-133-final">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#27-virtual-disk-133-final">#</doc-anchor-trigger>
+        <span>27. Virtual Disk 1.3.3 Final</span>
+    </h2>
+</doc-anchor-target>
+<p>This plugin allows to mount disk images as additional drives. It works only under systems Windows 2000 and higher (32/64-bit).
+One can mount ISO- and some of BIN- and NRG-images of CD, and arbitrary image files that are recognised by Windows (FAT and NTFS), including IMG-files - floppy images. When an image is mounted, there is a new drive appears in the system. Its letter is specified earlier, and the new drive contains all the content of the image file. Three modes
+are available:
+HDD - emulation of local hard disk drive.
+FDD - emulation of floppy drive.
+CD/DVD - CD-drive emulation (there is no difference between CD and DVD in the system).
+Also there is the &quot;Read only&quot; modifier that allows to disable modifying of the image mounted. CD-drive emulation is always performed in Read-Only mode.</p>
+<p>ATTENTION!!!
+For the plugin to work it is needed to install the driver of the virtual drives (the &quot;Install&quot; command from the context menu of the file VD_Driver\vd_filedisk.inf).
+In 64-bit Windows versions the driver installation must be performed from Windows Explorer or from TC 64-bit!</p>
+<p><a href="http://totalcmd.net/download.php?id=virtdisk">Download (x32, x64)   (256 Kb)</a></p>
+<doc-anchor-target id="28-passstore-061">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#28-passstore-061">#</doc-anchor-trigger>
+        <span>28. PassStore 0.61</span>
+    </h2>
+</doc-anchor-target>
+<p><sub>PURPOSE</sub>
+.This plugin lets you store and manage all your passwords (mail, site,
+forum, etc) in a safe way.
+Passwords are protected by a master password that is used during the
+encyption/decryption process.</p>
+<p><sub>FEATURES</sub>
+. Enhanced protection using CEditSecureEx from Dominik Reichl (KeePass Author)
+. Uses SH1 for Master password
+. Uses Password Based Key derivation create 128 bit key
+. Uses AES (Rijndael) for encryption/decryption 128bit key
+. URL Field Features like Keepass(c)
+. Automatic Database Lock
+. Data stored in a xml file
+. URL allows to open web sites, programs, programs with params, launch by extension
+. Manage you entries like a File System (Copy, rename, move,Find, create dir, delete dir/entry).
+Faster than mouse oriented solutions.
+. All your data stored in a XML file. You can store it in wherever you want.</p>
+<p><a href="http://www.totalcmd.net/files/wfx_PassStore_0.61_x64.zip">x64 version   (336 Kb)</a></p>
+<doc-anchor-target id="29-branch-view-extended-103">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#29-branch-view-extended-103">#</doc-anchor-trigger>
+        <span>29. Branch View Extended 1.03</span>
+    </h2>
+</doc-anchor-target>
+<p>BranchViewExtended is similar to standard Branch View but shows also all nested directories with their sizes.</p>
+<p>HOW TO USE.</p>
+<p>You have to create button or start menu item with following parameters:</p>
+<p>Command: cd
+Parameters: \\BranchViewEx%p</p>
+<p>Plugin works for current path, like standard Branch View.</p>
+<p>WHY TO USE.</p>
+<p>I use it when I need to quick-free some disk space. In this case I set sorting method &quot;Sort by size&quot; and run this plugin. With this plugin I can find not only needless huge files but also needless huge directories containing a lot of small files (that is why I can&#x27;t find them with standard Branch view) and buried deeply in file system (that&#x27;s why I can&#x27;t find them manually).</p>
+<p>Notes:
+-- You cannot browse directories from this plugin.
+-- You cannot start plugin directly from My Network Places.
+-- This plugin shows directories as files with ./ extension (If you use color scheme for directories I recommend use this scheme for ./ files too).
+-- This plugin doesn&#x27;t follow symbolic links but shows them as directories (by the way you can browse them manually).
+-- This plugin uses standard copying progress dialog to indicate progress.</p>
+<p>Category: TC File System Plugins
+Status: freeware
+Author: Hel Noisemaker
+Added: 21.10.2009
+Updated: 2.11.2011
+Downloaded: 11086 times
+Discuss on TC forum</p>
+<p><a href="http://wincmd.ru/files/wfx_branchviewex_1.03_x64.rar">x64 version   (37 Kb)</a></p>
+<doc-anchor-target id="30-tweak-collector-125l">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#30-tweak-collector-125l">#</doc-anchor-trigger>
+        <span>30. Tweak Collector 1.25l</span>
+    </h2>
+</doc-anchor-target>
+<p>Plugin allows to apply system tweaks in registry. Read tweaks desc. first.</p>
+<p><a href="http://totalcmd.net/download.php?id=twc">Download (x32)   (481 Kb)</a></p>
+<doc-anchor-target id="31-winwalk-0003-alpha">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#31-winwalk-0003-alpha">#</doc-anchor-trigger>
+        <span>31. WinWalk 0.0.0.3-alpha</span>
+    </h2>
+</doc-anchor-target>
+<p>WinWalk - browse opened windows</p>
+<p><a href="http://totalcmd.net/download.php?id=WinWalk">Download (x32, sources)   (12 Kb)</a></p>
+<doc-anchor-target id="32-temp-drive">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#32-temp-drive">#</doc-anchor-trigger>
+        <span>32. Temp drive</span>
+    </h2>
+</doc-anchor-target>
+<p>Creates temp drive in RAM.</p>
+<p><a href="http://totalcmd.net/download.php?id=tempd">Download (x32)   (36 Kb)</a></p>
+<p>Unofficial database of all Total Commander plugins and addons</p>
+<doc-anchor-target id="33-link-drive">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#33-link-drive">#</doc-anchor-trigger>
+        <span>33. Link drive</span>
+    </h2>
+</doc-anchor-target>
+<p>This plugin creates Link Drive. It contains links to original files on hdd.</p>
+<p><a href="http://totalcmd.net/download.php?id=linkd">Download (x32)   (33 Kb)</a></p>
+<doc-anchor-target id="34-transformer-framework-10">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#34-transformer-framework-10">#</doc-anchor-trigger>
+        <span>34. Transformer Framework 1.0</span>
+    </h2>
+</doc-anchor-target>
+<p>Transformer Framework v1.0 filesystem plugin for Total Commander.</p>
+<p>With the plugins coded for this framework you can do almost everything that needs file modification. From compression/encryption to different converters or collecting information about files, it&#x27;s simple and easy. Only your creativity sets the limit.</p>
+<p>You can test, and code plugins for this version. If you have any comment or suggestion for further development you can send an e-mail to info[at]transformerfw[dot]com. The official website of the framework is under construction, you can find every important information in the framework help and plugin sdk help.</p>
+<p><a href="http://totalcmd.net/download.php?id=transformerfw">Download (x32)   (777 Kb)</a></p>
+<doc-anchor-target id="35-photofile-260">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#35-photofile-260">#</doc-anchor-trigger>
+        <span>35. photofile 2.6.0</span>
+    </h2>
+</doc-anchor-target>
+<p>Allows to copy original photos, stored at sites:</p>
+<p><a href="http://photofile.ru">1 http://photofile.ru</a>
+<a href="http://fotki.yandex.ru">2 http://fotki.yandex.ru</a>
+<a href="http://fotoplenka.ru">3 http://fotoplenka.ru</a>
+<a href="http://photocenter.ru">4 http://photocenter.ru</a>
+<a href="http://foto.mail.ru">5 http://foto.mail.ru</a>
+<a href="http://www.shareapic.net">6 http://www.shareapic.net</a>
+<a href="http://www.pixa.ru">7 http://www.pixa.ru</a>
+<a href="http://picasaweb.google.ru">8 http://picasaweb.google.ru</a>
+<a href="http://www.netprint.ru">9 http://www.netprint.ru</a>
+<a href="http://fotohoster.ru">10 http://fotohoster.ru</a></p>
+<p>Category: TC File System Plugins
+<a href="http://totalcmd.net/download.php?id=photofile">Download (x32)</a></p>
+<doc-anchor-target id="36-fdc-tc-28042008">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#36-fdc-tc-28042008">#</doc-anchor-trigger>
+        <span>36. FDC TC 28.04.2008</span>
+    </h2>
+</doc-anchor-target>
+<p>Advanced OS settings tweaker with powerfull text-based plugins support. Has large collection of plugins, any user can write plugins itself.</p>
+<p>Freeware plugin for TC. Supports tweaks, based on registry, ini-files and cfg-files tweaking.</p>
+<p><a href="http://totalcmd.net/download.php?id=fdctc">Download (x32)   (225 Kb)</a></p>
+<doc-anchor-target id="1-mail_wfx-099b6">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-mail_wfx-099b6">#</doc-anchor-trigger>
+        <span>1. MAIL_WFX 0.99b6</span>
+    </h2>
+</doc-anchor-target>
+<p>The plugin is intended for work with mail accounts via POP3/SMTP directly under in Total Commander.</p>
+<p>Following features supported:</p>
+<ul>
+<li>Viewing information about the messages in the user columns without messages delivery (download only headers -&gt; reduction of traffic).</li>
+<li>Removing messages from the server.</li>
+<li>Messages delivery from the server.</li>
+<li>Viewing size of a mail box without uploading messages.</li>
+<li>Saving messages in eml-files.</li>
+<li>Message viewer.</li>
+<li>Message editor/sender.</li>
+<li>GMail supported.</li>
+</ul>
+<p><a href="http://totalcmd.net/download.php?id=mail_wfx">Download (x32)   (825 Kb)</a></p>
+<doc-anchor-target id="37-ultra-tc-editors-642-final">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#37-ultra-tc-editors-642-final">#</doc-anchor-trigger>
+        <span>37. Ultra TC Editors 6.42 Final</span>
+    </h2>
+</doc-anchor-target>
+<p>Ultra TC Editors package include the following programs:</p>
+<ol>
+<li>Main Menu Editor: for editing Total Commander main menu.</li>
+<li>Start Menu Editor: for editing Total Commander start menu.</li>
+<li>Directory Menu Editor: for editing Total Commander directory menu.</li>
+<li>Extended Commands Editor: for editing Total Commander extended commands.</li>
+<li>Button Bar Editor: for editing Total Commander main button bar.</li>
+<li>Vertical Button Bar Editor: for editing Total Commander vertical button bar.</li>
+<li>History Editor: for editing history sections in Total Commander configuration files (Wincmd.ini and Wcx_ftp.ini)</li>
+<li>Configuration Editor: database for all Total Commander configuration keys.</li>
+<li>Hotkeys Editor: for modifying Total Commander hotkeys.</li>
+</ol>
+<p><a href="http://totalcmd.net/download.php?id=ultra_tc_editors">Download (x32, x64)</a></p>
+<doc-anchor-target id="38-ado-data-sources-16">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#38-ado-data-sources-16">#</doc-anchor-trigger>
+        <span>38. ADO Data Sources 1.6</span>
+    </h2>
+</doc-anchor-target>
+<p>The plugin provides an access to the objects of server-based and local databases that can be connected to using Microsoft ADO technology: OLE DB providers (MS SQL Server, Oracle, DB2, Sybase, InterBase, MySQL, MS Access) and ODBC drivers
+(Paradox, dBASE, FoxPro, Excel, CSV).</p>
+<ul>
+<li>List of used connections is created using simple visual mode.</li>
+<li>Connection login and password can be stored encrypted.</li>
+<li>Displaying of database objects (user tables, system tables, views, stored procedures) as TC hierarchy.</li>
+<li>Plugin shows table descriptions (CREATE TABLE... - columns, indexes, primary and foreign keys) with F3 and F5. As well for the views and stored procedures.</li>
+<li>Plugin can export table or view data to another TC panel in different formats (Excel, HTML, XML, CSV, Text, RTF).</li>
+<li>You can &quot;copy&quot; files with extension &quot;.sql&quot; to the plugin panel (TC operations F5 and F6).</li>
+<li>You can &quot;edit&quot; objects from DB (TC operation F4).</li>
+<li>Alt+F7 finds objects in the plugin. &quot;Find text&quot; option is also available.</li>
+<li>Internal query lister/editor - QueryViewer. Shows and edits table and view records, executes stored procedures and arbitrary SQL-queries.</li>
+<li>Print and preview of query results.</li>
+<li>Export of query results (see supported fomats above).</li>
+<li>Incremental search in the grid columns.</li>
+<li>Server and local filters.</li>
+<li>Query sorting and filtering with one mouse click.</li>
+<li>Query saving in Query Viewer and special folder for a quick access to saved queries.</li>
+<li>Plugin can work with BLOB fields (TEXT, IMAGE, BYNARY). Text/Image/Hex/HTML modes. Displaying, editing, saving to file, loading from file, clipboard operations, drag-and-drop.
+In the Image mode BLOBViewer works with most of graphic formats: BMP, ICO, EMF, WMF, JPEG, GIF, PNG, PCX, PIC, TGA and others.</li>
+</ul>
+<p><a href="http://totalcmd.net/download.php?id=ado_ds">Download (x32)   (1153 Kb)</a></p>
+<doc-anchor-target id="39-tweak-total-commander-10-zombie">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#39-tweak-total-commander-10-zombie">#</doc-anchor-trigger>
+        <span>39. Tweak Total Commander 10 (zombie)</span>
+    </h2>
+</doc-anchor-target>
+<p>TweakTC is designed for advanced configuration of Total Commander (more than 65 options) without manual editing its INI files (usually wincmd.ini and wcx_ftp.ini).</p>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/software/resettrails/phpstorm/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">PHPStorm Trail Reset</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/software/putty/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">PuTTY User Manual</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "Total Commander - Plugins", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

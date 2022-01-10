@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>optionsPage</title>
+    <meta name="title" content="optionsPage">
+    <meta name="description" content="Option pages should be simple to create given a structure of your options, and look like Chrome's options" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://isa.docs.dev.isa.co.za/chrome/extensions/optionspage/">
+    <meta property="og:title" content="optionsPage">
+    <meta property="og:description" content="Option pages should be simple to create given a structure of your options, and look like Chrome's options">
+    <meta property="og:image" content="http://isa.docs.dev.isa.co.za/chrome/extensions/optionspage/images/example.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://isa.docs.dev.isa.co.za/chrome/extensions/optionspage/">
+    <meta property="twitter:title" content="optionsPage">
+    <meta property="twitter:description" content="Option pages should be simple to create given a structure of your options, and look like Chrome's options">
+    <meta property="twitter:image" content="http://isa.docs.dev.isa.co.za/chrome/extensions/optionspage/images/example.png">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115866758" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115866758" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115866758" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Dev Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="optionspage" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#optionspage">#</doc-anchor-trigger>
+        <span>optionsPage</span>
+    </h1>
+</doc-anchor-target>
+<p>Option pages should be simple to create given a structure of your options, <sub>and look like Chrome&#x27;s options</sub>.</p>
+<p><figure class="content-center">
+    <img src="images/example.png" alt="example" />
+    <figcaption class="caption">example</figcaption>
+</figure>
+</p>
+<p>Screenshot is from extension <a href="https://github.com/fent/chrome-veefeed">veefeed</a></p>
+<p>Here&#x27;s a <a href="https://fent.github.io/chrome-options/">demo</a>.</p>
+<p>This library uses <a href="https://github.com/better-history/chrome-bootstrap">chrome-bootstrap</a> for styling.</p>
+<doc-anchor-target id="install">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#install">#</doc-anchor-trigger>
+        <span>Install</span>
+    </h1>
+</doc-anchor-target>
+<p>Recommended that you create an options folder in your extension, keep things organized.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">mkdir options
+cd options</code></pre>
+</doc-codeblock></div>
+<p>Download chrome-options</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">npm install chrome-options
+ln node_modules/chrome-options/options.html .
+touch custom.css
+touch options.js</code></pre>
+</doc-codeblock></div>
+<p>Add options page to <code v-pre>manifest.json</code>. <code v-pre>open_in_tab</code> set to <code v-pre>true</code> or <code v-pre>false</code> are both supported.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;options_ui&quot;: {
+  &quot;page&quot;: &quot;options/options.html&quot;,
+  &quot;open_in_tab&quot;: false
+}</code></pre>
+</doc-codeblock></div>
+<p>Needs <code v-pre>storage</code> permission. Options are saved to <a href="https://developer.chrome.com/extensions/storage#property-sync"><code v-pre>chrome.storage.sync</code></a>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;permissions&quot;: [
+  &quot;storage&quot;
+]</code></pre>
+</doc-codeblock></div>
+<p>If you&#x27;ll be using the <doc-anchor-trigger to="#predefined_sound">predefined_sound</doc-anchor-trigger> fields, and want to play sounds from a content script, also add</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">&quot;web_accessible_resources&quot;: [
+  &quot;options/node_modules/chrome-options/sounds/*.wav&quot;
+]</code></pre>
+</doc-codeblock></div>
+<p>If you&#x27;re using git, consider adding <code v-pre>options/node_modules</code> to your <code v-pre>.gitignore</code>.</p>
+<p>Afterwards, you can start setting up your options page by editing <code v-pre>options.js</code>, and additionally, <code v-pre>custom.css</code> if you need to set any styles.</p>
+<doc-anchor-target id="setup">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setup">#</doc-anchor-trigger>
+        <span>Setup</span>
+    </h1>
+</doc-anchor-target>
+<p>Use only one of the following two functions to setup your options. If you&#x27;re planning on using multi tab form, use <code v-pre>chrome.options.addTab()</code>, called once for each tab. Otherwise, use <code v-pre>chrome.options.set()</code>.</p>
+<doc-anchor-target id="chromeoptionssetdescription-options">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#chromeoptionssetdescription-options">#</doc-anchor-trigger>
+        <span><code v-pre>chrome.options.set([description], options)</code></span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>description</code> - Will be displayed at the top of the page.</li>
+<li><code v-pre>options</code> - List of options.</li>
+</ul>
+<doc-anchor-target id="chromeoptionsaddtabname-description-options">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#chromeoptionsaddtabname-description-options">#</doc-anchor-trigger>
+        <span><code v-pre>chrome.options.addTab(name, [description], options)</code></span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>string</code> - <code v-pre>name</code> - Name of the tab. Will be prepended along with &quot;.&quot; to each option&#x27;s name that&#x27;s displayed under this tab.</li>
+<li><code v-pre>string</code> - <code v-pre>description</code> - Will be placed on top of the page when tab is viewed.</li>
+<li><code v-pre>Array.&lt;Object&gt;</code> - <code v-pre>options</code> - List of options.</li>
+</ul>
+<p>Options can all have the following properties,</p>
+<ul>
+<li><code v-pre>string</code> - <code v-pre>type</code> - What type of option this is, more info below. Defaults to &quot;checkbox&quot;.</li>
+<li><code v-pre>string</code> - <code v-pre>name</code> - Required. What to save the key as. Also used as class name to add to field containers, in case you&#x27;d like to style it further.</li>
+<li><code v-pre>string</code> - <code v-pre>desc</code> - Description of option, supports syntax from <a href="https://github.com/WebReflection/lightdown">lightdown</a>, a markdown-like language.</li>
+<li><code v-pre>string</code> - <code v-pre>preview</code> - A preview image. Represents the extension of the image, example &quot;png&quot;. If this is used, the image must be placed in a <code v-pre>previews</code> folder where <code v-pre>options.html</code> is, and named the name as this option&#x27;s key, which is its name prepended by tab name if any.</li>
+<li><code v-pre>Object</code> - <code v-pre>default</code> - Default value.</li>
+<li><code v-pre>boolean</code> - <code v-pre>disabled</code> - The field can be disabled.</li>
+<li><code v-pre>boolean</code> - <code v-pre>hidden</code> - A hidden field, default options will still be saved.</li>
+<li><code v-pre>boolean</code> - <code v-pre>singleline</code> - If you&#x27;d like to position the label and the field on the same line, instead of the default multiline layout.</li>
+<li><code v-pre>Function</code> - <code v-pre>validate</code> - Called with the new value of field, will only save if it returns <code v-pre>true</code>.</li>
+</ul>
+<doc-anchor-target id="fields-types-available">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#fields-types-available">#</doc-anchor-trigger>
+        <span>Fields Types Available</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="checkbox">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#checkbox">#</doc-anchor-trigger>
+        <span>checkbox</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_checkbox.png" alt="checkbox" />
+    <figcaption class="caption">checkbox</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="text">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#text">#</doc-anchor-trigger>
+        <span>text</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_text.png" alt="text" />
+    <figcaption class="caption">text</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="color">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#color">#</doc-anchor-trigger>
+        <span>color</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_color.png" alt="color" />
+    <figcaption class="caption">color</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>string</code> - <code v-pre>format</code> - Can be <code v-pre>hex</code>, <code v-pre>rgb</code>, <code v-pre>rgba</code>, <code v-pre>hsl</code>, or <code v-pre>hsla.</code>.</li>
+</ul>
+<p>If <code v-pre>default</code> is set, will have an additional button for resetting to that color.</p>
+<p><figure class="content-center">
+    <img src="images/field_color_2.png" alt="color" />
+    <figcaption class="caption">color</figcaption>
+</figure>
+</p>
+<p>Uses <a href="https://github.com/tovic/color-picker">this color picker library</a>.</p>
+<doc-anchor-target id="select">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#select">#</doc-anchor-trigger>
+        <span>select</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_select.png" alt="select" />
+    <figcaption class="caption">select</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>Array.&lt;Object|string&gt;</code> - <code v-pre>options</code> - List of options for this field. If a list of objects, each option must have <code v-pre>value</code> and <code v-pre>desc</code> properties. <code v-pre>value</code> can be a string or int.</li>
+</ul>
+<doc-anchor-target id="radio">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#radio">#</doc-anchor-trigger>
+        <span>radio</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_radio.png" alt="select" />
+    <figcaption class="caption">select</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>Array.&lt;Object|string&gt;</code> - <code v-pre>options</code> - List of options for this field. If a list of objects, each option must have <code v-pre>value</code> and <code v-pre>desc</code> properties.</li>
+</ul>
+<doc-anchor-target id="predefined_sound">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#predefined_sound">#</doc-anchor-trigger>
+        <span>predefined_sound</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_predefined_sound.png" alt="predefined_sound" />
+    <figcaption class="caption">predefined_sound</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>boolean</code> - <code v-pre>allowNoSound</code> - Adds a no sound option to the top of the select field.</li>
+</ul>
+<doc-anchor-target id="custom_sound">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom_sound">#</doc-anchor-trigger>
+        <span>custom_sound</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/field_custom_sound.png" alt="custom_sound" />
+    <figcaption class="caption">custom_sound</figcaption>
+</figure>
+</p>
+<doc-anchor-target id="complex-field-types">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#complex-field-types">#</doc-anchor-trigger>
+        <span>Complex Field Types</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="checkbox-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#checkbox-1">#</doc-anchor-trigger>
+        <span>checkbox</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/complex_checkbox.png" alt="complex_checkbox" />
+    <figcaption class="caption">complex_checkbox</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>Array.&lt;Object&gt;</code> - <code v-pre>options</code> - Checkboxes can additionally have an <code v-pre>options</code> property with a list of options.</li>
+</ul>
+<p>When saved, will be saved as an object with all option names as keys along with their values. Object will include an <code v-pre>enabled</code> property, set to <code v-pre>true</code> when the checkbox is checked.</p>
+<doc-anchor-target id="object">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#object">#</doc-anchor-trigger>
+        <span>object</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/complex_object.png" alt="object" />
+    <figcaption class="caption">object</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>Array.&lt;Object&gt;</code> - <code v-pre>options</code></li>
+<li><code v-pre>string</code> - <code v-pre>layout</code> - &quot;column&quot; or &quot;row&quot;. Defaults to &quot;column&quot;.</li>
+</ul>
+<p>Similar to checkbox with <code v-pre>options</code>, but without the checkbox. Not just for aesthetic purposes, will still be saved as an object.</p>
+<doc-anchor-target id="list">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#list">#</doc-anchor-trigger>
+        <span>list</span>
+    </h3>
+</doc-anchor-target>
+<p><figure class="content-center">
+    <img src="images/complex_list.png" alt="list" />
+    <figcaption class="caption">list</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>Array.&lt;Object&gt;</code> - <code v-pre>fields</code> - Required. List of fields for this list.
+<ul>
+<li><code v-pre>string</code> - <code v-pre>type</code> - Only basic fields, layout types, and custom fields supported.</li>
+<li><code v-pre>string</code> - <code v-pre>name</code> - Required for non-layout types.</li>
+<li><code v-pre>boolean</code> - <code v-pre>required</code> - Set to true if you require this particular field to be a truthy value for this row to be saved.</li>
+<li><code v-pre>Object</code> - <code v-pre>bindTo</code> - Will only display this field if another field with name matching <code v-pre>bindTo.field</code> has the value <code v-pre>bindTo.value</code>, which can be be a string or an array of strings.</li>
+</ul>
+</li>
+<li><code v-pre>boolean</code> - <code v-pre>head</code> - True if you want to display table headings. Requires fields to have <code v-pre>desc</code> properties.</li>
+<li><code v-pre>boolean</code> - <code v-pre>sortable</code> - True if you&#x27;d like users to be able to drag and reorder rows around.</li>
+<li><code v-pre>boolean</code> - <code v-pre>collapsible</code> - True if you want the table&#x27;s content to be collapsible. <code v-pre>desc</code> recommended.</li>
+<li><code v-pre>Array.&lt;Option&gt;</code> - <code v-pre>first</code> - You can specify a different set of fields for the first row.</li>
+</ul>
+<p>Will save its value as an array. If there is only one field, it will be an array of values of that field. Otherwise, an array of objects. When the last row&#x27;s value is changed, a new row will be added.</p>
+<doc-anchor-target id="field-list">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#field-list">#</doc-anchor-trigger>
+        <span>[field]-list</span>
+    </h3>
+</doc-anchor-target>
+<p>Shortcut for a single field list.</p>
+<doc-anchor-target id="checkbox-field">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#checkbox-field">#</doc-anchor-trigger>
+        <span>checkbox-[field]</span>
+    </h3>
+</doc-anchor-target>
+<p>Shortcut for a checkbox with a field right next to it.</p>
+<p><figure class="content-center">
+    <img src="images/complex_checkbox_field.png" alt="checkbox-field" />
+    <figcaption class="caption">checkbox-field</figcaption>
+</figure>
+</p>
+<ul>
+<li><code v-pre>boolean</code> - <code v-pre>defaultEnabled</code></li>
+<li><code v-pre>Object</code> - <code v-pre>defaultValue</code></li>
+</ul>
+<p>Saved as an object, <code v-pre>enabled</code> set to <code v-pre>true</code> when the checkbox is checked, and <code v-pre>value</code> set to the field&#x27;s value.</p>
+<doc-anchor-target id="layout-fields">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#layout-fields">#</doc-anchor-trigger>
+        <span>Layout Fields</span>
+    </h1>
+</doc-anchor-target>
+<p>Use these to help structure the layout of your page.</p>
+<doc-anchor-target id="h3">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#h3">#</doc-anchor-trigger>
+        <span>h3</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>string</code> - <code v-pre>desc</code> - Text contents.</li>
+</ul>
+<p>A heading that can be used as a separator.</p>
+<doc-anchor-target id="columnrow">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#columnrow">#</doc-anchor-trigger>
+        <span>column/row</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>Array.&lt;Object&gt;</code> - <code v-pre>options</code> - List of options.</li>
+</ul>
+<p>Places options in a column/row structure. Unlike the object type, does not save each option in a separate object, but on the parent object.</p>
+<doc-anchor-target id="html">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#html">#</doc-anchor-trigger>
+        <span>html</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li><code v-pre>DOMNode|String</code> - <code v-pre>html</code> - Contents.</li>
+</ul>
+<p>Places HTML content directly into the page.</p>
+<doc-anchor-target id="custom-fields">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-fields">#</doc-anchor-trigger>
+        <span>Custom Fields</span>
+    </h1>
+</doc-anchor-target>
+<p>You can add custom containers with multiple fields, other types of form fields that are not yet supported, or change current fields to use your preferred libraries.</p>
+<p>Current basic type of fields can be accessed through <code v-pre>chrome.options.fields</code>. They&#x27;re functions that are called with</p>
+<ul>
+<li><code v-pre>Object</code> - The current value of this option.</li>
+<li><code v-pre>Function</code> - Should be called with new value when this option is updated, and the event object if any.</li>
+<li><code v-pre>Object</code> - The object describing this option.</li>
+</ul>
+<p>You can add your own to this object, <a href="https://github.com/fent/chrome-veefeed/blob/v0.1.1/options/options.js#L19">here&#x27;s an example</a> that creates a custom field that represents a text field and a list, which can be used inside a list.</p>
+<p>To use one of the already existing basic fields with your custom field, you can call the following functions.</p>
+<p><code v-pre>chrome.options.addField(value, save, option)</code>
+<code v-pre>chrome.options.addLabelNField(value, save, option)</code></p>
+<doc-anchor-target id="options">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#options">#</doc-anchor-trigger>
+        <span>Options</span>
+    </h1>
+</doc-anchor-target>
+<p>A few options are supported.</p>
+<ul>
+<li><code v-pre>chrome.options.opts.title</code> - Title of the page if opening the page in a new tab. If not set, will set thet title to the extension&#x27;s name from the manifest. Set to <code v-pre>false</code> if you don&#x27;t want a title displayed.</li>
+<li><code v-pre>chrome.options.opts.about</code> - Contents of the About tab. If not set, will set the contents to the extension&#x27;s description from the manifest. Can be an html string. Set to <code v-pre>false</code> if you don&#x27;t want this tab at all.</li>
+<li><code v-pre>chrome.options.opts.autoSave</code> - If <code v-pre>true</code>, will save options as they are changed. Otherwise, a button will be shown on the bottom left of the page for saving. Defaults to <code v-pre>true</code>.</li>
+<li><code v-pre>chrome.options.opts.saveDefaults</code> - If <code v-pre>true</code>, will save any options that have defaults set, if those options have never been saved before. Can be useful if you only want to keep defaults in your options page, and not in background and/or content pages for when your extension is first installed. Defaults to <code v-pre>true</code>.</li>
+</ul>
+<doc-anchor-target id="embed-options-page">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#embed-options-page">#</doc-anchor-trigger>
+        <span>Embed Options Page</span>
+    </h1>
+</doc-anchor-target>
+<p>In case you&#x27;d like to embed your option page, or part of it, inside a browser action, page action, or another page, you can do so with an iframe. You can get the option page url with <code v-pre>chrome.runtime.getURL(&quot;/options/options.html&quot;)</code>.</p>
+<p>You can use the following query parameters to help you customize what specifically you want users to see.</p>
+<ul>
+<li><code v-pre>hideTitle</code> - Hides the extension title on the top left.</li>
+<li><code v-pre>hideAbout</code> - Hides about tab.</li>
+<li><code v-pre>hideSidebar</code> - Hides entire sidebar, including title and about tab.</li>
+<li><code v-pre>hideTabTitle</code> - Hides the selected tab&#x27;s title.</li>
+<li><code v-pre>hideTabDesc</code> - Hides the selected tab&#x27;s description.</li>
+</ul>
+<p>You can also choose to display one option, suboption, or part of an option, by specifying it in the hash.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">/options.html?#general.my_option</code></pre>
+</doc-codeblock></div>
+<p>Try it in the demo:</p>
+<ul>
+<li><a href="https://fent.github.io/chrome-options/?hideSidebar&amp;hideTabTitle#general.profile">https://fent.github.io/chrome-options/?hideSidebar&amp;hideTabTitle#general.profile</a></li>
+<li><a href="https://fent.github.io/chrome-options/?hideSidebar&amp;hideTabTitle#general.profile.party">https://fent.github.io/chrome-options/?hideSidebar&amp;hideTabTitle#general.profile.party</a></li>
+</ul>
+<doc-anchor-target id="roadmap">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#roadmap">#</doc-anchor-trigger>
+        <span>Roadmap</span>
+    </h1>
+</doc-anchor-target>
+<ul>
+<li>Additional fields as needed.
+<ul>
+<li>Number</li>
+<li>Slider</li>
+<li>Date picker</li>
+<li>File upload</li>
+<li>Image upload</li>
+</ul>
+</li>
+<li>Optionally include sound files in installation</li>
+<li>Easier way to include other scripts</li>
+<li>Different themes</li>
+<li>Firefox? Web extensions</li>
+<li>Firefox?</li>
+<li>Migrating options from other options</li>
+<li>Migrating structure of options</li>
+</ul>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/chrome/extensions/manv3/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Chrome Manifest V3</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/composer/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">Composer</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "optionsPage", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

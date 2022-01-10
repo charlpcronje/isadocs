@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>Commands List</title>
+    <meta name="title" content="Commands List">
+    <meta name="description" content="Familiarize yourself with the list of available commands inside a Quasar project:" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sz.docs.dev.isa.co.za/quasar/6.1-commandlist/">
+    <meta property="og:title" content="Commands List">
+    <meta property="og:description" content="Familiarize yourself with the list of available commands inside a Quasar project:">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://sz.docs.dev.isa.co.za/quasar/6.1-commandlist/">
+    <meta property="twitter:title" content="Commands List">
+    <meta property="twitter:description" content="Familiarize yourself with the list of available commands inside a Quasar project:">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115969504" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115969504" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115969504" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115969504" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA SZ Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">SecureZone</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="commands-list" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#commands-list">#</doc-anchor-trigger>
+        <span>Commands List</span>
+    </h1>
+</doc-anchor-target>
+<p>Familiarize yourself with the list of available commands inside a Quasar project:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar
+
+  ___
+ / _ \ _   _  __ _ ___  __ _ _ __
+| | | | | | |/ _` / __|/ _` | '__|
+| |_| | |_| | (_| \__ \ (_| | |
+ \__\_\\__,_|\__,_|___/\__,_|_|
+
+  Example usage
+    $ quasar &lt;command&gt; &lt;options&gt;
+
+  Help for a command
+    $ quasar &lt;command&gt; --help
+    $ quasar &lt;command&gt; -h
+
+  Options
+    --version, -v Print Quasar App CLI version
+
+  Commands
+    dev, d        Start a dev server for your App
+    build, b      Build your app for production
+    clean, c      Clean all build artifacts
+    new, n        Quickly scaffold page/layout/component/... vue file
+    mode, m       Add/remove Quasar Modes for your App
+    inspect       Inspect generated Webpack config
+    ext, e        Manage Quasar App Extensions
+    run, r        Run specific command provided by an installed
+                    Quasar App Extension
+    describe      Describe a Quasar API (component)
+    test, t       Run @quasar/testing App Extension command
+                    - requires @quasar/testing App Extension to be installed
+                    - this is an alias command for convenience purposes
+    info, i       Display info about your machine and your App
+    help, h       Displays this message
+
+  If the specified command is not found, then &quot;quasar run&quot;
+  will be executed with the provided arguments.
+
+  Commands supplied by @quasar/cli global installation:
+
+    upgrade       Check (and optionally) upgrade Quasar packages
+                    from a Quasar project folder
+    serve         Create an ad-hoc server on App's distributables</code></pre>
+</doc-codeblock></div>
+<p>See help for any command:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar [command name] --help</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="create">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#create">#</doc-anchor-trigger>
+        <span>Create</span>
+    </h2>
+</doc-anchor-target>
+<p>Creates an App folder with initial project boilerplate.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">## Quasar UI v2
+$ quasar create &lt;folder_name&gt;</code></pre>
+</doc-codeblock></div>
+<p>This command will use Quasar App Starter Kit by default, but you can specify a different one via <code v-pre>--kit</code> option.</p>
+<p><code v-pre>quasar create --kit ui</code> and <code v-pre>quasar create --kit app-extension</code> will generate for you App Extension boilerplate: the former when the extension is meant to provide UI Components, the latter in all other cases.</p>
+<p>You can use a starter kit stored on your machine by providing a <strong>local path</strong> to a folder (eg. <code v-pre>quasar create --kit ./my-custom-starter-kit</code>).</p>
+<p>You can use a starter kit stored into any publicly accessible Git repository by providing a reference which follows this schema:</p>
+<ul>
+<li>GitHub - <code v-pre>github:owner/name</code> or simply <code v-pre>owner/name</code></li>
+<li>GitLab - <code v-pre>gitlab:owner/name</code></li>
+<li>Bitbucket - <code v-pre>bitbucket:owner/name</code></li>
+</ul>
+<p><code v-pre>master</code> branch will be checked out by default, but you can specify the one you prefer via <code v-pre>--branch &lt;branch name&gt;</code> (eg. <code v-pre>quasar create --kit owner/name --branch my-branch</code>).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">warning</div>
+<pre class="language-none"><code v-pre class="language-none">
+The preferred way to build reusable code and UI Components into Quasar ecosystem are App Extensions. Use a custom starter kit only if you really know what you're doing and be aware that it will make more difficult for the Quasar team to provide you assistance.
+``
+
+## Upgrade
+
+Check (and optionally) upgrade Quasar packages from a Quasar project folder:
+
+```bash
+# view all options:
+$ quasar upgrade -h
+
+# checks for non-breaking change upgrades and displays them,
+# but will not carry out the install
+$ quasar upgrade
+
+# checks for pre-releases (alpha/beta):
+$ quasar upgrade -p
+
+# checks for major new releases (includes breaking changes):
+$ quasar upgrade -m
+
+# to perform the actual upgrade,
+# combine any of the params above and add &quot;-i&quot; (or &quot;--install&quot;):
+$ quasar upgrade -i</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">tip warning Note for code editor terminals</div>
+<pre class="language-none"><code v-pre class="language-none">If you're using a code editor terminal instead of the real one, you run `quasar upgrade` and get an error *Command not found* or *@quasar/cli* version appears to be *undefined*, you will need to go to the settings of your code editor terminal and untick the option (or its equivalent) *Add 'node_modules/.bin' from the project root to %PATH%* then restart your code editor.</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="info">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#info">#</doc-anchor-trigger>
+        <span>Info</span>
+    </h2>
+</doc-anchor-target>
+<p>The Quasar CLI is equipped with a stable combination of multiple NPM build packages (Webpack, Vue, etc) which gets updated frequently after heavy testing.</p>
+<p>In order for you to see what versions of Node, NPM, Quasar CLI, Quasar, Vue, Webpack, Cordova, Babel and many more, issue this command in a Quasar project folder:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">quasar info</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="dev">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#dev">#</doc-anchor-trigger>
+        <span>Dev</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar dev -h
+
+  Description
+    Starts the app in development mode (hot-code reloading, error
+    reporting, etc)
+
+  Usage
+    $ quasar dev
+    $ quasar dev -p &lt;port number&gt;
+
+    $ quasar dev -m ssr
+
+    # alias for &quot;quasar dev -m cordova -T ios&quot;
+    $ quasar dev -m ios
+
+    # alias for &quot;quasar dev -m cordova -T android&quot;
+    $ quasar dev -m android
+
+    # passing extra parameters and/or options to
+    # underlying &quot;cordova&quot; or &quot;electron&quot; executables:
+    $ quasar dev -m ios -- some params --and options --here
+    $ quasar dev -m electron -- --no-sandbox --disable-setuid-sandbox
+    # when on Windows and using Powershell:
+    $ quasar dev -m ios '--' some params --and options --here
+    $ quasar dev -m electron '--' --no-sandbox --disable-setuid-sandbox
+
+  Options
+    --mode, -m       App mode [spa|ssr|pwa|bex|cordova|capacitor|electron] (default: spa)
+    --port, -p       A port number on which to start the application
+    --hostname, -H   A hostname to use for serving the application
+    --help, -h       Displays this message
+
+    Only for Cordova mode:
+    --target, -T     (required) App target
+                        [android|ios]
+    --emulator, -e   (optional) Emulator name
+                        Examples: iPhone-7, iPhone-X
+                        iPhone-X,com.apple.CoreSimulator.SimRuntime.iOS-12-2
+    --ide, -i        Open IDE (Android Studio / XCode) instead of letting Cordova
+                        booting up the emulator, in which case the &quot;--emulator&quot;
+                        param will have no effect
+
+    --devtools, -d   Open remote Vue Devtools
+
+    Only for Capacitor mode:
+    --target, -T     (required) App target
+                        [android|ios]</code></pre>
+</doc-codeblock></div>
+<p>The Quasar development server allows you to develop your App by compiling and maintaining code in-memory. A web server will serve your App while offering hot-reload out of the box. Running in-memory offers faster rebuilds when you change your code.</p>
+<blockquote>
+<p>Hot Reload is much more than just refreshing your browser when code changes. It skips the refresh and updates your code on the fly, while maintaining your App&#x27;s state (like your Vue&#x27;s model data). Please note that there are cases when this is impossible, so the dev webserver will simply refresh your browser. (Always ensure you are running only one instance of Quasar CLI at a time, otherwise Hot-Reload and other stuff will break!)</p>
+</blockquote>
+<p>Based on what you want to develop, you can start the development server by using &quot;quasar dev&quot; command as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash"># Developing a SPA
+$ quasar dev
+# ...or
+$ quasar dev -m spa
+
+# Developing for SSR
+$ quasar dev -m ssr
+
+# Developing a PWA
+$ quasar dev -m pwa
+
+# Developing a BEX for production
+$ quasar dev -m bex
+
+# Developing a Mobile App (through Cordova)
+$ quasar dev -m cordova -T [android|ios]
+# or the short form:
+$ quasar dev -m [android|ios]
+
+# Developing an Electron App
+$ quasar dev -m electron
+
+# passing extra parameters and/or options to
+# underlying &quot;cordova&quot; or &quot;electron&quot; executables:
+$ quasar dev -m ios -- some params --and options --here
+$ quasar dev -m electron -- --no-sandbox --disable-setuid-sandbox
+# when on Windows and using Powershell:
+$ quasar dev -m ios '--' some params --and options --here
+$ quasar dev -m electron '--' --no-sandbox --disable-setuid-sandbox</code></pre>
+</doc-codeblock></div>
+<p>If you wish to change the hostname or port serving your App you have 3 options:</p>
+<ul>
+<li>Edit &#x27;/quasar.conf.js&#x27;:</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">devServer: {
+host: '...',
+port: ...
+}</code></pre>
+</doc-codeblock></div>
+<ul>
+<li>Through &#x27;-H&#x27; (hostname) and &#x27;-p&#x27; (port) command options.</li>
+<li>If this is a one time thing, specify the hostname and/or port as an environment variable:</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">PORT=3000 quasar dev
+HOSTNAME=1.1.1.14 quasar dev</code></pre>
+</doc-codeblock></div>
+<p>If there appears to be an issue with hot reload, you can try two fixes:</p>
+<ul>
+<li><p>Change the permissions for the project folder with</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo chown -R username: .</code></pre>
+</doc-codeblock></div>
+</li>
+<li><p>or run the dev server with root privileges</p>
+</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">sudo quasar dev</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="build">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#build">#</doc-anchor-trigger>
+        <span>Build</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar build -h
+
+  Description
+    Builds distributables of your app.
+
+  Usage
+    $ quasar build
+    $ quasar build -p &lt;port number&gt;
+
+    $ quasar build -m ssr
+
+    # alias for &quot;quasar build -m cordova -T ios&quot;
+    $ quasar build -m ios
+
+    # alias for &quot;quasar build -m cordova -T android&quot;
+    $ quasar build -m android
+
+    # passing extra parameters and/or options to
+    # underlying &quot;cordova&quot; executable:
+    $ quasar build -m ios -- some params --and options --here
+    # when on Windows and using Powershell:
+    $ quasar build -m ios '--' some params --and options --here
+
+  Options
+    --mode, -m      App mode [spa|ssr|pwa|bex|cordova|capacitor|electron] (default: spa)
+    --target, -T    App target
+                      - Cordova (default: all installed)
+                        [android|ios]
+                      - Capacitor
+                        [android|ios]
+                      - Electron with default &quot;electron-packager&quot; bundler (default: yours)
+                        [darwin|win32|linux|mas|all]
+                      - Electron with &quot;electron-builder&quot; bundler (default: yours)
+                        [darwin|mac|win32|win|linux|all]
+    --publish, -P   Also trigger publishing hooks (if any are specified)
+                      - Has special meaning when building with Electron mode and using
+                        electron-builder as bundler
+    --debug, -d     Build for debugging purposes
+    --skip-pkg, -s  Build only UI (skips creating Cordova/Capacitor/Electron executables)
+                      - Cordova (it only fills in /src/cordova/www folder with the UI code)
+                      - Capacitor (it only fills in /src/capacitor/www folder with the UI code)
+                      - Electron (it only creates the /dist/electron/UnPackaged folder)
+    --help, -h      Displays this message
+
+    ONLY for Cordova and Capacitor mode:
+    --ide, -i       Open IDE (Android Studio / XCode) instead of finalizing with a
+                    terminal/console-only build
+
+    ONLY for Electron mode:
+    --bundler, -b   Bundler (electron-packager or electron-builder)
+                      [packager|builder]
+    --arch, -A      App architecture (default: yours)
+                      - with default &quot;electron-packager&quot; bundler:
+                          [ia32|x64|armv7l|arm64|mips64el|all]
+                      - with &quot;electron-builder&quot; bundler:
+                          [ia32|x64|armv7l|arm64|all]
+
+    ONLY for electron-builder (when using &quot;publish&quot; parameter):
+    --publish, -P  Publish options [onTag|onTagOrDraft|always|never]
+                     - see https://www.electron.build/configuration/publish</code></pre>
+</doc-codeblock></div>
+<p>The Quasar CLI can pack everything together and optimize your App for production. It minifies source code, extracts vendor components, leverages browser cache and much more.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash"># Build a SPA for production
+$ quasar build
+# ...or
+$ quasar build -m spa
+
+# Build a SSR for production
+$ quasar build -m ssr
+
+# Build a PWA for production
+$ quasar build -m pwa
+
+# Build a BEX for production
+$ quasar build -m bex
+
+# Build a Mobile App (through Cordova)
+$ quasar build -m cordova -T [android|ios]
+# or the short form:
+$ quasar build -m [android|ios]
+
+# Build an Electron App for production
+$ quasar build -m electron
+
+# passing extra parameters and/or options to
+# underlying &quot;cordova&quot; executable:
+$ quasar build -m ios -- some params --and options --here
+# when on Windows and using Powershell:
+$ quasar build -m ios '--' some params --and options --here
+
+# Create a production build with ability to debug it
+# (has source-maps and code is NOT minified)
+$ quasar build -d [-m &lt;mode&gt;]</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="clean">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#clean">#</doc-anchor-trigger>
+        <span>Clean</span>
+    </h2>
+</doc-anchor-target>
+<p>Cleans up all the build assets:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">quasar clean</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="new">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#new">#</doc-anchor-trigger>
+        <span>New</span>
+    </h2>
+</doc-anchor-target>
+<p>Generates Components, Pages, Layouts, Vuex Store.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">tip</div>
+<pre class="language-none"><code v-pre class="language-none">This command is simply a helper in order to quickly scaffold a page/layout/component/vuex store module. You are not required to use it, but can help you when you don't know how to start.</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar new -h
+
+  Description
+    Quickly scaffold a page/layout/component/store module.
+
+  Usage
+    $ quasar new &lt;p|page&gt; [-f &lt;option&gt;] &lt;page_file_name&gt;
+    $ quasar new &lt;l|layout&gt; [-f &lt;option&gt;] &lt;layout_file_name&gt;
+    $ quasar new &lt;c|component&gt; [-f &lt;option&gt;] &lt;component_file_name&gt;
+    $ quasar new &lt;b|boot&gt; [-f ts] &lt;boot_name&gt;
+    $ quasar new &lt;s|store&gt; [-f ts] &lt;store_module_name&gt;
+
+    # Examples:
+
+    # Create src/pages/MyNewPage.vue:
+    $ quasar new p MyNewPage
+
+    # Create src/pages/MyNewPage.vue and src/pages/OtherPage.vue:
+    $ quasar new p MyNewPage OtherPage
+
+    # Create src/layouts/shop/Checkout.vue
+    $ quasar new layout shop/Checkout.vue
+
+    # Create src/layouts/shop/Checkout.vue with TypeScript options API
+    $ quasar new layout -f ts-options shop/Checkout.vue
+
+    # Create a store with TypeScript support
+    $ quasar new store -f ts myStore
+
+  Options
+    --help, -h            Displays this message
+
+    --format -f &lt;option&gt;  (optional) Use a supported format for the template
+                          Option can be:
+                             * ts-options - TS options API
+                             * ts-composition - TS composition API
+                             * ts-class - [DEPRECATED] TS class style syntax
+                             * ts - use for TS boot file and store modules only</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="mode">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mode">#</doc-anchor-trigger>
+        <span>Mode</span>
+    </h2>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar mode -h
+
+  Description
+    Add/Remove support for PWA / BEX / Cordova / Capacitor / Electron modes.
+
+  Usage
+    $ quasar mode [add|remove] [pwa|ssr|bex|cordova|capacitor|electron] [--yes]
+
+    # determine what modes are currently installed:
+    $ quasar mode
+
+  Options
+    --yes, -y     Skips the &quot;Are you sure?&quot; question
+                  when removing a Quasar mode
+    --help, -h    Displays this message</code></pre>
+</doc-codeblock></div>
+<p>When you initialize a project with the CLI, you can build SPA (Single Page Website/Application), SSR (Server-side Render Website/Application with optional PWA client takeover), PWA (Progressive Web App), Mobile App (through Cordova), and/or Electron Apps. When you develop for SSR, PWA, Cordova or Electron, you need these modes installed. If you issue &quot;quasar dev&quot; or &quot;quasar build&quot; they will automatically be installed.</p>
+<p>These modes will add a &quot;src-*&quot; folder into your project with very specific code for it:</p>
+<div class="table-wrapper scrollbar overflow-hidden">
+<table class="comfortable">
+<thead>
+<tr>
+<th>Folder</th>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src-ssr</td>
+<td>ssr</td>
+<td>Contains the production Node server files.</td>
+</tr>
+<tr>
+<td>src-pwa</td>
+<td>pwa</td>
+<td>Contains the Service Worker file that you can tweak.</td>
+</tr>
+<tr>
+<td>src-cordova</td>
+<td>cordova</td>
+<td>Is a Cordova project folder that will be using your &#x27;src&#x27; as content. Tweak Cordova config, add/remove platforms, splash screens, Cordova plugins and so on from this folder. Do NOT touch &quot;src-cordova/www&quot; folder though as it will get overwritten at every build.</td>
+</tr>
+<tr>
+<td>src-electron</td>
+<td>electron</td>
+<td>Has code for the main Electron thread. The renderer thread will be your app in &#x27;src&#x27;.</td>
+</tr>
+<tr>
+<td>src-bex</td>
+<td>bex</td>
+<td>Contains the specific files for Browser Extensions mode.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If for some reason you decide you don&#x27;t need a mode, you can remove it. <strong>This will permanently delete</strong> the respective &quot;src-*&quot; folder.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">quasar mode remove pwa</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="describe">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#describe">#</doc-anchor-trigger>
+        <span>Describe</span>
+    </h2>
+</doc-anchor-target>
+<p>This command is useful to describe the API of any Quasar components/directives/plugins that your project is using. <strong>It is specific to your Quasar version installed in your project folder.</strong></p>
+<p>Examples: <code v-pre>$ quasar describe QIcon</code>, <code v-pre>$ quasar describe TouchPan</code>, <code v-pre>$ quasar describe Cookies</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar describe -h
+
+  Description
+    Describes a component API for project's Quasar version being used
+
+  Usage
+    $ quasar describe &lt;component/directive/Quasar plugin&gt;
+
+    # display everything:
+    $ quasar describe QIcon
+
+    # displaying only props:
+    $ quasar describe QIcon -p
+    # displaying props and methods only:
+    $ quasar describe QIcon -p -m
+    # filtering by &quot;si&quot;:
+    $ quasar describe QIcon -f si
+    # filtering only props by &quot;co&quot;:
+    $ quasar describe QIcon -p -f co
+
+    # Open docs URL:
+    $ quasar describe QIcon -d
+
+  Options
+    --filter, -f &lt;filter&gt; Filters the API
+    --props, -p           Displays the API props
+    --slots, -s           Displays the API slots
+    --methods, -m         Displays the API methods
+    --events, -e          Displays the API events
+    --value, -v           Displays the API value
+    --arg, -a             Displays the API arg
+    --modifiers, -M       Displays the API modifiers
+    --injection, -i       Displays the API injection
+    --quasar, -q          Displays the API quasar conf options
+    --help, -h            Displays this message</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar describe QIcon
+
+ Describing QIcon component API
+ Description is based on your project's Quasar version
+
+ Properties
+
+   name (String)
+     Description: Name of the icon, following Quasar convention
+     Examples:
+       map
+       ion-add
+
+   color (String)
+     Description: Color name for component from the Quasar Color Palette
+     Examples:
+       primary
+       teal-10
+
+   size (String)
+     Description: Size in CSS units, including unit name
+     Examples:
+       16px
+       2rem
+
+   left (Boolean)
+     Description: Apply a standard margin on the left side. Useful if icon is on the right side of something.
+
+   right (Boolean)
+     Description: Apply a standard margin on the right side. Useful if icon is on the left side of something.
+
+ Slots
+
+   default
+     Suggestions: QTooltip or QMenu
+
+ Scoped Slots
+
+   *No scoped slots*
+
+ Events
+
+   *No events*
+
+ Methods
+
+   *No methods*</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="inspect">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inspect">#</doc-anchor-trigger>
+        <span>Inspect</span>
+    </h2>
+</doc-anchor-target>
+<p>This command can be used to inspect the Webpack config generated by Quasar CLI.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar inspect -h
+
+  Description
+    Inspect Quasar generated Webpack config
+
+  Usage
+    $ quasar inspect
+    $ quasar inspect -c build
+    $ quasar inspect -m electron -p 'module.rules'
+
+  Options
+    --cmd, -c        Quasar command [dev|build] (default: dev)
+    --mode, -m       App mode [spa|ssr|pwa|bex|cordova|electron] (default: spa)
+    --depth, -d      Number of levels deep (default: 5)
+    --path, -p       Path of config in dot notation
+                        Examples:
+                          -p module.rules
+                          -p plugins
+    --help, -h       Displays this message</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="ext">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ext">#</doc-anchor-trigger>
+        <span>Ext</span>
+    </h2>
+</doc-anchor-target>
+<p>This command is used to manage <a href="/app-extensions/introduction">App Extensions</a>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar ext -h
+
+  Description
+    Manage Quasar App Extensions
+
+  Usage
+    # display list of installed extensions
+    $ quasar ext
+
+    # Add Quasar App Extension
+    $ quasar ext add &lt;ext-id&gt;
+
+    # Remove Quasar App Extension
+    $ quasar ext remove &lt;ext-id&gt;
+
+    # Add Quasar App Extension, but
+    # skip installing the npm package
+    # (assumes it's already installed)
+    $ quasar ext invoke &lt;ext-id&gt;
+
+    # Remove Quasar App Extension, but
+    # skip uninstalling the npm package
+    $ quasar ext uninvoke &lt;ext-id&gt;
+
+  Options
+    --help, -h       Displays this message</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="run">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#run">#</doc-anchor-trigger>
+        <span>Run</span>
+    </h2>
+</doc-anchor-target>
+<p>This command is used to run commands supplied by the <a href="/app-extensions/introduction">App Extensions</a> that you&#x27;ve installed into your project folder.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar run -h
+
+  Description
+    Run app extension provided commands
+
+  Usage
+    $ quasar run &lt;extension-id&gt; &lt;cmd&gt; [args, params]
+    $ quasar &lt;extension-id&gt; &lt;cmd&gt; [args, params]
+
+    $ quasar run iconify create pic -s --mark some_file
+    $ quasar iconify create pic -s --mark some_file
+        # Note: &quot;iconify&quot; is an example and not a real extension.
+        # Looks for installed extension called &quot;iconify&quot;
+        # (quasar-app-extension-iconify extension package)
+        # and runs its custom defined &quot;create&quot; command
+        # with &quot;pic&quot; argument and &quot;-s --mark some_file&quot; params
+
+  Options
+    --help, -h       Displays this message</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="serve">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#serve">#</doc-anchor-trigger>
+        <span>Serve</span>
+    </h2>
+</doc-anchor-target>
+<p>This command can be used in production too and it is being supplied by the global installation of <code v-pre>@quasar/cli</code> package.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">$ quasar serve -h
+
+  Description
+    Start a HTTP(S) server on a folder.
+
+  Usage
+    $ quasar serve [path]
+    $ quasar serve . # serve current folder
+
+    If you serve a SSR folder built with the CLI then
+    control is yielded to /index.js and params have no effect.
+
+  Options
+    --port, -p              Port to use (default: 4000)
+    --hostname, -H          Address to use (default: 0.0.0.0)
+    --gzip, -g              Compress content (default: true)
+    --silent, -s            Suppress log message
+    --colors                Log messages with colors (default: true)
+    --open, -o              Open browser window after starting
+    --cache, -c &lt;number&gt;    Cache time (max-age) in seconds;
+                            Does not apply to /service-worker.js
+                            (default: 86400 - 24 hours)
+    --micro, -m &lt;seconds&gt;   Use micro-cache (default: 1 second)
+
+    --history               Use history api fallback;
+                              All requests fallback to /index.html,
+                              unless using &quot;--index&quot; parameter
+    --index, -i &lt;file&gt;      History mode (only!) index url path
+                              (default: index.html)
+
+    --https                 Enable HTTPS
+    --cert, -C [path]       Path to SSL cert file (Optional)
+    --key, -K [path]        Path to SSL key file (Optional)
+    --proxy &lt;file.js&gt;       Proxy specific requests defined in file;
+                            File must export Array ({ path, rule })
+                            See example below. &quot;rule&quot; is defined at:
+                            https://github.com/chimurai/http-proxy-middleware
+    --cors                  Enable CORS for all requests
+    --help, -h              Displays this message
+
+  Proxy file example
+    module.exports = [
+      {
+        path: '/api',
+        rule: { target: 'http://www.example.org' }
+      }
+    ]
+    --&gt; will be transformed into app.use(path, httpProxyMiddleware(rule))</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="custom-node-server">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#custom-node-server">#</doc-anchor-trigger>
+        <span>Custom Node server</span>
+    </h3>
+</doc-anchor-target>
+<p>When building a SPA or PWA, the distributable folder can be served by any static webserver. To test it out (assuming you don&#x27;t have a specific publicPath or not using Vue Router &quot;history&quot; mode), you can use the &quot;http-server&quot; npm package.</p>
+<p>Or you can build your own server. Here are some examples:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// when using default Vue Router &quot;hash&quot; mode
+const
+  express = require('express'),
+  serveStatic = require('serve-static'),
+  port = process.env.PORT || 5000
+
+const app = express()
+
+app.use(serveStatic(...path-to-dist...))
+app.listen(port)</code></pre>
+</doc-codeblock></div>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// when using Vue Router &quot;history&quot; mode
+const
+  express = require('express'),
+  serveStatic = require('serve-static'),
+  history = require('connect-history-api-fallback'),
+  port = process.env.PORT || 5000
+
+const app = express()
+
+app.use(history())
+app.use(serveStatic(...path-to-dist...))
+app.listen(port)</code></pre>
+</doc-codeblock></div>
+<p>If you need URL rewrites of API, or simply put you want to proxy your API requests, then you can use &quot;http-proxy-middleware&quot; package:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-javascript"><code v-pre class="language-javascript">// add this to one of the two previous examples:
+const { createProxyMiddleware } = require('http-proxy-middleware')
+
+// ...
+app.use('/api', createProxyMiddleware({
+    target: `http://my-api.com:5050`,
+    pathRewrite: {&quot;^/api&quot; : &quot;&quot;}
+  }))
+
+// then app.listen(...)</code></pre>
+</doc-codeblock></div>
+<p>Finally, run one of these files:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">node my-server.js</code></pre>
+</doc-codeblock></div>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/quasar/6.3-quasarprefetch/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">7.3 Quasar Prefech Feature</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/screenshots/8.2-layouts/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">8 Some Layouts</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "Commands List", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

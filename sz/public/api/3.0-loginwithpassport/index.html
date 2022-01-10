@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>3.0 Login with Passport</title>
+    <meta name="title" content="3.0 Login with Passport">
+    <meta name="description" content="For the the rest API you need to do a POST request to http://api.securezone.co.za.test/oauth/token" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://sz.docs.dev.isa.co.za/api/3.0-loginwithpassport/">
+    <meta property="og:title" content="3.0 Login with Passport">
+    <meta property="og:description" content="For the the rest API you need to do a POST request to http://api.securezone.co.za.test/oauth/token">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://sz.docs.dev.isa.co.za/api/3.0-loginwithpassport/">
+    <meta property="twitter:title" content="3.0 Login with Passport">
+    <meta property="twitter:description" content="For the the rest API you need to do a POST request to http://api.securezone.co.za.test/oauth/token">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115969504" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115969504" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115969504" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115969504" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA SZ Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">SecureZone</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://sz.docs.dev.isa.co.za/">Secure Zone</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="30-login-with-passport" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#30-login-with-passport">#</doc-anchor-trigger>
+        <span>3.0 Login with Passport</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="301-rest-api">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#301-rest-api">#</doc-anchor-trigger>
+        <span>3.0.1 Rest API</span>
+    </h2>
+</doc-anchor-target>
+<p>For the the rest API you need to do a POST request to <code v-pre>http://api.securezone.co.za.test/oauth/token</code></p>
+<blockquote>
+<p>The .test is what Laragon (My local test server ads, you can remove that)</p>
+</blockquote>
+<doc-anchor-target id="3011-make-http-post-request">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3011-make-http-post-request">#</doc-anchor-trigger>
+        <span>3.0.1.1 Make HTTP POST Request</span>
+    </h3>
+</doc-anchor-target>
+<p>You need the following POST Params, to test with rest client, install: <code v-pre>https://insomnia.rest/download</code> it is called <code v-pre>Insomnia REST Client</code>, it is just quicker to install than post-man since postman is now an Electorn App and takes forever to installl and load.</p>
+<doc-anchor-target id="3012-in-insomnia-rest-client">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3012-in-insomnia-rest-client">#</doc-anchor-trigger>
+        <span>3.0.1.2 In Insomnia Rest Client</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>New Request</li>
+<li>Enter URL</li>
+<li>Choose POST Request</li>
+<li>Choose Multi-part Form Data</li>
+</ul>
+<p>Then add the following fields</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;grant_type&quot;: &quot;password&quot;,
+    &quot;client_id&quot;: &quot;client-id&quot;,
+    &quot;client_secret&quot;: &quot;client-secret&quot;,
+    &quot;username&quot;: &quot;charl@isa.co.za&quot;,
+    &quot;password&quot;: &quot;1234&quot;,
+    &quot;scope&quot;: &quot;&quot;
+}</code></pre>
+</doc-codeblock></div>
+<p>The client-id and the client secret is what you saw when you did the following command</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">php artisan passport:install</code></pre>
+</doc-codeblock></div>
+<p>But of you missed it you can go lookup your <code v-pre>client-id</code> and <code v-pre>secret</code> by opening the <code v-pre>DB</code> and opening the <code v-pre>oauth_client</code> table</p>
+<doc-anchor-target id="3013-request-access-token">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3013-request-access-token">#</doc-anchor-trigger>
+        <span>3.0.1.3 Request Access Token</span>
+    </h3>
+</doc-anchor-target>
+<p>When you send that request you should get the following response:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;expires_in&quot;: 31536000,
+    &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNDg3ZDE2ZjA4ODljMjhmOWQ3ZjRmOGYwMDViY2IyNDBmNGYwNDIyMDlkZTUxODAyYmI0M2RiOWEyNmY0MGY4NzE4NTdiYmQwNjIxNmJjYWIiLCJpYXQiOjE2Mzk2OTE2NjguODYyNTk2LCJuYmYiOjE2Mzk2OTE2NjguODYyNiwiZXhwIjoxNjcxMjI3NjY4Ljg1MTY4Nywic3ViIjoiMTIiLCJzY29wZXMiOltdfQ.LEE12uDj4JufueEaUOeqibZB08Z9JzfzzsB6QXeOkMpNX7IWaoLfoAMLKcnbIauMKv3Y12KX1pu2yuMqB0yhzcLkC1d-KEvPv8YRIumcpAI-OMg50P8y6vUC8HEOvug8-lIIP8YJ5mBHZAx8_5JK3SdUfeFQiwg7EclGRCuOadg-udjsB2DySDgK6KI3vN0X56o1_Ufn2XkSBpBpVNveMk-jjES9C16ZQx3R909STWRDEJrD3LvP0NZP-1AwzTvuRMHAqJCBPcjR9n71iQrlwc2ho9ksNMuxhnUVLXcL40ekH0UBMsi9ehTRxwsFPk0_r2tSq0K5PZsAkPY4V6FvB0momh1S65oOR0bcjx7KAhyC_6QbbvEMvE_17kXYWScY3xYEFKVvuG7RT3MlA869WflZwu1285teMB-pAHGMqdWw6SxxfS9l_fi-bSLbp41Loig05TYLf2z17dfKsW0tCnfA2Owo6FLR6-UBYPWHKK5P2D8KMns0WVdb6cpcQXZ0aW-fe8LiMhecWaVWRGBEVneC7DQel2VG4WjJ3BGESGq7zq7JxjuLX4wpvRCrKXndc8XRy2GxtDhnGmKcf9-LZ-nHA_MUEnBLXHf1maLKk7pTml4PiMoSPMpPMZobnoeFNU-3Lv1A2Zd1Xl0wRxsk1KDT77TbIrDl0FWiOUaobk0&quot;,
+    &quot;refresh_token&quot;: &quot;def502006a338325ec4a02976f2af69da3aff74a9e803fed1e80e4937866911062235aba91a9239ef7e89854d46b36cbeaa7c2a21e5b275e2d791e6c949dcf4600c6838eef1cfcde928fa674178ac9dd1b41119f98c5e603a49ea459111550b2de60f0b8ffc3e95e3180ea886d5014cdb090c277ddd2e09c5212d1f489108235e352f7ea66940ae6f7dafcf6bf522cd500edb069936154c44dd189600c830341bedb781732605584a655b46febfb74e326982be0fc22c18249c2303e843f25b0aef94bb099afb9af81ec6ad17328de5a59985f41dfe4200049ac906933b41d62a38aa2969c5817481c382e8ae2b6e74adb94ef7b1d5922979e6921ef1e17ed5fdbefb24912b799de903e97642f8fcd4e0a7a183d70d2c1cd6303d1a1283cddb83d2e6110a21752f04495bcbd64e170542483bc346a3c7cae9f9d74474f15b9a7f2cdf230fb2b97cc8c1f324b7163dee023b30472552dddafcbfa6b44399f12e48d3d&quot;
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3014-get-user-details">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3014-get-user-details">#</doc-anchor-trigger>
+        <span>3.0.1.4 Get User details</span>
+    </h3>
+</doc-anchor-target>
+<p>You will notice in the <code v-pre>routes/api.php</code> there is a single route behind some middleware. So with the help of the access token we just received we can now request the <code v-pre>user</code> details</p>
+<ul>
+<li>Create new GET request in Rest Client</li>
+<li>Url: <a href="http://api.securezone.co.za.test/api/user">http://api.securezone.co.za.test/api/user</a></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-http"><code v-pre class="language-http">- Headers
+- Accept:
+  - Header:     Accept
+  - Value:      application/json
+- Authorization
+  - Header:     Authorization
+  - Value:      Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiNDg3ZDE2ZjA4ODljMjhmOWQ3ZjRmOGYwMDViY2IyNDBmNGYwNDIyMDlkZTUxODAyYmI0M2RiOWEyNmY0MGY4NzE4NTdiYmQwNjIxNmJjYWIiLCJpYXQiOjE2Mzk2OTE2NjguODYyNTk2LCJuYmYiOjE2Mzk2OTE2NjguODYyNiwiZXhwIjoxNjcxMjI3NjY4Ljg1MTY4Nywic3ViIjoiMTIiLCJzY29wZXMiOltdfQ.LEE12uDj4JufueEaUOeqibZB08Z9JzfzzsB6QXeOkMpNX7IWaoLfoAMLKcnbIauMKv3Y12KX1pu2yuMqB0yhzcLkC1d-KEvPv8YRIumcpAI-OMg50P8y6vUC8HEOvug8-lIIP8YJ5mBHZAx8_5JK3SdUfeFQiwg7EclGRCuOadg-udjsB2DySDgK6KI3vN0X56o1_Ufn2XkSBpBpVNveMk-jjES9C16ZQx3R909STWRDEJrD3LvP0NZP-1AwzTvuRMHAqJCBPcjR9n71iQrlwc2ho9ksNMuxhnUVLXcL40ekH0UBMsi9ehTRxwsFPk0_r2tSq0K5PZsAkPY4V6FvB0momh1S65oOR0bcjx7KAhyC_6QbbvEMvE_17kXYWScY3xYEFKVvuG7RT3MlA869WflZwu1285teMB-pAHGMqdWw6SxxfS9l_fi-bSLbp41Loig05TYLf2z17dfKsW0tCnfA2Owo6FLR6-UBYPWHKK5P2D8KMns0WVdb6cpcQXZ0aW-fe8LiMhecWaVWRGBEVneC7DQel2VG4WjJ3BGESGq7zq7JxjuLX4wpvRCrKXndc8XRy2GxtDhnGmKcf9-LZ-nHA_MUEnBLXHf1maLKk7pTml4PiMoSPMpPMZobnoeFNU-3Lv1A2Zd1Xl0wRxsk1KDT77TbIrDl0FWiOUaobk0</code></pre>
+</doc-codeblock></div>
+<p>Once you have sent the request you should receive the following:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+    &quot;id&quot;: 12,
+    &quot;name&quot;: &quot;weIR3jWju4&quot;,
+    &quot;email&quot;: &quot;charl@isa.co.za&quot;,
+    &quot;email_verified_at&quot;: &quot;2021-12-13T07:29:08.000000Z&quot;,
+    &quot;created_at&quot;: &quot;2021-12-06T09:30:20.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-12-06T09:30:24.000000Z&quot;,
+    &quot;avatar&quot;: null
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="302-graph-ql-auth">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#302-graph-ql-auth">#</doc-anchor-trigger>
+        <span>3.0.2 Graph QL Auth</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="3021-update-env-file">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3021-update-env-file">#</doc-anchor-trigger>
+        <span>3.0.2.1 Update .env file</span>
+    </h3>
+</doc-anchor-target>
+<p>make sure you got the following added to <code v-pre>.env</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">PASSPORT_CLIENT_ID=4
+PASSPORT_CLIENT_SECRET=d36HYgmE3dXkVEkfwyz3jkdmXS1pOzoVKKgshS5R</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3022-login-with-graphql">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3022-login-with-graphql">#</doc-anchor-trigger>
+        <span>3.0.2.2 Login with GraphQL</span>
+    </h3>
+</doc-anchor-target>
+<p>You can find the existing Queries and mutations in <code v-pre>graphql/auth.graphql</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">input LoginInput {
+    username: String!
+    password: String!
+}</code></pre>
+</doc-codeblock></div>
+<p>You will find the first one with type <code v-pre>input</code>. Input is a neat way of sending data as an object. So instead of sending username and password seperatly, you will send it a json object</p>
+<p>For GraphQL I&#x27;m using the <code v-pre>Altair</code> GraphQL Client. <a href="https://altair.sirmuel.design">https://altair.sirmuel.design</a></p>
+<p>Here is my Graphql Query</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">mutation {
+    # Specify I want to user the login,input QL
+    login(
+        input: {
+            username: &quot;charl@isa.co.za&quot; # Username amd password in an `{}` object
+            password: &quot;1234&quot;
+        }
+    ) {
+        # Now I specify what I want back, with REST first just got the token and then I had to make another request for the user detials, but here I can just nest the queries and get all at once
+        access_token
+        refresh_token
+        expires_in
+        token_type
+        user {
+            id
+            email
+            name
+            created_at
+            updated_at
+        }
+    }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3023-get-access-token">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3023-get-access-token">#</doc-anchor-trigger>
+        <span>3.0.2.3 Get Access Token</span>
+    </h3>
+</doc-anchor-target>
+<p>After sending the request you will receive something like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">json{</div>
+<pre class="language-none"><code v-pre class="language-none">    &quot;data&quot;: {
+        &quot;login&quot;: {
+            &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiOTg0MTQ0OWY1ODE0NmQ0NjExZWI1MTMxOGRkMzQyNDBlODYzYThjNTE1YjEyZDY1ZmNjZDlmOGQ1ZTkxZjVkNzY4MDY5YmU5MzRiYWIxNDQiLCJpYXQiOjE2Mzk2OTQ5MzkuNjQ0NzY0LCJuYmYiOjE2Mzk2OTQ5MzkuNjQ0Nzc2LCJleHAiOjE2NzEyMzA5MzkuNjI4MjY0LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.FM1AJ-N_UAfcnqqviCNscIw8PlaEN0lRGj3S0L72hqt2HcyHJt8TsHPSsk9leJt-lMez8_UlS7MK9ucw7s2CdPGufZk4X9QFOo6dDoQMkZF2cYHeUv1tYC0RoCOgzAGhTqMpZLGG9ZQ-UxixFpuyTHRf313lLS2BE6FIMDQYMr2We9Htk1xHqoruCtdjmdz0Bt2RYQ4ozJWLJRs4O8bmcHh0tnO7jg9hLd1eP9b_M_E0MCiX_nuU0xLZJRmLaX_O4vRWT06-Xs8v40u0njMft-oRYX0c-ohLPxzqXCEAciwDS4Fuj5rcS3gmTXcnClmYZXfO9mTpMTcQ8R8BToSNOBQJts32zcWF9gfZ3Q5fDGDoaST5vkyD2_za7R0VJv1Xe8BXkuO62S1hsaTEY7ztqYsS_5pHP3MUyhQQ9Gx6iFpc1bcm-MB4FMAHCwxOBHEdoQW6RuHMYndfrqeDaWtH8WCwo4HicJBgvDc60zHVYWCmEiB_rQekPeeqQQD-Mxyb6LB5mOYz0Y6odYCxgZWn7m-rl1vgD9OYQ3-qDyQb2pzHNh9VIMiyjGOFOSOTdjS1dEoap9DgFWBm7jX87lZuKvtvseHTYhz-qmOQTOUUs-sySrSaViY1Ri9jh89YOKt23lAzL-129q2Nscwzgs2-cjCbp1g8h2iUs0P07QBxu08&quot;,
+            &quot;refresh_token&quot;: &quot;def50200e079a230757b78facbe2505b26629d7975d550e70057435613bdf5c21b7e10c460a9efbee45dacc02af364a412db960ff745f3b6a49e9e74f0a76ea69afdf45e3e88bbefddce5b5ee28b20efc93e7aa0a5b6378081b7acc2a2aa072ad766cc56ac28057626e5fe47d08bebfeb81be0e311eabb16a8c75f057d79bdc7a30f33c2fbb293cf5ea92a6cfe2b66a1d520c3b85ab4a0d71c20f1d88db44f62de60be27a69b444c338ee4a180717f67e06f98b1d1b5c09ef0354a3e0e0e0e508377b15abba89176860c40ea4fc89f6d4128c208d08513827dfdd846b2aa5545cf2021062b64d85b82b9fb237e66e2a179cfb425f6283a008ff4b8a420e81b1baf427e4d3521c8b307fa1cd735dbbb800fab11e411af0b6f3167578d0d64dba96f68542ed509530b62b31b2c126711dc82f77b421e007fb142b8ecabc74dfa774742dd58af18f0f3ff85b4141579f79687780f6a307b1d6d69001f67ae79995f051d&quot;,
+            &quot;expires_in&quot;: 31536000,
+            &quot;token_type&quot;: &quot;Bearer&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: &quot;12&quot;,
+                &quot;email&quot;: &quot;charl@isa.co.za&quot;,
+                &quot;name&quot;: &quot;weIR3jWju4&quot;,
+                &quot;created_at&quot;: &quot;2021-12-06 09:30:20&quot;,
+                &quot;updated_at&quot;: &quot;2021-12-06 09:30:24&quot;
+            }
+        }
+    }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3024-create-new-graphql-query">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3024-create-new-graphql-query">#</doc-anchor-trigger>
+        <span>3.0.2.4 Create new Graphql Query</span>
+    </h3>
+</doc-anchor-target>
+<p>Now to create a quary to get the user details separate</p>
+<p>In <code v-pre>schema.graphql</code> register the following query</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">type Query {
+    users: [User!]! @paginate(defaultCount: 10)
+        model: &quot;App\\Models\\User&quot;)
+        user(id: ID @eq): User @find(model: &quot;App\\User&quot;)
+        
+        # Add a new quary
+        me: User @guard(checks:[&quot;auth:api&quot;]) @auth
+</code></pre>
+</doc-codeblock></div>
+<p><code v-pre>me</code> is the name of the query and it is <code v-pre>authenticating</code> against the <code v-pre>@gaurd</code> directive and it checked that I am logged in with the <code v-pre>auth:api</code></p>
+<doc-anchor-target id="3025-use-new-query">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3025-use-new-query">#</doc-anchor-trigger>
+        <span>3.0.2.5 Use new Query</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">
+# For this to work I must now set the following headers
+# Accept : application/json
+# Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiYTJhY2I4NTc2NmI5YzNiNGZmMmMwMGE1NDg5ZTAzZWE2NWY2YmQ5NzgzMTY1Mjc2ODBkNmM3NTAxOWFkY2Q3MDg5MzAzZjcxZGNhOGNkNWIiLCJpYXQiOjE2Mzk3MDcyNTMuNTI2NTE4LCJuYmYiOjE2Mzk3MDcyNTMuNTI2NTI0LCJleHAiOjE2NzEyNDMyNTMuNDkzOTU4LCJzdWIiOiIxMiIsInNjb3BlcyI6W119.EZeb1EN8NsvsP6X3d4bo5PSskzBphnMiRRGc9xy6sTn3Y7IvmJllxNIaNP1wBnkpnkEWHuwKjEoYmzTAjD6hVETKRjwTXcVFESqnD81F2mq8J7hGmHFPbjgNQREoxMQlMQLtDpspxcIGobR-BrGckl_D79WIKElQZLRvJ2G7kZqTeA0FJQ17vmWicqVVs7-Vmmre_HRYoFj0_Wq6mTMJ-yeRfH0vvaZS5jJ9phegnR6JYnPiRnqCph7Jn4lJs86qwRmv1SCvR3ZHjRpQcpI9IGMddoFVCfFY71-OdYhex_vNOoq0YnNLJFcgpfjP42bH8JXwxSp1LQ4SaH8q0VcAlBXfdkXpHN-LPb1x-Ymeyr1SndeoWVO2lGY9DUgrnmZqLawEyZbh6vwDldlNguEz9dgH_3VxCduB3kqUQLro7UlPByCUdxkyVLOST1itoxXIH12VHativn3vxs8i4OrDTEKXotbEgfNuU6CLQjndR3KnTlvZq6GBZmcOAzViYvpxJixAPb69xhFLgzAeHPQNTM11IHCA6c0vJvwuKzoy2X6qRXaYYWjY9cZzv1n4gl4ld1sQ5ZSHe0qXPRd7hh5M35nuWAi1E9J4ayUNfzwYYOKympiy9WEKzsPELaOwlTr_IhMEokCMzhcnMBlHIXDalXrlArSzWEgPo16mYue6uo4
+
+query {
+    me {
+        name
+        email
+   }
+}</code></pre>
+</doc-codeblock></div>
+<p>When I run this query I get the following response:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;data&quot;: {
+    &quot;me&quot;: {
+      &quot;name&quot;: &quot;weIR3jWju4&quot;,
+      &quot;email&quot;: &quot;charl@isa.co.za&quot;
+    }
+  }
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3025-logout">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3025-logout">#</doc-anchor-trigger>
+        <span>3.0.2.5 Logout</span>
+    </h3>
+</doc-anchor-target>
+<p>The following query can be used to log out</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">mutation {
+  logout {
+    message
+  }
+}</code></pre>
+</doc-codeblock></div>
+<p>The response will be:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;data&quot;: {
+    &quot;logout&quot;: {
+      &quot;message&quot;: &quot;Your session has been terminated&quot;
+    }
+  }
+}</code></pre>
+</doc-codeblock></div>
+<p>That that access token is no longer valid</p>
+<doc-anchor-target id="3026-forgot-password">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3026-forgot-password">#</doc-anchor-trigger>
+        <span>3.0.2.6 Forgot Password</span>
+    </h3>
+</doc-anchor-target>
+<p>Query for forgot pasword</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">mutation {
+  forgotPassword(input: {
+    email: &quot;charl@isa.co.za&quot;
+  }) {
+    message
+  }
+}</code></pre>
+</doc-codeblock></div>
+<p>At first you will get this response</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">&quot;errors&quot;: [
+    {
+      &quot;debugMessage&quot;: &quot;Route [password.reset] not defined.&quot;,
+      &quot;message&quot;: &quot;Internal server error&quot;,
+      &quot;extensions&quot;: {
+        &quot;category&quot;: &quot;internal&quot;</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3027-fix-auth-routes">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3027-fix-auth-routes">#</doc-anchor-trigger>
+        <span>3.0.2.7 Fix Auth routes</span>
+    </h3>
+</doc-anchor-target>
+<p>This is because the auth scaffolding for forget password had not been done</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">php artisan make:auth
+
+# Okay that would have worked before but Laravel 8 does not support make:auth any more</code></pre>
+</doc-codeblock></div>
+<p>So to get the route that is missing you have to go add it manually</p>
+<p>Open file <code v-pre>routes/web.php</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-php"><code v-pre class="language-php">/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the &quot;web&quot; middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Add the route below
+Route::post('password/reset', 'Joselfonseca\LighthouseGraphQLPassport\GraphQL\Mutations\ForgotPassword@resolve')-&gt;name('password.reset');</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3028-set-mail-driver-to-log">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3028-set-mail-driver-to-log">#</doc-anchor-trigger>
+        <span>3.0.2.8 Set mail driver to log</span>
+    </h3>
+</doc-anchor-target>
+<p>If you don&#x27;t need to setup a mail server now then just set the mail driver to log</p>
+<p>open <code v-pre>.env</code> file</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+# the setting below, change from smtp to log
+MAIL_MAILER=log
+MAIL_HOST=mailhog
+MAIL_PORT=1025</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="3028-okay-and-finally-creating-a-new-user">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3028-okay-and-finally-creating-a-new-user">#</doc-anchor-trigger>
+        <span>3.0.2.8 Okay and finally creating a new user</span>
+    </h3>
+</doc-anchor-target>
+<p>Add the following to <code v-pre>schema.graphql</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-graphql"><code v-pre class="language-graphql">type mutation {
+    createUser(
+        name: String! @rules(apply:[&quot;required&quot;,&quot;min:4&quot;]),
+        email: String! @rules(apply:[&quot;email&quot;,&quot;unique:users&quot;]),
+        password: String! @rules(apply:[&quot;min:8&quot;]) @hash
+    ): User! @create  
+}</code></pre>
+</doc-codeblock></div>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Secure Zone</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/api/3.1-installwithcomp/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">3.1 Install Laravel via Composer</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "3.0 Login with Passport", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

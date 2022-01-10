@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>Sample Data for Regex</title>
+    <meta name="title" content="Sample Data for Regex">
+    <meta name="description" content="Here is the sample data that I used to create the example referenced here at 2. Example Regular Expressions for SSH Agent" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://isa.docs.dev.isa.co.za/perl/regex/sampledata/">
+    <meta property="og:title" content="Sample Data for Regex">
+    <meta property="og:description" content="Here is the sample data that I used to create the example referenced here at 2. Example Regular Expressions for SSH Agent">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://isa.docs.dev.isa.co.za/perl/regex/sampledata/">
+    <meta property="twitter:title" content="Sample Data for Regex">
+    <meta property="twitter:description" content="Here is the sample data that I used to create the example referenced here at 2. Example Regular Expressions for SSH Agent">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115866758" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115866758" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115866758" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115866758" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Dev Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="sample-data-for-regex" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#sample-data-for-regex">#</doc-anchor-trigger>
+        <span>Sample Data for Regex</span>
+    </h1>
+</doc-anchor-target>
+<blockquote>
+<p>Here is the sample data that I used to create the example referenced here at <em>2. Example</em>
+<a href="../regexforsshagent/">Regular Expressions for SSH Agent</a></p>
+</blockquote>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-bash"><code v-pre class="language-bash">FortiWeb commands
+
+FortiWeb $ get system status
+International Version: FortiWeb-VM 6.39,build1117(GA),201125
+Serial-Number: FVVM010000201278
+license type: remote
+Bios version: 04000002
+Log hard disk: Available
+Hostname: FortiWeb
+Operation Mode: Reverse Proxy
+FIPS-CC mode: disabled
+Current HA mode: standalone
+Database Status: Available
+
+
+FortiWeb $ get system ha
+mode                : standalone
+
+FortiWeb $ get system ha-status
+HA is disabled
+
+FortiWeb $ get system performance
+CPU states:    12% used, 88% idle
+Memory states: 81% used
+Up:            7 days,  8 hours,  44 minutes.
+
+FortiWeb $ diagnose policy detail-stats list
+&lt;policy name&gt;    the policy name
+root.isa
+
+
+FortiWeb $ diagnose policy detail-stats list root.isa
+policy(isa)
+worker num(1)
+worker[0]
+        accept_fd:51579
+        connect_fd:44875
+        closefd:        c2s:51562 s2c:44859
+        epollerr:       c2s:1479 s2c:19387
+        recverr:        c2s:1 s2c:0
+        senderr:        c2s:1 s2c:0
+        recv_bytes:     c2s:75496633 s2c:5228718006
+        send_bytes:     c2s:1577475441 s2c:73023095
+        ssl_accept:92672
+        ssl_connect:0
+        ssl_handleshake_err:    c2s:1709 s2c:0
+        ssl_recverr:    c2s:1 s2c:0
+        ssl_senderr:    c2s:1 s2c:0
+        session_live:51579
+        http_request:187159
+        http_response:187155
+        waf_accept:1091026
+        waf_deny:3885
+        waf_followup:181905
+
+FortiWeb $ diagnose policy total-detail-stats list
+&lt;policy name&gt;    the policy name
+root.isa
+
+
+FortiWeb $ diagnose policy total-detail-stats list root.isa
+policy(isa)
+
+accept_fd
+           0             2             2             0             8             6             0             5             1             7
+connect_fd
+           0             1             2             0             5             6             0             4             1             7
+ssl_accept
+           0             3             4             0            10            12             0             9             2            14
+ssl_connect
+           0             0             0             0             0             0             0             0             0             0
+session_live
+           0             2             2             0             8             6             0             5             1             7
+http_request
+           5            13            11             7            16            20             6            16             4            46
+http_response
+           5            13            12             7            14            22             6            14             7            45
+waf_accept
+          13            36            30            19           150            59            15            39            14           128
+waf_deny
+           0             0             0             0             3             0             0             0             0             0
+waf_followup
+           5            13            12             7             8            22             6            14             7            45
+closefd Client to FWB
+           2             3             2             3             7             3             1             4             1             4
+closefd FWB to Server
+           2             2             2             3             4             3             1             3             1             4
+epollerr Client to FWB
+           0             0             0             0             0             1             0             0             0             0
+epollerr FWB to Server
+           2             2             0             3             0             0             1             0             1             2
+recv_err Client to FWB
+           0             0             0             0             0             0             0             0             0             0
+recv_err FWB to Server
+           0             0             0             0             0             0             0             0             0             0
+send_err Client to FWB
+           0             0             0             0             0             0             0             0             0             0
+send_err FWB to Server
+           0             0             0             0             0             0             0             0             0             0
+recv_bytes Client to FWB
+        1929          5137          4337          2787          6880          8133          2230          6158          1612         18128
+recv_bytes FWB to Server
+        3977          9077          9255          5137        329403         13722          5097         48314          4600       6351060
+send_bytes Client to FWB
+        4587         10778         10739          6221        331790         16866          5829         50348          5569        966959
+send_bytes FWB to Server
+        1929          5137          4280          2787          5186          8133          2230          6044          1612         18128
+ssl_hskerr Client to FWB
+           0             0             0             0             0             0             0             1             0             0
+ssl_hskerr FWB to Server
+           0             0             0             0             0             0             0             0             0             0
+ssl_recverr Client to FWB
+           0             0             0             0             0             0             0             0             0             0
+ssl_recverr FWB to Server
+           0             0             0             0             0             0             0             0             0             0
+ssl_senderr Client to FWB
+           0             0             0             0             0             0             0             0             0             0
+ssl_senderr FWB to Server
+           0             0             0             0             0             0             0             0             0             0
+
+
+FortiWeb $ diagnose policy traffic list root.isa
+policy(isa)
+total = 60
+           0             0           581             0             0             0
+           0             0             0             0             0             0
+           0             0             0           579             0             0
+         447             0             0             0             0             0
+           0             0             0             0             0             0
+           0             0             0             0          1880             0
+           0             0             0          1737          8684           706
+           0             0             0             0             0             0
+           0             0             0             0             0             0
+         581          2347           705             0             0             0
+
+throughput is 0 Bytes per second
+
+
+FortiWeb $ diagnose policy total-conn-psec list
+total = 60
+         1           0           0           0           1           0
+         0           0           0           0           0           0
+         0           0           0           0           0           1
+         0           0           0           0           0           0
+         0           0           1           0           0           0
+         0           0           0           0           0           1
+         0           0           1           0           0           0
+         0           0           0           0           0           0
+         0           0           0           0           0           0
+         0           0           0           0           0           0
+
+throughput is 0 conns per second
+
+FortiWeb $ get system interface
+ name    interface name
+ port1
+ port2
+ port3
+ port4
+ port5
+ port6
+ port7
+ port8
+ port9
+ port10
+
+
+FortiWeb $ get system interface port1
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : down
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port2
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : up
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port3
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : down
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port4
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : up
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port5
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : down
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port6
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : up
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port7
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : down
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port8
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : up
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port9
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : down
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ get system interface port10
+type                : physical
+ip                  : 192.168.4.150/25
+ip6                 : ::/0
+allowaccess         : ping ssh http https
+status              : up
+mode                : static
+ip6-mode            : static
+description         :
+ip6-allowaccess     :
+wccp                : disable
+azure-endpoint      : 0
+mtu                 : 1500
+dynamic_gateway     :
+dynamic_dns1        :
+dynamic_dns2        :
+
+
+FortiWeb $ diagnose hardware mem list
+MemTotal:        4038456 kB
+MemFree:          336492 kB
+MemAvailable:     528248 kB
+Buffers:          108196 kB
+Cached:           255728 kB
+SwapCached:            0 kB
+Active:          2747408 kB
+Inactive:         227068 kB
+Active(anon):    2612296 kB
+Inactive(anon):   146288 kB
+Active(file):     135112 kB
+Inactive(file):    80780 kB
+Unevictable:        1140 kB
+Mlocked:            1140 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               108 kB
+Writeback:             0 kB
+AnonPages:       2611716 kB
+Mapped:            58436 kB
+Shmem:            148000 kB
+KReclaimable:      16624 kB
+Slab:              85684 kB
+SReclaimable:      16624 kB
+SUnreclaim:        69060 kB
+KernelStack:        4032 kB
+PageTables:        12536 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     2019228 kB
+Committed_AS:    4936780 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:        6380 kB
+VmallocChunk:          0 kB
+Percpu:              496 kB
+DirectMap4k:      157632 kB
+DirectMap2M:     4036608 kB
+
+
+FortiWeb $ diagnose hardware nic list
+lo
+gre0
+port1
+port2
+port3
+port4
+port5
+port6
+port7
+port8
+port9
+erspan0
+gretap0
+port10
+port_tn
+
+FortiWeb $ diagnose hardware nic list
+&lt;nic&gt;    the network interface name
+
+
+FortiWeb $ diagnose hardware nic list port1
+driver                                  vmxnet3
+version                                 1.4.17.0-k-NAPI
+firmware-version
+bus-info                                0000:03:00.0
+
+Supported ports                         TP
+Supported link modes                    1000baseT/Full
+                                        10000baseT/Full
+Supports auto-negotiation:              No
+Advertised link modes:                  Not reported
+Advertised auto-negotiation:            No
+
+Speed:                                  10000Mb/s
+Duplex:                                 Full
+Port:                                   Twisted Pair
+PHYAD                                   0
+Transceiver:                            internal
+Auto-negotiation                        off
+Supports Wake-on                        uag
+Wake-on                                 d
+Link detected                           yes
+
+Link encap                              Ethernet
+HWaddr                                  00:0C:29:AA:CF:E0
+INET addr                               192.168.4.150
+Bcast                                   192.168.4.255
+Mask                                    255.255.255.128
+FLAG                                    UP BROADCAST RUNNING MULTICAST
+MTU                                     1500
+MEtric                                  1
+Outfill                                 538976266
+Keepalive                               538976288
+
+RX packets                              3922557
+RX errors                               0
+RX dropped                              107
+RX overruns                             0
+RX frame                                0
+TX packets                              5227882
+TX errors                               0
+TX dropped                              0
+TX overruns                             0
+TX carrier                              0
+TX collisions                           0
+TX queuelen                             1000
+RX bytes                                5947528926 (5672.0 Mb)
+TX bytes                                5807463565 (5538.4 Mb)
+Adaptive RX                             off
+Adaptive TX                             off
+stats-block-usecs                       0
+sample-interval                         0
+pkt-rate-low                            0
+pkt-rate-high                           0
+rx-usecs                                0
+rx-frames                               0
+rx-usecs-irq                            0
+rx-frames-irq                           0
+tx-usecs                                0
+tx-frames                               0
+tx-usecs-irq                            0
+tx-frames-irq                           0
+
+
+FortiWeb $ diagnose hardware harddisk list
+name    size(M)
+sda      34359.74
+
+FortiWeb $ diagnose hardware logdisk info
+disk number: 1
+disk[0] size: 33.55GB
+partition number: 1
+mount status: read-write
+
+FortiWeb $ diagnose hardware cpu
+
+FortiWeb $ diagnose hardware cpu list
+processor       : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 45
+model name      : Intel(R) Xeon(R) CPU E5-2407 0 @ 2.20GHz
+stepping        : 7
+microcode       : 0x70d
+cpu MHz         : 2200.000
+cache size      : 10240 KB
+physical id     : 0
+siblings        : 1
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt aes hypervisor lahf_lm xsaveopt dtherm arat pln pts
+bugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+bogomips        : 4400.00
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 40 bits physical, 48 bits virtual
+power management:
+
+
+FortiWeb $ get router statuc
+Parsing error at 'statuc'. err=1
+Command fail. CLI parsing error.
+
+FortiWeb $ get router static
+== [ 1 ]
+        dst: 0.0.0.0/0
+        gateway: 192.168.4.129
+
+
+FortiWeb $ diagnose network ip list
+lo: 127.0.0.1/24
+port1: 192.168.4.150/25
+port1: 192.168.4.160/32
+port1: 192.168.4.151/25
+lo: ::1/128
+port1: fe80::20c:29ff:feaa:cfe0/64
+port5: fe80::20c:29ff:feaa:cf08/64
+port9: fe80::20c:29ff:feaa:cf30/64
+port2: fe80::20c:29ff:feaa:cfea/64
+port6: fe80::20c:29ff:feaa:cf12/64
+port10: fe80::20c:29ff:feaa:cf3a/64
+port3: fe80::20c:29ff:feaa:cff4/64
+port7: fe80::20c:29ff:feaa:cf1c/64
+port4: fe80::20c:29ff:feaa:cffe/64
+port8: fe80::20c:29ff:feaa:cf26/64
+port_tn: fe80::872:f3ff:fe00:ae2f/64</code></pre>
+</doc-codeblock></div>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/perl/regex/regexbasics/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Regular Expressions</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/perl/regex/substrings/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">Sub-String Marching for suggested regex</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "Sample Data for Regex", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    </body>
+</html>

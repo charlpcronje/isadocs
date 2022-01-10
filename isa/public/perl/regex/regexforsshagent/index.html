@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-cache-control" content="no-cache">
+
+    <!-- Primary Meta Tags -->
+    <title>5.7 Capturing and Clustering</title>
+    <meta name="title" content="5.7 Capturing and Clustering">
+    <meta name="description" content="``Patterns allow you to group portions of your pattern together into sub-patterns and to remember the strings matched by those sub-patterns." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://isa.docs.dev.isa.co.za/perl/regex/regexforsshagent/">
+    <meta property="og:title" content="5.7 Capturing and Clustering">
+    <meta property="og:description" content="``Patterns allow you to group portions of your pattern together into sub-patterns and to remember the strings matched by those sub-patterns.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://isa.docs.dev.isa.co.za/perl/regex/regexforsshagent/">
+    <meta property="twitter:title" content="5.7 Capturing and Clustering">
+    <meta property="twitter:description" content="``Patterns allow you to group portions of your pattern together into sub-patterns and to remember the strings matched by those sub-patterns.">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="/resources/css/retype.css?v=1.11.2.695115866758" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/resources/js/config.js?v=1.11.2.695115866758" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/retype.js?v=1.11.2" defer data-turbo-track="reload"></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=1.11.2.695115866758" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=1.11.2.695115866758" defer></script>
+    <link href="/resources/css/katex.css?v=1.11.2" rel="stylesheet" />
+    <script id="katex-js" type="text/javascript" src="/resources/js/katex.js?v=1.11.2" defer></script>
+</head>
+    <body>
+        <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+
+    <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+    <div class="container relative flex items-center justify-between flex-grow pr-6 md:justify-start">
+        <!-- Mobile menu button skeleton -->
+        <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center flex-shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+        <div v-cloak id="docs-sidebar-toggle"></div>
+
+        <!-- Logo -->
+        <div class="flex items-center justify-between h-full py-2 md:w-75">
+            <div class="flex items-center px-2 md:px-6">
+                <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">ISA Dev Docs</span>
+                </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+            </div>
+
+            <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+        </div>
+
+        <div class="flex justify-between md:flex-grow">
+            <!-- Top Nav -->
+            <nav class="hidden md:flex">
+    <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+        <li class="md:mr-6">
+            <a class="block py-2 text-sm text-gray-400 whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 md:mb-0" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+        </li>
+    </ul>
+</nav>
+
+            <!-- Header Right Skeleton -->
+            <div v-cloak class="flex justify-end flex-grow skeleton">
+
+                <!-- Search input mock -->
+                <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                    <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                    </div>
+
+                    <input class="w-full h-10 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 placeholder-gray-400 dark:placeholder-dark-400"
+                    style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search" />
+                </div>
+
+                <!-- Mobile search button mock -->
+                <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                </div>
+
+                <!-- Dark mode switch placehokder -->
+                <div class="w-10 h-10 lg:ml-2"></div>
+
+                <!-- History button mock -->
+                <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation"  style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                </div>
+            </div>
+
+            <div v-cloak class="flex items-center justify-end flex-grow">
+                <div id="docs-mobile-search-button"></div>
+                <doc-search-desktop></doc-search-desktop>
+
+                <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                <doc-history></doc-history>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="container relative flex bg-white">
+        <!-- Sidebar Skeleton -->
+<div v-cloak class="fixed flex flex-col flex-shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+
+    <!-- Render this div, if config.showSidebarFilter is `true` -->
+    <div class="flex items-center h-16 px-6">
+        <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter" />
+    </div>
+
+    <div class="pl-6 mb-4 mt-1">
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+        <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+    </div>
+
+
+    <div class="flex-shrink-0 mt-auto bg-transparent dark:border-dark-650">
+        <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+    </div>
+</div>
+
+<!-- Sidebar component -->
+<doc-sidebar v-cloak>
+    <template #sidebar-footer>
+        <div
+            class="flex-shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650"
+        >
+
+            <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                <nav>
+                    <ul class="flex flex-wrap justify-center items-center">
+                        <li class="mr-6">
+                            <a class="block py-1 text-sm whitespace-nowrap transition-colors duration-200 ease-linear text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="http://isa.docs.dev.isa.co.za/">General Docs</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <a
+    class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by"
+    target="_blank"
+    href="https://retype.com/"
+    rel="noopener"
+>
+    <span class="text-xs whitespace-nowrap">Powered by</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+</a>
+
+        </div>
+    </template>
+</doc-sidebar>
+
+
+        <div class="flex-grow min-w-0 dark:bg-dark-850">
+            <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+            <div class="flex">
+    <div class="flex-grow min-w-0 px-6 md:px-16">
+        <main class="relative pt-6 pb-16">
+            <div class="docs-markdown" id="docs-content">
+                <!-- Rendered if sidebar right is enabled -->
+                <div id="docs-sidebar-right-toggle"></div>
+               
+                <!-- Page content  -->
+<doc-anchor-target id="57-capturing-and-clustering" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#57-capturing-and-clustering">#</doc-anchor-trigger>
+        <span>5.7 Capturing and Clustering</span>
+    </h1>
+</doc-anchor-target>
+<p>&#x60;&#x60;Patterns allow you to group portions of your pattern together into sub-patterns and to remember the strings matched by those sub-patterns. We call the first behavior <em>clustering</em> and the second one <em>capturing</em>.</p>
+<doc-anchor-target id="51-capturing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#51-capturing">#</doc-anchor-trigger>
+        <span>5.1 Capturing</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="571-capturing-and-clustering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#571-capturing-and-clustering">#</doc-anchor-trigger>
+        <span>5.7.1 Capturing and Clustering</span>
+    </h3>
+</doc-anchor-target>
+<p>Patterns allow you to group portions of your pattern together into sub-patterns and to remember the strings matched by those sub-patterns. We call the first behavior <em>clustering</em> and the second one <em>capturing</em>.</p>
+<doc-anchor-target id="57-capturing">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#57-capturing">#</doc-anchor-trigger>
+        <span>5.7 Capturing</span>
+    </h3>
+</doc-anchor-target>
+<p>To capture a substring for later use, put parentheses around the sub-pattern that matches it. The first pair of parentheses stores its substring in, the second pair in, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings.</p>
+<doc-anchor-target id="some-examples">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#some-examples">#</doc-anchor-trigger>
+        <span>Some examples</span>
+    </h3>
+</doc-anchor-target>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">/(\d)(\d)/  # Match two digits, capturing them into $1 and $2
+&gt; /(\d+)/     # Match one or more digits, capturing them all into $1
+&gt; /(\d)+/     # Match a digit one or more times, capturing the last into $1
+
+Note the difference between the second and third patterns. The second form is usually what you want. The third form does _not_ create multiple variables for multiple digits. Parentheses are numbered when the pattern is compiled, not when it is matched.
+
+&lt;a name=&quot;INDEX-1646&quot;&gt;. Captured strings are often called _backreferences_ because they refer back to parts of the captured text. There are actually two ways to get at these backreferences. The numbered variables you've seen are how you get at backreferences outside of a pattern, but inside the pattern, that doesn't work. You have to use \1, \2, etc.[[9]](#FOOTNOTE-9) So to find doubled words like &quot;the the&quot; or &quot;had had&quot;, you might use this pattern:
+
+/\b(\w+) \1\b/i
+
+But most often, you'll be using the $1 form, because you'll usually apply a pattern and then do something with the substrings. Suppose you have some text (a mail header) that looks like this:
+
+From: gnat@perl.com
+&gt; To: camelot@oreilly.com
+&gt; Date: Mon, 17 Jul 2000 09:00:00 -1000
+&gt; Subject: Eye of the needle
+
+and you want to construct a hash that maps the text before each colon to the text afterward. If you were looping through this text line by line (say, because you were reading it from a file) you could do that as follows:
+
+while (&lt;&gt;) {
+&gt;     /^(.*?): (.*)$/;    # Pre-colon text into $1, post-colon into $2
+&gt;     $fields{$1} = $2;
+&gt; }
+
+Like &lt;tt class=&quot;literal&quot;, &gt;&lt;, and /tt&gt;, these numbered variables are dynamically scoped through the end of the enclosing block or eval string, or to the next successful pattern match, whichever comes first. You can use them in the righthand side (the replacement part) of a substitute, too:
+
+s/^(\S+) (\S+)/$2 $1/;  # Swap first two words
+
+&lt;a name=&quot;INDEX-1647&quot;&gt;. Groupings can nest, and when they do, the groupings are counted by the location of the left parenthesis. So given the string &quot;Primula Brandybuck&quot;, the pattern:
+
+&gt; &lt;a name=&quot;FOOTNOTE-9&quot;&gt;. 
+&gt; 
+&gt; [9] You can't use $1 for a backreference within the pattern because that would already have been interpolated as an ordinary variable back when the regex was compiled. So we use the traditional \1 backreference notation inside patterns. For two- and three-digit backreference numbers, there is some ambiguity with octal character notation, but that is neatly solved by considering how many captured patterns are available. For instance, if Perl sees a \11 metasymbol, it's equivalent to $11 only if there are at least 11 substrings captured earlier in the pattern. Otherwise, it's equivalent to \011, that is, a tab character.
+
+/^((\w+) (\w+))$/
+
+would capture &quot;Primula Brandybuck&quot; into $1, &quot;Primula&quot; into $2, and &quot;Brandybuck&quot; into $3. This is depicted in [Figure 5-1](ch05_07.htm#perl3-backrefs).
+
+&lt;a name=&quot;perl3-backrefs&quot;&gt;. 
+
+#### Figure 5.1\. Creating backreferences with parentheses
+
+Patterns with captures are often used in list context to populate a list of values, since the pattern is smart enough to return the captured substrings as a list:
+
+```python
+($first, $last)          =  /^(\w+) (\w+)$/;
+&gt; ($full, $first, $last) =  /^((\w+) (\w+))$/;</code></pre>
+</doc-codeblock></div>
+<p>With the  modifier, a pattern can return multiple substrings from multiple matches, all in one list. Suppose you had the mail header we saw earlier all in one string (in , say). You could do the same thing as our line-by-line loop, but with one statement:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">%fields = /^(.*?): (.*)$/gm;</code></pre>
+</doc-codeblock></div>
+<p>The pattern matches four times, and each time it matches, it finds two substrings. The <code v-pre>/gm</code> match returns all of these as a flat list of eight strings, which the list assignment to <code v-pre>%fields</code> will conveniently interpret as four key/value pairs, thus restoring harmony to the universe.</p>
+<blockquote>
+<p>Several other special variables deal with text captured in pattern matches. &gt;&lt; contains the entire matched string,everything to the left of the match, &lt;everything to the right. &lt;tt $+ contains the contents of the last backreference.</p>
+</blockquote>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">$_ = &quot;Speak, &lt;EM&gt;friend&lt;/EM&gt;, and enter.&quot;;
+&gt; m[ (&lt;.*?&gt;) (.*?) (&lt;/.*?&gt;) ]x;     # A tag, then chars, then an end tag
+&gt; print &quot;prematch:  &quot;;          # Speak,
+&gt; print &quot;match:     &quot;;          # &lt;EM&gt;friend&lt;/EM&gt;
+&gt; print &quot;postmatch: &quot;;          # , and enter.
+&gt; print &quot;lastmatch: &quot;;          # &lt;/EM&gt;</code></pre>
+</doc-codeblock></div>
+<p>For more explanation of these magical Elvish variables (and for a way to write them in English), see <a href="ch28_01.htm">Chapter 28, &quot;Special Names&quot;</a>.</p>
+<p>The <code v-pre>@-</code> <code v-pre>@LAST_MATCH_START</code> <code v-pre>array</code> holds the offsets of the beginnings of any <code v-pre>submatches</code>, and <code v-pre>@+</code> (<code v-pre>LAST_MATCH_END</code>) holds the offsets of the ends:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">#!/usr/bin/perl
+&gt; $alphabet = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+&gt; $alphabet =~ /(hi).*(stu)/;
+&gt; 
+&gt; print &quot;The entire match began at $-[0] and ended at $+[0]\n&quot;;
+&gt; print &quot;The first  match began at $-[1] and ended at $+[1]\n&quot;;
+&gt; print &quot;The second match began at $-[2] and ended at $+[2]\n&quot;;</code></pre>
+</doc-codeblock></div>
+<p>If you really want to match a literal parenthesis character instead of having it interpreted as a metacharacter, backslash it:</p>
+<p>This matches a parenthesized example (e.g., this statement). But since dot is a wildcard, this also matches any parenthetical statement with the first letter e g (ergo, this statement too).</p>
+<doc-anchor-target id="5723-clustering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5723-clustering">#</doc-anchor-trigger>
+        <span>5.7.2.3 Clustering</span>
+    </h3>
+</doc-anchor-target>
+<p>Bare parentheses both cluster and capture. But sometimes you don&#x27;t want that. Sometimes you just want to group portions of the pattern without creating a backreference. You can use an extended form of parentheses to suppress capturing: the (?:<em>PATTERN</em>) notation will <em>cluster</em> without capturing.</p>
+<p>There are at least three reasons you might want to cluster without capturing:</p>
+<ol>
+<li><p>To quantify something.</p>
+</li>
+<li><p>To limit the scope of interior alternation; for example,/^cat|cow|dog <span class="math">/ to be (?:cat|cow|dog)</span>/ so that the cat doesn&#x27;t run away with the</p>
+</li>
+<li><p>To limit the scope of an embedded pattern modifier to a particular subpattern, such as in /foo(?-i:Case_Matters)bar/i. (See the next section,</p>
+</li>
+<li><p><a href="ch05_07.htm#ch05-sect-cloist">Section 5.7.3, &quot;Cloistered Pattern Modifiers&quot;</a>)
+In addition, it&#x27;s more efficient to suppress the capture of something you&#x27;re not going to use. On the minus side, the notation is a little noisier, visually speaking.</p>
+</li>
+</ol>
+<p>In a pattern, a left parenthesis immediately followed by a question mark denotes a regex <em>extension</em>. The current regular expression bestiary is relatively fixed--we don&#x27;t dare create a new metacharacter, for fear of breaking old Perl programs. Instead, the extension syntax is used to add new features to the bestiary.</p>
+<p>In the remainder of the chapter, we&#x27;ll see many more regex extensions, all of which cluster without capturing, as well as doing something else. The (?:<em>PATTERN</em>) extension is just special in that it does nothing else. So if you say:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">@fields = split(/\b(?:a|b|c)\b/)</code></pre>
+</doc-codeblock></div>
+<p>it&#x27;s like:</p>
+<p>@fields = split(/\b(a|b|c)\b/)</p>
+<p>. . but doesn&#x27;t spit out extra fields. (The split operator is a bit like m//g in that it will emit extra fields for all the captured substrings within the pattern. Ordinarily, split only returns what it <code v-pre>_didn't_</code> match. For more on split see <a href="ch29_01.htm">Chapter 29, &quot;Functions&quot;</a>.).</p>
+<doc-anchor-target id="573-cloistered-pattern-modifiers">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#573-cloistered-pattern-modifiers">#</doc-anchor-trigger>
+        <span>5.7.3 Cloistered Pattern Modifiers</span>
+    </h3>
+</doc-anchor-target>
+<p>You may <code v-pre>_cloister_</code> the <code v-pre>/i</code>, <code v-pre>/m</code>, <code v-pre>/s</code>, and <code v-pre>/x</code> modifiers within a portion of your pattern by inserting them (without the slash) between the <code v-pre>?</code> and &#x60;: of the clustering notation. If you say:</p>
+<p>/Harry (?i:s) Truman/</p>
+<p>it matches both &quot;Harry S Truman&quot; and &quot;Harry s Truman&quot;, whereas:</p>
+<p>/Harry (?x: [A-Z] .? \s )?Truman/</p>
+<p>matches both &quot;Harry S Truman&quot; and &quot;Harry S. Truman&quot;, as well as &quot;Harry Truman&quot;, and:</p>
+<p>/Harry (?ix: [A-Z] .? \s )?Truman/</p>
+<p>matches all five, by combining the /i and /x modifiers within the cloister.</p>
+<p>You can also subtract modifiers from a cloister with a minus sign:</p>
+<p>/Harry (?x-i: [A-Z] .? \s )?Truman/i</p>
+<p>This matches any capitalization of the name--but if the middle initial is provided, it must be capitalized, since the /i applied to the overall pattern is suspended inside the cloister.</p>
+<p>By omitting the colon and <em>PATTERN</em>, you can export modifier settings to an outer cluster, turning it into a cloister. That is, you can selectively turn modifiers on and off for the cluster one level outside the modifiers&#x27; parentheses, like so:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">/(?i)foo/            # Equivalent to /foo/i
+&gt; /foo((?-i)bar)/i     # &quot;bar&quot; must be lower case
+&gt; /foo((?x-i) bar)/    # Enables /x and disables /i for &quot;bar&quot;</code></pre>
+</doc-codeblock></div>
+<p>Note that the second and third examples create backreferences. If that wasn&#x27;t what you wanted, then you should have been using (?-i:bar) and (?x-i: bar), respectively.</p>
+<p>Setting modifiers on a portion of your pattern is particularly useful when you want &quot;.&quot; to match newlines in part of your pattern but not in the rest of it. Setting /s on the whole pattern doesn&#x27;t help you there.</p>
+<p>To capture a substring for later use, put parentheses around the subpattern that matches it. The first pair of parentheses stores its substring in $, the second pair in $, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings.</p>
+<p>Some examples:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; /(\d)(\d)/  # Match two digits, capturing them into $1 and $2
+&gt; /(\d+)/     # Match one or more digits, capturing them all into $1
+&gt; /(\d)+/     # Match a digit one or more times, capturing the last into $1</code></pre>
+</doc-codeblock></div>
+<p>Note the difference between the second and third patterns. The second form is usually what you want. The third form does <em>not</em> create multiple variables for multiple digits. Parentheses are numbered when the pattern is compiled, not when it is matched.</p>
+<p>Captured strings are often called <em>backreferences</em> because they refer back to parts of the captured text. There are actually two ways to get at these backreferences. The numbered variables you&#x27;ve seen are how you get at backreferences outside of a pattern, but inside the pattern, that doesn&#x27;t work. You have to use, etc.<doc-anchor-trigger to="#FOOTNOTE-9">[9]</doc-anchor-trigger> So to find doubled words like &quot;the the&quot; or &quot;had had&quot;, you might use this pattern:</p>
+<p>But most often, you&#x27;ll be using the $ form, because you&#x27;ll usually apply a pattern and then do something with the substrings. Suppose you have some text (a mail header) that looks like this:</p>
+<p>and you want to construct a hash that maps the text before each colon to the text afterward. If you were looping through this text line by line (say, because you were reading it from a file) you could do that as follows:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; while (&lt;&gt;) {
+&gt;     /^(.*?): (.*)$/;    # Pre-colon text into $1, post-colon into $2
+&gt;     $fields{$1} = $2;
+&gt; }</code></pre>
+</doc-codeblock></div>
+<p>Like , and , these numbered variables are dynamically scoped through the end of the enclosing block or <code v-pre>eval</code> string, or to the next successful pattern match, whichever comes first. You can use them in the righthand side (the replacement part) of a substitute, too:</p>
+<blockquote>
+<p><code v-pre>s/^(\S+) (\S+)/$2 $1/;</code>  # Swap first two words</p>
+</blockquote>
+<p>Groupings can nest, and when they do, the groupings are counted by the location of the left parenthesis. So given the string &quot;Primula Brandybuck&quot;, the pattern:</p>
+<p>You can&#x27;t use $ for a backreference within the pattern because that would already have been interpolated as an ordinary variable back when the regex was compiled. So we use the traditional \ backreference notation inside patterns. For two- and three-digit backreference numbers, there is some ambiguity with octal character notation, but that is neatly solved by considering how many captured patterns are available. For instance, if Perl sees a \1 metasymbol, it&#x27;s equivalent to $1 only if there are at least 11 substrings captured earlier in the pattern. Otherwise, it&#x27;s equivalent to \01, that is, a tab character.</p>
+<p><code v-pre>/^((\w+) (\w+))$/</code></p>
+<p>would capture &quot;Primula Brandybuck&quot; into $, &quot;Primula&quot; into $, and &quot;Brandybuck&quot; into $3. This is depicted in <a href="ch05_07.htm#perl3-backrefs">Figure 5-1</a>.</p>
+<doc-anchor-target id="figure-51-creating-backreferences-with-parentheses">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#figure-51-creating-backreferences-with-parentheses">#</doc-anchor-trigger>
+        <span>Figure 5.1 Creating backreferences with parentheses</span>
+    </h4>
+</doc-anchor-target>
+<p>Patterns with captures are often used in list context to populate a list of values, since the pattern is smart enough to return the captured substrings as a list:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; ($first, $last)        =  /^(\w+) (\w+)$/;
+&gt; ($full, $first, $last) =  /^((\w+) (\w+))$/;</code></pre>
+</doc-codeblock></div>
+<p>With the /g modifier, a pattern can return multiple substrings from multiple matches, all in one list. Suppose you had the mail header we saw earlier all in one string (in $_, say). You could do the same thing as our line-by-line loop, but with one statement:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; %fields = /^(.*?): (.*)$/gm;</code></pre>
+</doc-codeblock></div>
+<p>The pattern matches four times, and each time it matches, it finds two substrings. The /gm match returns all of these as a flat list of eight strings, which the list assignment to %fields will conveniently interpret as four key/value pairs, thus restoring harmony to the universe.</p>
+<p>Several other special variables deal with text captured in pattern matches. contains the entire matched string, everything to the left of the match, /tt&gt; everything to the right. $+ contains the contents of the last backreference.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; $_ = &quot;Speak, &lt;EM&gt;friend&lt;/EM&gt;, and enter.&quot;;
+&gt; m[ (&lt;.*?&gt;) (.*?) (&lt;/.*?&gt;) ]x;     # A tag, then chars, then an end tag
+&gt; print &quot;prematch:              #`Speak,&quot;
+&gt; print &quot;match:                 #fri&quot;
+&gt; print &quot;postmatch:             &quot;\n&quot;;       
+&gt; print &quot;lastmatch:             &quot;\n&quot;;       </code></pre>
+</doc-codeblock></div>
+<p>For more explanation of these magical Elvish variables (and for a way to write them in English), see <a href="ch28_01.htm">Chapter 28, &quot;Special Names&quot;</a>.</p>
+<p>The <code v-pre>@-</code> (<code v-pre>@LAST_MATCH_START</code>) array holds the offsets of the beginnings of any submatches, and <code v-pre>@+</code> (<code v-pre>@LAST_MATCH_END</code>) holds the offsets of the ends:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; #!/usr/bin/perl
+&gt; $alphabet = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+&gt; $alphabet =~ /(hi).*(stu)/;
+&gt; 
+&gt; print &quot;The entire match began at $-[0] and ended at $+[0]\n&quot;;
+&gt; print &quot;The first  match began at $-[1] and ended at $+[1]\n&quot;;
+&gt; print &quot;The second match began at $-[2] and ended at $+[2]\n&quot;;</code></pre>
+</doc-codeblock></div>
+<p>If you really want to match a literal parenthesis character instead of having it interpreted as a metacharacter, backslash it:</p>
+<p>This matches a parenthesized example (e.g., this statement). But since dot is a wildcard, this also matches any parenthetical statement with the first letter e and third letter g (ergo, this statement too).</p>
+<doc-anchor-target id="572-clustering">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#572-clustering">#</doc-anchor-trigger>
+        <span>5.7.2 Clustering</span>
+    </h3>
+</doc-anchor-target>
+<blockquote>
+<p>Bare parentheses both cluster and capture. But sometimes you don&#x27;t want that. Sometimes you just want to group portions of the pattern without creating a backreference. You can use an extended form of parentheses to suppress capturing: the (?:<em>PATTERN</em>) notation will <em>cluster</em> without capturing.</p>
+</blockquote>
+<p>There are at least three reasons you might want to cluster without capturing:</p>
+<ol>
+<li>To quantify something.</li>
+<li>To limit the scope of interior alternation; for example, <code v-pre>/^cat|cow|dog$</code>/ needs to be  <code v-pre>/^(?:cat|cow|dog)$/</code> so that the cat doesn&#x27;t run away with the</li>
+<li>To limit the scope of an embedded pattern modifier to a particular subpattern, such as in /foo(?-i:Case_Matters)bar/i. (See the next section, <a href="ch05_07.htm#ch05-sect-cloist">Section 5.7.3, &quot;Cloistered Pattern Modifiers&quot;</a>)</li>
+</ol>
+<p>In addition, it&#x27;s more efficient to suppress the capture of something you&#x27;re not going to use. On the minus side, the notation is a little noisier, visually speaking.</p>
+<p>In a pattern, a left parenthesis immediately followed by a question mark denotes a regex <em>extension</em>. The current regular expression bestiary is relatively fixed--we don&#x27;t dare create a new metacharacter, for fear of breaking old Perl programs. Instead, the extension syntax is used to add new features to the bestiary.</p>
+<p>In the remainder of the chapter, we&#x27;ll see many more regex extensions, all of which cluster without capturing, as well as doing something else. The (?:<em>PATTERN</em>) extension is just special in that it does nothing else. So if you say:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; @fields = split(/\b(?:a|b|c)\b/)</code></pre>
+</doc-codeblock></div>
+<p>it&#x27;s like:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; @fields = split(/\b(a|b|c)\b/)</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="573-cloistered-pattern-modifiers-1">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#573-cloistered-pattern-modifiers-1">#</doc-anchor-trigger>
+        <span>5.7.3. Cloistered Pattern Modifiers</span>
+    </h3>
+</doc-anchor-target>
+<p>You may <em>cloister</em> the <code v-pre>/i</code>, <code v-pre>/m</code>, <code v-pre>/s</code>, and <code v-pre>/x</code> modifiers within a portion of your pattern by inserting them (without the slash) between the ? and : of the clustering notation. If you say:</p>
+<blockquote>
+<p><code v-pre>/Harry (?i:s) Truman/</code></p>
+</blockquote>
+<p>it matches both &quot;Harry S Truman&quot; and &quot;Harry s Truman&quot;, whereas:</p>
+<blockquote>
+<p><code v-pre>/Harry (?x: [A-Z] \.? \s )?Truman/</code></p>
+</blockquote>
+<p>matches both &quot;Harry S Truman&quot; and &quot;Harry S. Truman&quot;, as well as &quot;Harry Truman&quot;, and:</p>
+<blockquote>
+<p><code v-pre>/Harry (?ix: [A-Z] \.? \s )?Truman/</code></p>
+</blockquote>
+<p>matches all five, by combining the /i and /x modifiers within the cloister.
+You can also subtract modifiers from a cloister with a minus sign:</p>
+<blockquote>
+<p><code v-pre>/Harry (?x-i: [A-Z] \.? \s )?Truman/i</code></p>
+</blockquote>
+<p>This matches any capitalization of the name--but if the middle initial is provided, it must be capitalized, since the <code v-pre>/i</code> applied to the overall pattern is suspended inside the cloister.</p>
+<p>By omitting the colon <code v-pre>and _PATTERN_</code>, you can export modifier settings to an outer cluster, turning it into a cloister. That <code v-pre>is</code>, you can selectively turn modifiers on and off for the cluster one level outside the modifiers&#x27; parentheses, like so:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-python"><code v-pre class="language-python">&gt; /(?i)foo/            # Equivalent to /foo/i
+&gt; /foo((?-i)bar)/i     # &quot;bar&quot; must be lower case
+&gt; /foo((?x-i) bar)/    # Enables /x and disables /i for &quot;bar&quot;</code></pre>
+</doc-codeblock></div>
+<p>Note that the second and third examples create backreferences. If that wasn&#x27;t what you wanted, then you should have been using (?-i:bar) and (?x-i: bar), respectively.</p>
+<p>Setting modifiers on a portion of your pattern is particularly useful when you want &quot;.&quot; to match newlines in part of your pattern but not in the rest of it. Setting /s on the whole pattern doesn&#x27;t help you there</p>
+
+
+
+
+                <!-- Required only on API pages -->
+                <doc-toolbar-member-filter-no-results />
+            </div>
+
+            
+<nav class="flex mt-14">
+    <div class="w-1/2">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/perl/regex/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Perl Text Patterns for Search and Replace</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="w-1/2">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/perl/regex/regexbasics/">
+            <span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block mt-1">Regular Expressions</span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+        </a>
+    </div>
+</nav>
+
+
+        </main>
+
+        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+            <footer class="flex flex-wrap items-center justify-between">
+    <div>
+        <ul class="flex flex-wrap items-center text-sm">
+</ul>
+
+    </div>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>ISA Holdings © Copyright 2022. All rights reserved.</p>
+</div>
+</footer>
+
+        </div>
+    </div>
+    
+    <!-- Rendered if sidebar right is enabled -->
+    <!-- Sidebar right skeleton-->
+    <div v-cloak class="fixed top-0 bottom-0 right-0 transform translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:flex-shrink-0 lg:pt-6 lg:transform-none lg:w-56 lg:z-0 md:w-72 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+        <div class="pl-5">
+            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+        </div>
+    </div>
+    
+    <!-- User should be able to hide sidebar right -->
+    <doc-sidebar-right v-cloak></doc-sidebar-right>
+</div>
+
+        </div>
+    </div>
+
+    <doc-search-mobile></doc-search-mobile>
+    <doc-back-to-top></doc-back-to-top>
+</div>
+
+
+        <div id="docs-overlay-target"></div>
+
+        <script>window.__DOCS__ = { "title": "5.7 Capturing and Clustering", icon: "file", hasPrism: true, hasMermaid: false, hasMath: true }</script>
+    </body>
+</html>
